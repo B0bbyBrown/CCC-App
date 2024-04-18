@@ -1,0 +1,19 @@
+.headerBody {
+  margin: 4rem 15rem 5rem 15rem;
+  border-radius: 10rem;
+  border: none;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem 0 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.siteName {
+  font-family: "K2D", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  color: #ffffff;
+  cursor: pointer;
+}

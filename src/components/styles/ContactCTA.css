@@ -1,0 +1,16 @@
+.contact {
+  font-family: Jost, sans-serif;
+  color: white;
+  font-size: 1.25rem;
+  border-radius: 2rem;
+  border: none;
+  background-color: #120720;
+  height: 3.25rem;
+  width: 10rem;
+  text-align: center;
+}
+
+.contact:hover {
+  background-color: #d61bd6;
+  transition: 1.5ms ease-in-out 0s;
+}
