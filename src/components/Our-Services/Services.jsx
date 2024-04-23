@@ -1,4 +1,4 @@
-import "/src/components/styles/Services.css";
+import "/src/components/Our-Services/Services.css";
 
 function Services() {
   return <div>Services</div>;

@@ -1,8 +1,10 @@
-import "/src/components/styles/Nav.css";
+import "/src/components/Nav/Nav.css";
+import { NavItem } from "./NavItem";
 
 function Nav() {
   return (
     <ol className="nav">
+      <NavItem linkText="Home" link="#home" />
       <li className="nav-item">
         <a href="#home">Home</a>
       </li>

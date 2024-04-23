@@ -1,4 +1,4 @@
-import "/src/components/styles/About.css";
+import "/src/components/About/About.css";
 
 function About() {
   return (

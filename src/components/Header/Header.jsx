@@ -1,7 +1,7 @@
-import "/src/components/styles/Header.css";
-import { Nav } from "/src/components/Nav";
-import { LightDark } from "/src/components/LightDark";
-import { ContactCTA } from "/src/components/ContactCTA";
+import "/src/components/Header/Header.css";
+import { Nav } from "/src/components/Nav/Nav";
+import { LightDark } from "/src/components/Light-Dark/LightDark";
+import { ContactCTA } from "/src/components/Contact/ContactCTA";
 
 function Header() {
   return (

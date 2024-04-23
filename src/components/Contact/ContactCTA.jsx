@@ -1,4 +1,4 @@
-import "/src/components/styles/ContactCTA.css";
+import "/src/components/Contact/ContactCTA.css";
 
 function ContactCTA() {
   return (
