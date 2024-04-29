@@ -1,12 +1,12 @@
-.heroMain {
+.heroMainText {
   color: #ffffff;
-  font-size: 6.5rem;
+  font-size: 8rem;
   display: table-caption;
-  margin: 0 0 2.5rem 10rem;
+  margin: 5rem 0 2rem 7.5rem;
   text-shadow: 5px 5px 7px black;
 }
 
-.heroSlogan {
+.heroSloganText {
   font-size: 1rem;
   color: white;
   font-weight: 300;

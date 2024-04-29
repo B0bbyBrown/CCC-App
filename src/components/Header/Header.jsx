@@ -5,7 +5,7 @@ import { ContactCTA } from "/src/components/Contact/ContactCTA";
 
 function Header() {
   return (
-    <>
+    <div className="headerMain">
       <div className="headerBody">
         <div className="name">
           <h1 className="siteName" href="#">
@@ -25,7 +25,7 @@ function Header() {
           <ContactCTA />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

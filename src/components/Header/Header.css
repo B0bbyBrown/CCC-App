@@ -1,19 +1,40 @@
 .headerBody {
-  margin: 4rem 15rem 5rem 15rem;
-  border-radius: 10rem;
-  border: none;
-  height: 5rem;
   display: flex;
+  flex-flow: row, nowrap;
   justify-content: space-between;
   align-items: center;
+  width: 65%;
+  height: 7rem;
+  border-radius: 65px;
   padding: 0 2rem 0 2rem;
+  margin: 5rem auto;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.headerMain {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
 .siteName {
-  font-family: "K2D", sans-serif;
-  font-size: 1.5rem;
-  line-height: 1.1;
-  color: #ffffff;
+  font-size: 2rem;
   cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  flex-shrink: 9;
+  flex-grow: 1;
+}
+
+.darkLight {
+  margin-right: 1rem;
+  flex-shrink: 8;
+}
+
+@media only screen and (max-width: 990px) {
+  .headerMain {
+    display: none;
+  }
 }

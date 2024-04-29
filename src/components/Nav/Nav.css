@@ -1,18 +1,16 @@
 .nav {
+  display: flex;
+  justify-content: center;
   text-align: center;
   list-style: none;
+  gap: 3rem;
+  flex-shrink: 8;
+}
+
+a {
   display: flex;
-  gap: 1rem;
-  padding-left: 0;
-}
-
-.nav-item {
-  padding: 0.5rem 0;
-}
-
-.nav-item a {
-  float: left;
-  display: block;
+  align-items: center;
+  justify-content: center;
   color: #f2f2f2;
   text-align: center;
   letter-spacing: 1px;

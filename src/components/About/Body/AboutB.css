@@ -1,0 +1,28 @@
+.aboutBodyCard {
+  display: inline-flexbox;
+  flex-flow: row;
+  width: 50vw;
+  margin: 0 0 2% 0;
+  padding: 1% 4% 1% 4%;
+  border-radius: 15px;
+  background-color: rgba(240, 248, 255, 0.1);
+}
+
+.aboutBodyText {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.body {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  padding: 0 0 2% 0;
+}

@@ -3,14 +3,19 @@ import "/src/components/Hero/Hero.css";
 function Hero() {
   return (
     <>
-      <h1 className="heroMain">Curious Cat Creative</h1>
-      <p className="heroSlogan">
-        Lorem, ipsum dolor sit amet consectetur <br></br>adipisicing elit.
-        Recusandae corrupti <br></br>reprehenderit suscipit totam ipsum dolor
-        <br></br>
-        sit amet consectetur adipisicing elit. Recusandae
-        <br></br>corrupti reprehenderit suscipit.
-      </p>
+      <div className="heroMain">
+        <h1 className="heroMainText">Curious Cat Creative</h1>
+      </div>
+
+      <div className="heroSlogan">
+        <p className="heroSloganText">
+          Lorem, ipsum dolor sit amet consectetur <br></br>adipisicing elit.
+          Recusandae corrupti <br></br>reprehenderit suscipit totam ipsum dolor
+          <br></br>
+          sit amet consectetur adipisicing elit. Recusandae
+          <br></br>corrupti reprehenderit suscipit.
+        </p>
+      </div>
     </>
   );
 }
