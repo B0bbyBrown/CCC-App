@@ -1,16 +1,14 @@
 .aboutBodyCard {
-  display: inline-flexbox;
+  display: flex;
   flex-flow: row;
   width: 50vw;
-  margin: 0 0 2% 0;
-  padding: 1% 4% 1% 4%;
+  margin: auto;
+  padding: 3% 5% 3% 5%;
   border-radius: 15px;
   background-color: rgba(240, 248, 255, 0.1);
 }
 
 .aboutBodyText {
-  display: flex;
-  flex-flow: column;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
@@ -19,10 +17,12 @@
 }
 
 .body {
-  display: flex;
-  flex-flow: column;
   justify-content: center;
   align-items: center;
   color: #ffffff;
-  padding: 0 0 2% 0;
+  margin-left: 5%;
+}
+
+.image {
+  margin: -5% 0 0 0;
 }

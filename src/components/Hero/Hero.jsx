@@ -11,9 +11,6 @@ function Hero() {
         <p className="heroSloganText">
           Lorem, ipsum dolor sit amet consectetur <br></br>adipisicing elit.
           Recusandae corrupti <br></br>reprehenderit suscipit totam ipsum dolor
-          <br></br>
-          sit amet consectetur adipisicing elit. Recusandae
-          <br></br>corrupti reprehenderit suscipit.
         </p>
       </div>
     </>

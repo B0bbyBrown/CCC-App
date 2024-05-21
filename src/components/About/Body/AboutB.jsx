@@ -11,6 +11,16 @@ function AboutB() {
           pulvinar arcu. Nisi non risus ornare platea gravida dolor.
         </p>
       </div>
+
+      <div className="image">
+        <img
+          src="src\components\About\Image\About-Us-PNG.png"
+          alt="about"
+          id="image"
+          height={400}
+          width={400}
+        />
+      </div>
     </div>
   );
 }
