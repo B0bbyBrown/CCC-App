@@ -1,4 +1,5 @@
 import "/src/components/Hero/Hero.css";
+// import { VisualElements } from "/src/components/Background-Design/visualElements";
 
 function Hero() {
   return (
@@ -13,6 +14,8 @@ function Hero() {
           Recusandae corrupti <br></br>reprehenderit suscipit totam ipsum dolor
         </p>
       </div>
+
+      <div className="design">{/* <VisualElements /> */}</div>
     </>
   );
 }

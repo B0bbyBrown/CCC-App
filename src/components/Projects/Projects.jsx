@@ -1,81 +1,58 @@
-import "/src/components/Projects/Projects.css";
-// import Rectangle15.jpg from "src/assets/images/Projects"
+import "../Projects/Projects.css";
+import image1 from "../../assets/images/Projects/Rectangle15.jpg";
+import image2 from "../../assets/images/Projects/Rectangle16.jpg";
+import image3 from "../../assets/images/Projects/Rectangle17.jpg";
 
-function Projects() {
+const projects = [
+  {
+    id: 1,
+    title: "Project 1",
+    date: "Date",
+    image: image1,
+  },
+  {
+    id: 2,
+    title: "Project 2",
+    date: "Date",
+    image: image2,
+  },
+  {
+    id: 3,
+    title: "Project 3",
+    date: "Date",
+    image: image3,
+  },
+  {
+    id: 4,
+    title: "Project 4",
+    date: "Date",
+    image: image1,
+  },
+  {
+    id: 5,
+    title: "Project 5",
+    date: "Date",
+    image: image2,
+  },
+];
+
+const Projects = () => {
   return (
-    <>
-      
-      <div className="project2">
-        <div className="img">
-          <image
-            src="src/components/Projects/image/Rectangle 16.jpg"
-            alt="project3"
-          />
-        </div>
-
-        <div className="content">
-          <h2>Project 2</h2>
-          <p>Project 2 description</p>
-        </div>
+    <div className="projectsContainer">
+      <h1>Our Projects</h1>
+      <div className="projects">
+        {projects.map((project) => (
+          <div key={project.id} className="project">
+            <img src={project.image} alt={`${project.title} image`} />
+            <div className="projectInfo">
+              <h2>{project.title}</h2>
+              <p>{project.date}</p>
+            </div>
+          </div>
+        ))}
       </div>
-
-      <div className="project3">
-        <div className="img">
-          <image
-            src="src/components/Projects/image/Rectangle 17.jpg"
-            alt="project4"
-          />
-        </div>
-
-        <div className="content">
-          <h2>Project 3</h2>
-          <p>Project 3 description</p>
-        </div>
-      </div>
-
-      <div className="project4">
-        <div className="img">
-          <image
-            src="src/components/Projects/image/Rectangle 15.jpg"
-            alt="project5"
-          />
-        </div>
-
-        <div className="content">
-          <h2>Project 4</h2>
-          <p>Project 4 description</p>
-        </div>
-      </div>
-
-      <div className="project5">
-        <div className="img">
-          <image
-            src="src/components/Projects/image/Rectangle 16.jpg"
-            alt="project6"
-          />
-        </div>
-
-        <div className="content">
-          <h2>Project 5</h2>
-          <p>Project 5 description</p>
-        </div>
-      </div>
-
-      <div className="project6">
-        <div className="img">
-          <image
-            src="src/components/Projects/image/Rectangle 17.jpg"
-            alt="project6"
-          />
-        </div>
-
-        <div className="content">
-          <h2>Project 6</h2>
-          <p>Project 6 description</p>
-        </div>
-      </div>
-    </>
+    </div>
   );
-}
+};
 
 export { Projects };

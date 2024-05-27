@@ -2,8 +2,8 @@ import {
   Header,
   Hero,
   About,
+  WhatWeDo,
   Projects,
-  Services,
   Contact,
   Footer,
 } from "/src/components/MainExport";
@@ -14,8 +14,8 @@ function App() {
       <Header />
       <Hero />
       <About />
+      <WhatWeDo />
       <Projects />
-      <Services />
       <Contact />
       <Footer />
     </>
