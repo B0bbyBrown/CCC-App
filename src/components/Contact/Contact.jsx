@@ -14,7 +14,7 @@ const Platforms = [
   {
     id: 3,
     name: "Email",
-    image: "src/assets/images/Icons/Platform=Email, Color=Original.png",
+    image: "src/asset/images/Icons/Platform=Google, Color=Negative.png",
     mailto: "mailto: support@curiouscatcreative.com",
   },
   {

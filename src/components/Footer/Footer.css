@@ -1,7 +1,43 @@
-.footer {
-  display: flex;
-  text-align: center;
+p {
+  display: inline-flex;
+  color: white; /* 'White' should be lowercase */
+  flex-direction: row;
+  font-size: 15px;
+}
+
+a {
   color: white;
-  text-align: center;
-  padding: 10px;
+  font-family: k2d;
+  font-size: 30px;
+}
+
+.footerBody {
+  display: flex; /* 'inline-flex' is not usually needed for footer layout */
+  flex-direction: row; /* Changed 'direction' to 'flex-direction' */
+  justify-content: space-between;
+  align-items: center; /* Changed to 'center' for better vertical alignment */
+  padding: 10px 20px; /* Added padding for spacing */
+  background-color: #120720; /* Adjusted background color for visibility */
+}
+
+.footerBody .left,
+.footerBody .center,
+.footerBody .right {
+  display: flex;
+  align-items: center;
+}
+
+.footerBody .center a {
+  margin: 0 10px; /* Added margin between links */
+}
+
+.footerBody .left,
+.footerBody .right {
+  font-size: 14px;
+}
+
+.spacer {
+  flex: 1;
+  color: white;
+  padding: 0 10px; /* Added padding for spacing */
 }

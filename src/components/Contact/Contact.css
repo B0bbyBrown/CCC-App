@@ -1,19 +1,4 @@
 .contactSection {
-  background-image: linear-gradient(
-    to bottom,
-    #120720,
-    #1e162f,
-    #2b2140,
-    #3a2d51,
-    #493962,
-    #493962,
-    #493962,
-    #493962,
-    #3a2d51,
-    #2b2140,
-    #1e162f,
-    #120720
-  );
   padding: 50px;
 }
 
