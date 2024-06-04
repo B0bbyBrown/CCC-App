@@ -9,6 +9,7 @@ a {
   color: white;
   font-family: k2d;
   font-size: 30px;
+  text-decoration: none;
 }
 
 .footerBody {
@@ -40,4 +41,8 @@ a {
   flex: 1;
   color: white;
   padding: 0 10px; /* Added padding for spacing */
+}
+
+a :hover {
+  color: grey;
 }

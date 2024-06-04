@@ -1,24 +1,26 @@
+import "/src/App.css";
+
 import {
   Header,
   Hero,
   About,
-  WhatWeDo,
-  Projects,
+  Services,
+  CaseStudies,
   Contact,
   Footer,
 } from "/src/components/MainExport";
 
 function App() {
   return (
-    <>
+    <section className="app">
       <Header />
       <Hero />
       <About />
-      <WhatWeDo />
-      <Projects />
+      <Services />
+      <CaseStudies />
       <Contact />
       <Footer />
-    </>
+    </section>
   );
 }
 

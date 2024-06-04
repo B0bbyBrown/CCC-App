@@ -6,9 +6,23 @@
   display: flex;
   direction: row;
   justify-content: center;
+  align-items: center;
   font-family: "K2D", sans-serif;
   font-size: 1.5em;
   line-height: 1.1;
-  color: #d4c5eb;
+  color: var(--primary-text-color);
   margin: 7rem;
+}
+
+.platform {
+  display: flex-column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+platform.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -4,13 +4,24 @@ function Nav() {
   return (
     <ol className="nav">
       <li>
-        <a href="#projects">Projects</a>
+        <a href="#about" className="nav-item">
+          About
+        </a>
       </li>
       <li>
-        <a href="#about">About</a>
+        <a href="#services" className="nav-item">
+          Services
+        </a>
       </li>
       <li>
-        <a href="#contact">Contact</a>
+        <a href="#case-studies" className="nav-item">
+          Case Studies
+        </a>
+      </li>
+      <li>
+        <a href="#contact" className="nav-item">
+          Contact
+        </a>
       </li>
     </ol>
   );

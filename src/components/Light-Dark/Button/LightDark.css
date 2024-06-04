@@ -13,6 +13,7 @@
   font-weight: 100;
   color: white;
   display: inline-block;
+  text-shadow: var(--h1-text-shadow);
 }
 
 .button {
@@ -20,7 +21,7 @@
 }
 
 .toggle-container {
-  border: 1px solid rgb(214, 27, 214);
+  border: 1px solid var(--toggle-bg);
   border-radius: 5rem;
   position: relative;
   display: inline-block;
@@ -44,7 +45,7 @@
   width: 15px;
   left: 2px;
   bottom: 2.5px;
-  background-color: rgb(214, 27, 214);
+  background-color: var(--toggle-bg);
   transition: 0.2s;
   pointer-events: none;
 }

@@ -2,7 +2,7 @@ import "/src/components/About/Body/AboutB.css";
 
 function AboutB() {
   return (
-    <div className="body">
+    <div className="Abody">
       <div className="aboutBodyCard">
         <p className="aboutBodyText">
           Lorem ipsum dolor sit amet consectetur. Malesuada nisl magnis eget

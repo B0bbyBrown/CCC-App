@@ -3,7 +3,7 @@ import "/src/components/Hero/Hero.css";
 
 function Hero() {
   return (
-    <>
+    <div className="hero">
       <div className="heroMain">
         <h1 className="heroMainText">Curious Cat Creative</h1>
       </div>
@@ -16,7 +16,7 @@ function Hero() {
       </div>
 
       <div className="design">{/* <VisualElements /> */}</div>
-    </>
+    </div>
   );
 }
 

@@ -1,14 +1,13 @@
 .heroMainText {
-  color: #ffffff;
+  color: var(--primary-text-color);
   font-size: 8rem;
   display: table-caption;
   margin: 1rem 0 2rem 7.5rem;
-  text-shadow: 5px 5px 7px black;
 }
 
 .heroSloganText {
   font-size: 1rem;
-  color: white;
+  color: var(--secondary-text-color);
   font-weight: 300;
-  margin: 0 0 10rem 15rem;
+  margin: 0 0 10rem 22rem;
 }

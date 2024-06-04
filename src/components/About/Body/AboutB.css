@@ -2,10 +2,11 @@
   display: flex;
   flex-flow: row;
   width: 50vw;
-  margin: auto;
+  height: 25vh;
+  margin: -2rem auto 0 auto;
   padding: 3% 5% 3% 5%;
   border-radius: 15px;
-  background-color: rgba(240, 248, 255, 0.1);
+  background-color: var(--foreground-color);
 }
 
 .aboutBodyText {
@@ -13,13 +14,13 @@
   align-items: center;
   font-size: 2rem;
   text-align: center;
-  color: #ffffff;
+  color: var(second-text-color);
 }
 
-.body {
+.Abody {
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  color: var(second-text-color);
   margin-left: 5%;
 }
 

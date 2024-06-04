@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  margin: 0 0 -1rem 50rem;
+  color: var(--primary-text-color);
   font-size: 8rem;
-  text-shadow: 5px 5px 7px black;
+  text-shadow: var(--h1-text-shadow);
 }

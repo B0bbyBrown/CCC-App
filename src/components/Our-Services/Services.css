@@ -11,7 +11,7 @@ h1 {
   justify-content: center;
   color: #ffffff;
   font-size: 8rem;
-  text-shadow: 5px 5px 7px black;
+  margin: auto;
 }
 
 .venn-container {
@@ -20,15 +20,6 @@ h1 {
   font-family: "Arial", sans-serif;
   height: 100vh;
   margin-bottom: 25%;
-}
-
-h1 {
-  display: flex;
-  justify-content: center;
-  color: #ffffff;
-  font-size: 8rem;
-  text-shadow: 5px 5px 7px black;
-  margin: auto;
 }
 
 .venn-diagram {
@@ -59,6 +50,14 @@ h1 {
   top: 150px;
 }
 
+.circle-1-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em; /* Increased font size */
+  color: white;
+}
+
 .circle2 {
   background-color: #a45576;
   left: 300px;
@@ -68,10 +67,18 @@ h1 {
 .circle3 {
   background-color: #7ce6f1;
   left: 75px;
-  top: 35rem;
+  top: 32rem;
 }
 
-.center-text {
+.center-text-top {
+  position: absolute;
+  left: 350px;
+  top: 25rem;
+  font-size: 1.5em; /* Increased font size */
+  color: white;
+}
+
+.center-text-bottom {
   position: absolute;
   left: 350px;
   top: 39rem;

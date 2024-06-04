@@ -14,8 +14,7 @@ const Platforms = [
   {
     id: 3,
     name: "Email",
-    image: "src/asset/images/Icons/Platform=Google, Color=Negative.png",
-    mailto: "mailto: support@curiouscatcreative.com",
+    image: "src/asset/images/Icons/Platform=Email, Color=Original.png",
   },
   {
     id: 4,
@@ -31,7 +30,7 @@ const Platforms = [
 
 function Contact() {
   return (
-    <div>
+    <div className="Contact">
       <div className="contactSection">
         <div className="contactHeader">
           <h1>Socials & Contact</h1>

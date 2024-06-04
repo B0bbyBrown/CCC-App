@@ -7,24 +7,25 @@
   flex-shrink: 8;
 }
 
-a {
+.nav-item {
+  font-family: Jost, sans-serif;
+  font-weight: 300;
+  font-size: 1.5em;
+  text-shadow: 4px 4px 4px rgb(0, 0, 0);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f2f2f2;
+  color: var(primary-text-color);
   text-align: center;
-  letter-spacing: 1px;
+  letter-spacing: -1px;
   text-decoration: none;
-  font-size: 17px;
-  font-family: Jost, sans-serif;
-  border-bottom: 2px solid transparent;
 }
 
 .nav-item a:hover {
-  border-bottom: 2px solid rgb(214, 27, 214);
+  border-bottom: 2px solid var(--button-bg-color);
 }
 
 .nav-item a:active {
-  color: #d8bfd8;
-  border-bottom: 2px solid rgb(214, 27, 214);
+  color: #d893d8;
+  border-bottom: 2px solid var(--button-bg-color);
 }

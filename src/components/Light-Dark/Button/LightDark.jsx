@@ -1,4 +1,4 @@
-import "/src/components/Light-Dark/LightDark.css";
+import "../Button/LightDark.css";
 
 function LightDark() {
   return (
