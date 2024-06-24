@@ -3,6 +3,7 @@
   font-size: 8rem;
   display: table-caption;
   margin: 1rem 0 2rem 7.5rem;
+  text-shadow: 4px 4px 4px rgb(0, 0, 0);
 }
 
 .heroSloganText {
@@ -10,4 +11,5 @@
   color: var(--secondary-text-color);
   font-weight: 300;
   margin: 0 0 10rem 22rem;
+  text-shadow: 4px 4px 4px rgb(0, 0, 0);
 }

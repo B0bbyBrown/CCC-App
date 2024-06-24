@@ -7,10 +7,11 @@ import {
   Hero,
   About,
   Services,
-  CaseStudies,
-  Contact,
+  // CaseStudies,
+  // Contact,
   Footer,
 } from "/src/components/MainExport";
+import ThreeDSpiderDiagram from "./components/Diagram/ThreeDSpiderDiagram";
 
 function App() {
   return (
@@ -28,13 +29,14 @@ function App() {
         <Scene />
       </div>
       <div style={{ position: "relative", zIndex: 1 }}>
-        <Header />
+        {/* <Header />
         <Hero />
         <About />
-        <Services />
-        <CaseStudies />
-        <Contact />
-        <Footer />
+        <Services /> */}
+        <ThreeDSpiderDiagram />
+        {/* <CaseStudies />
+        <Contact /> */}
+        {/* <Footer /> */}
       </div>
     </>
   );

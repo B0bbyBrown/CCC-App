@@ -3,6 +3,7 @@ p {
   color: white; /* 'White' should be lowercase */
   flex-direction: row;
   font-size: 15px;
+  text-shadow: 4px 4px 4px rgb(0, 0, 0);
 }
 
 a {
@@ -10,6 +11,7 @@ a {
   font-family: k2d;
   font-size: 30px;
   text-decoration: none;
+  text-shadow: 4px 4px 4px rgb(0, 0, 0);
 }
 
 .footerBody {
@@ -18,7 +20,7 @@ a {
   justify-content: space-between;
   align-items: center; /* Changed to 'center' for better vertical alignment */
   padding: 10px 20px; /* Added padding for spacing */
-  background-color: #120720; /* Adjusted background color for visibility */
+ /
 }
 
 .footerBody .left,

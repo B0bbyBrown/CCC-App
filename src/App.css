@@ -15,7 +15,7 @@ canvas {
   position: fixed;
   top: 0;
   left: 0;
-  pointer-events: none; /* Ensure the canvas does not intercept mouse events */
+  pointer-events: none;
 }
 
 #root > div {
