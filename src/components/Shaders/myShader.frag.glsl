@@ -15,7 +15,7 @@ float hash11(float p) {
   return fract((p3.x + p3.y) * p3.z);
 }
 
-#define HASHSCALE3 vec3(.1031, .1030, .0973)
+#define HASHSCALE3 vec3(0.0078, 0.3333, 0.3922)
 vec2 hash21(float p) {
   vec3 p3 = fract(vec3(p) * HASHSCALE3);
   p3 += dot(p3, p3.yzx + 19.19);
@@ -41,7 +41,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
   vec3 subColor = vec3(0.4, 0.8, 0.2);
   vec3 addColor = vec3(0.3, 0.2, 0.1);
 
-  fragColor = vec4(vec3(1.0) - accum * subColor + addColor, 1.0);
+  fragColor = vec4(vec3(0.9412, 0.6745, 0.9294) - accum * subColor + addColor, 1.0);
 }
 
 void main() {

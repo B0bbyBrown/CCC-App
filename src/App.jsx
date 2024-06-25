@@ -12,6 +12,7 @@ import {
   Footer,
 } from "/src/components/MainExport";
 import ThreeDSpiderDiagram from "./components/Diagram/ThreeDSpiderDiagram";
+import { ErrorBoundary } from "./components/Diagram/ErrorBoundary";
 
 function App() {
   return (
@@ -33,7 +34,11 @@ function App() {
         <Hero />
         <About />
         <Services /> */}
-        <ThreeDSpiderDiagram />
+
+        <ErrorBoundary>
+          <ThreeDSpiderDiagram />
+        </ErrorBoundary>
+
         {/* <CaseStudies />
         <Contact /> */}
         {/* <Footer /> */}
