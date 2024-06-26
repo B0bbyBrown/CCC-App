@@ -11,7 +11,7 @@ import {
   // Contact,
   Footer,
 } from "/src/components/MainExport";
-import ThreeDSpiderDiagram from "./components/Diagram/ThreeDSpiderDiagram";
+import { ThreeDSpiderDiagram } from "./components/Diagram/ThreeDSpiderDiagram";
 import { ErrorBoundary } from "./components/Diagram/ErrorBoundary";
 
 function App() {

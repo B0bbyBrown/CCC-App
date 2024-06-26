@@ -1,123 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, Text } from "@react-three/drei";
-import * as THREE from "three";
+import React, { useState, useEffect } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 import styles from "./ThreeDSpiderDiagram.module.css";
-
-const PlatformNode = ({
-  position,
-  label,
-  color,
-  onClick,
-  scale = 1,
-  showTooltip,
-}) => {
-  const textRef = useRef();
-  const platformRef = useRef();
-  const { camera } = useThree();
-
-  useFrame(() => {
-    if (textRef.current) {
-      textRef.current.quaternion.copy(camera.quaternion);
-    }
-  });
-
-  const handlePointerOver = () => {
-    showTooltip(label, position);
-  };
-
-  const handlePointerOut = () => {
-    showTooltip(null, null);
-  };
-
-  return (
-    <mesh
-      position={position}
-      onClick={() => onClick(label)}
-      onPointerOver={handlePointerOver}
-      onPointerOut={handlePointerOut}
-    >
-      <sphereGeometry args={[0.5 * scale, 32, 32]} />
-      <meshStandardMaterial color={color} />
-      <mesh ref={platformRef} position={[0, 0.55 * scale, 0]}>
-        <cylinderGeometry args={[0.6 * scale, 0.6 * scale, 0.1 * scale, 32]} />
-        <meshStandardMaterial color="#333" />
-        <Text
-          ref={textRef}
-          position={[0, 0.3 * scale, 0]} // Moved the text higher
-          fontSize={0.35 * scale} // Increased font size
-          color="white"
-          anchorX="center"
-          anchorY="middle"
-          fontFamily="k2d-extrabold, sans-serif" // Apply K2D font
-        >
-          {label}
-        </Text>
-      </mesh>
-    </mesh>
-  );
-};
-
-const CentralNode = ({ position, color }) => {
-  const meshRef = useRef();
-  const textRef = useRef();
-  const { camera } = useThree();
-
-  useFrame(({ clock }) => {
-    const elapsedTime = clock.getElapsedTime();
-    meshRef.current.scale.set(
-      1 + 0.1 * Math.sin(elapsedTime * 2),
-      1 + 0.1 * Math.sin(elapsedTime * 2),
-      1 + 0.1 * Math.sin(elapsedTime * 2)
-    );
-    if (textRef.current) {
-      textRef.current.quaternion.copy(camera.quaternion);
-    }
-  });
-
-  return (
-    <mesh ref={meshRef} position={position}>
-      <sphereGeometry args={[1, 32, 32]} />
-      <meshStandardMaterial color={color} />
-    </mesh>
-  );
-};
-
-const CurvedArm = ({ start, end, color, thickness = 0.05 }) => {
-  const curveRef = useRef();
-
-  useEffect(() => {
-    const startVec = new THREE.Vector3(...start);
-    const endVec = new THREE.Vector3(...end);
-    const midPoint = new THREE.Vector3()
-      .addVectors(startVec, endVec)
-      .multiplyScalar(0.5);
-    const midPointA = new THREE.Vector3().lerpVectors(startVec, midPoint, 0.5);
-    const midPointB = new THREE.Vector3().lerpVectors(midPoint, endVec, 0.5);
-
-    // Adjust control points to create a football shape
-    midPointA.y += Math.abs(end[0] - start[0]) * 0.5;
-    midPointB.y += Math.abs(end[0] - start[0]) * 0.5;
-
-    const curve = new THREE.CubicBezierCurve3(
-      startVec,
-      midPointA,
-      midPointB,
-      endVec
-    );
-    const points = curve.getPoints(50);
-    const geometry = new THREE.BufferGeometry().setFromPoints(points);
-
-    curveRef.current.geometry = geometry;
-  }, [start, end]);
-
-  return (
-    <line ref={curveRef}>
-      <bufferGeometry />
-      <lineBasicMaterial color={color} linewidth={thickness} />
-    </line>
-  );
-};
+import { CentralNode } from "./CentralNode";
+import { PlatformNode } from "./PlatformNode";
+import { CurvedArm } from "./CurvedArm";
+import { Popup } from "./Popup";
 
 const categoryPositions = [
   [-7, 5, 0],
@@ -139,8 +27,9 @@ const categoryPositions = [
 ];
 
 const ThreeDSpiderDiagram = () => {
-  const [categories, setCategories] = useState([]);
-  const [tooltip, setTooltip] = useState({ label: null, position: null });
+  const [categories, setCategories] = useState([]); // Initialize as an empty array
+  const [popupData, setPopupData] = useState(null);
+  const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
 
   const color = "#800080"; // Dark Purple
   const individual1Color = "#3CF3FF"; // Light Blue
@@ -153,9 +42,17 @@ const ThreeDSpiderDiagram = () => {
   ];
 
   useEffect(() => {
-    fetch("/src/components/Diagram/categories.json")
-      .then((response) => response.json())
-      .then((data) => setCategories(data))
+    fetch("/src/components/Diagram/data.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Fetched data:", data);
+        setCategories(Object.keys(data));
+      })
       .catch((error) => console.error("Error fetching categories:", error));
   }, []);
 
@@ -169,8 +66,33 @@ const ThreeDSpiderDiagram = () => {
     }
   };
 
-  const showTooltip = (label, position) => {
-    setTooltip({ label, position });
+  const showPopup = (label, position) => {
+    if (label) {
+      fetch("/src/components/Diagram/data.json")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(`Showing popup for ${label}`);
+          setPopupData({
+            label,
+            company: data[label]?.Company,
+            individual1: data[label]?.["Individual 1"],
+            individual2: data[label]?.["Individual 2"],
+            details: data[label]?.Details,
+          });
+          setPopupPosition({
+            x: position.x + window.innerWidth / 2, // Adjust x coordinate
+            y: -position.y + window.innerHeight / 2, // Adjust y coordinate
+          });
+        })
+        .catch((error) => console.error("Error fetching data:", error));
+    } else {
+      setPopupData(null);
+    }
   };
 
   return (
@@ -181,7 +103,11 @@ const ThreeDSpiderDiagram = () => {
           <pointLight position={[10, 10, 10]} />
 
           {/* Central Sphere */}
-          <CentralNode position={[0, 0, 0]} color={color} />
+          <CentralNode
+            position={[0, 0, 0]}
+            color={color}
+            showPopup={showPopup}
+          />
 
           {/* Main Bubbles for Individuals */}
           <PlatformNode
@@ -189,7 +115,7 @@ const ThreeDSpiderDiagram = () => {
             label="Individual 1"
             color={individual1Color}
             onClick={handleClick}
-            showTooltip={showTooltip}
+            showPopup={showPopup}
             scale={1.5} // Larger scale for main nodes
           />
           <PlatformNode
@@ -197,57 +123,62 @@ const ThreeDSpiderDiagram = () => {
             label="Individual 2"
             color={individual2Color}
             onClick={handleClick}
-            showTooltip={showTooltip}
+            showPopup={showPopup}
             scale={1.5} // Larger scale for main nodes
           />
 
-          {/* Nodes and Curved Arms */}
-          {categories.map((category, index) => (
-            <React.Fragment key={index}>
-              <PlatformNode
-                position={categoryPositions[index]}
-                label={category.name}
-                color={color}
-                onClick={handleClick}
-                showTooltip={showTooltip}
-              />
-              <CurvedArm
-                start={[0, 0, 0]}
-                end={categoryPositions[index]}
-                color={color}
-              />
-              <CurvedArm
-                start={mainBubblePositions[0]}
-                end={categoryPositions[index]}
-                color={individual1Color}
-                thickness={0.03}
-              />
-              <CurvedArm
-                start={mainBubblePositions[1]}
-                end={categoryPositions[index]}
-                color={individual2Color}
-                thickness={0.03}
-              />
-            </React.Fragment>
-          ))}
+          {/* Curved Arms */}
+          {Array.isArray(categories) && categories.length > 0 ? (
+            categories.map((category, index) => {
+              const endPosition = categoryPositions[index];
+              if (!endPosition) {
+                console.error(`No position defined for category ${category}`);
+                return null;
+              }
+              console.log(
+                `Rendering arm for ${category} at position`,
+                endPosition
+              );
+              return (
+                <React.Fragment key={index}>
+                  <CurvedArm
+                    start={[0, 0, 0]}
+                    end={endPosition}
+                    color={color}
+                  />
+                  <CurvedArm
+                    start={mainBubblePositions[0]}
+                    end={endPosition}
+                    color={individual1Color}
+                    thickness={0.03}
+                  />
+                  <CurvedArm
+                    start={mainBubblePositions[1]}
+                    end={endPosition}
+                    color={individual2Color}
+                    thickness={0.03}
+                  />
+                  <PlatformNode
+                    position={endPosition}
+                    label={category}
+                    color={color}
+                    onClick={handleClick}
+                    showPopup={showPopup}
+                  />
+                </React.Fragment>
+              );
+            })
+          ) : (
+            <></>
+          )}
 
           <OrbitControls />
         </Canvas>
 
-        {tooltip.label && (
-          <div
-            className={styles.tooltip}
-            style={{
-              left: `${tooltip.position[0] + 50}%`,
-              top: `${tooltip.position[1] + 50}%`,
-            }}
-          >
-            {tooltip.label}
-          </div>
-        )}
+        <Popup position={popupPosition} data={popupData} />
       </div>
     </div>
   );
 };
 
-export default ThreeDSpiderDiagram;
+export { ThreeDSpiderDiagram };
