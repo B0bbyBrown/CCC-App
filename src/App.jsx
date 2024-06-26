@@ -1,18 +1,18 @@
 import React from "react";
 import "/src/App.css";
 import { Scene } from "./components/Shaders/Background";
-
-import {
-  Header,
-  Hero,
-  About,
-  Services,
-  // CaseStudies,
-  // Contact,
-  Footer,
-} from "/src/components/MainExport";
 import { ThreeDSpiderDiagram } from "./components/Diagram/ThreeDSpiderDiagram";
 import { ErrorBoundary } from "./components/Diagram/ErrorBoundary";
+
+// import {
+//   Header,
+//   Hero,
+//   About,
+//   Services,
+//   CaseStudies,
+//   Contact,
+//   Footer,
+// } from "/src/components/MainExport";
 
 function App() {
   return (
@@ -40,8 +40,8 @@ function App() {
         </ErrorBoundary>
 
         {/* <CaseStudies />
-        <Contact /> */}
-        {/* <Footer /> */}
+        <Contact />
+        <Footer /> */}
       </div>
     </>
   );

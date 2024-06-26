@@ -1,71 +1,178 @@
 {
   "Projects": {
-    "Individual 1": "Project details for Individual 1: Worked on project X involving Y.",
-    "Individual 2": "Project details for Individual 2: Managed project A with focus on B."
+    "Company": "Example Company",
+    "Individual 1": {
+      "Role": "Developer",
+      "Years": "2",
+      "Skills": ["JavaScript", "React", "Node.js"]
+    },
+    "Individual 2": {
+      "Role": "Designer",
+      "Years": "3",
+      "Skills": ["Photoshop", "Illustrator", "Figma"]
+    },
+    "Details": "Details about the project work and responsibilities."
   },
   "Companies": {
-    "Individual 1": "Company details for Individual 1: Employed at Company Z as a Developer.",
-    "Individual 2": "Company details for Individual 2: CEO at Company W, leading strategic initiatives."
+    "Company": "Another Company",
+    "Individual 1": {
+      "Role": "Project Manager",
+      "Years": "4",
+      "Skills": ["Management", "Scrum", "Agile"]
+    },
+    "Individual 2": {
+      "Role": "Marketing Lead",
+      "Years": "5",
+      "Skills": ["SEO", "Content Marketing", "Social Media"]
+    },
+    "Details": "Information about the company and roles."
   },
   "Ventures": {
-    "Individual 1": "Venture details for Individual 1: Co-founded startup Q.",
-    "Individual 2": "Venture details for Individual 2: Angel investor in multiple tech startups."
+    "Company": "Venture Inc.",
+    "Individual 1": {
+      "Role": "Founder",
+      "Years": "6",
+      "Skills": ["Entrepreneurship", "Fundraising", "Networking"]
+    },
+    "Individual 2": {
+      "Role": "Co-Founder",
+      "Years": "6",
+      "Skills": ["Strategy", "Operations", "Leadership"]
+    },
+    "Details": "Details about the venture and achievements."
   },
   "Skills": {
-    "Individual 1": "Skills of Individual 1: Proficient in JavaScript, React, Node.js.",
-    "Individual 2": "Skills of Individual 2: Expertise in marketing, strategic planning."
+    "Company": "Skill Building",
+    "Individual 1": {
+      "Primary Skills": ["JavaScript", "React"],
+      "Secondary Skills": ["Node.js", "Express"]
+    },
+    "Individual 2": {
+      "Primary Skills": ["UI/UX Design", "Figma"],
+      "Secondary Skills": ["Sketch", "InVision"]
+    },
+    "Details": "Details about the skills and projects related to them."
   },
   "Experience": {
-    "Individual 1": "Experience of Individual 1: 5 years in software development.",
-    "Individual 2": "Experience of Individual 2: 10 years in business management."
+    "Company": "Experience Co.",
+    "Individual 1": {
+      "Role": "Software Engineer",
+      "Years": "5",
+      "Projects": ["Project A", "Project B"]
+    },
+    "Individual 2": {
+      "Role": "Product Designer",
+      "Years": "4",
+      "Projects": ["Design A", "Design B"]
+    },
+    "Details": "Work experience details and notable achievements."
   },
   "Education": {
-    "Individual 1": "Education of Individual 1: Bachelor's in Computer Science.",
-    "Individual 2": "Education of Individual 2: MBA from Harvard Business School."
+    "Company": "University of Learning",
+    "Individual 1": {
+      "Degree": "BSc Computer Science",
+      "Graduation Year": "2015"
+    },
+    "Individual 2": {
+      "Degree": "BA Graphic Design",
+      "Graduation Year": "2014"
+    },
+    "Details": "Educational background and accolades."
   },
   "Hobbies": {
-    "Individual 1": "Hobbies of Individual 1: Enjoys hiking, photography, and coding.",
-    "Individual 2": "Hobbies of Individual 2: Passionate about painting, traveling."
+    "Company": "Hobby Corp",
+    "Individual 1": {
+      "Hobbies": ["Reading", "Traveling", "Coding"]
+    },
+    "Individual 2": {
+      "Hobbies": ["Photography", "Drawing", "Gaming"]
+    },
+    "Details": "Personal interests and hobby-related activities."
   },
   "Certifications": {
-    "Individual 1": "Certifications of Individual 1: AWS Certified Solutions Architect.",
-    "Individual 2": "Certifications of Individual 2: Certified Digital Marketing Professional."
+    "Company": "Certification Institute",
+    "Individual 1": {
+      "Certifications": ["AWS Certified Developer", "PMP"]
+    },
+    "Individual 2": {
+      "Certifications": ["Certified UX Designer", "Google Analytics"]
+    },
+    "Details": "Professional certifications and their importance."
   },
   "Achievements": {
-    "Individual 1": "Achievements of Individual 1: Developed a successful open-source project.",
-    "Individual 2": "Achievements of Individual 2: Featured in Forbes 30 Under 30."
+    "Company": "Achievement Co.",
+    "Individual 1": {
+      "Achievements": ["Employee of the Year", "Top Developer Award"]
+    },
+    "Individual 2": {
+      "Achievements": ["Best Designer Award", "Innovation Prize"]
+    },
+    "Details": "Notable achievements and recognitions."
   },
   "Goals": {
-    "Individual 1": "Goals of Individual 1: Aiming to lead a tech team in a renowned company.",
-    "Individual 2": "Goals of Individual 2: Looking to expand business operations globally."
+    "Company": "Goal Setting",
+    "Individual 1": {
+      "Short Term Goals": ["Learn TypeScript", "Contribute to Open Source"],
+      "Long Term Goals": ["Become a Tech Lead", "Start a Tech Blog"]
+    },
+    "Individual 2": {
+      "Short Term Goals": ["Improve UI Skills", "Learn 3D Design"],
+      "Long Term Goals": ["Lead a Design Team", "Create a Portfolio"]
+    },
+    "Details": "Personal and professional goals."
   },
   "Innovation": {
-    "Individual 1": "Innovation by Individual 1: Patented an innovative software solution.",
-    "Individual 2": "Innovation by Individual 2: Developed a unique marketing strategy."
+    "Company": "Innovation Hub",
+    "Individual 1": {
+      "Innovations": ["Created a new framework", "Patented an algorithm"]
+    },
+    "Individual 2": {
+      "Innovations": ["Designed a new UI concept", "Developed a mobile app"]
+    },
+    "Details": "Innovative projects and their impact."
   },
   "Research": {
-    "Individual 1": "Research by Individual 1: Published papers on AI and machine learning.",
-    "Individual 2": "Research by Individual 2: Conducted research on market trends."
+    "Company": "Research Lab",
+    "Individual 1": {
+      "Research Topics": ["AI", "Machine Learning"]
+    },
+    "Individual 2": {
+      "Research Topics": ["Human-Computer Interaction", "UX Research"]
+    },
+    "Details": "Research work and publications."
   },
   "Development": {
-    "Individual 1": "Development work by Individual 1: Built scalable web applications.",
-    "Individual 2": "Development work by Individual 2: Developed business models for startups."
+    "Company": "Development Co.",
+    "Individual 1": {
+      "Development Projects": ["Project X", "Project Y"]
+    },
+    "Individual 2": {
+      "Development Projects": ["Design X", "Design Y"]
+    },
+    "Details": "Development work and contributions."
   },
   "Teamwork": {
-    "Individual 1": "Teamwork by Individual 1: Collaborated on cross-functional projects.",
-    "Individual 2": "Teamwork by Individual 2: Led a diverse team to achieve company goals."
+    "Company": "Teamwork Inc.",
+    "Individual 1": {
+      "Teams": ["Agile Team", "Scrum Team"]
+    },
+    "Individual 2": {
+      "Teams": ["Design Team", "Product Team"]
+    },
+    "Details": "Teamwork experiences and roles."
   },
   "Leadership": {
-    "Individual 1": "Leadership by Individual 1: Mentored junior developers.",
-    "Individual 2": "Leadership by Individual 2: Led the company through significant growth."
+    "Company": "Leadership Co.",
+    "Individual 1": {
+      "Leadership Roles": ["Team Lead", "Project Manager"]
+    },
+    "Individual 2": {
+      "Leadership Roles": ["Creative Director", "Head of Design"]
+    },
+    "Details": "Leadership roles and achievements."
   },
   "Central Node": {
-    "Company": "Curious Cat Creative: A company focused on innovative solutions and creative ventures."
-  },
-  "Individual 1": {
-    "Details": "Individual 1: A skilled developer with a passion for creating impactful solutions."
-  },
-  "Individual 2": {
-    "Details": "Individual 2: A visionary leader with a knack for strategic business growth."
+    "Company": "Core Company",
+    "Details": "Central Node details and information about the company."
   }
 }

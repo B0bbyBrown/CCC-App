@@ -11,6 +11,7 @@ const PlatformNode = ({
   showPopup,
 }) => {
   const textRef = useRef();
+  const platformRef = useRef();
   const { camera } = useThree();
 
   useFrame(() => {
@@ -19,13 +20,14 @@ const PlatformNode = ({
     }
   });
 
-  const handlePointerOver = () => {
-    console.log(`Pointer over ${label}`);
-    showPopup(label, { x: position[0], y: position[1] });
+  const handlePointerOver = (event) => {
+    showPopup(label, {
+      x: event.clientX,
+      y: event.clientY,
+    });
   };
 
   const handlePointerOut = () => {
-    console.log(`Pointer out ${label}`);
     showPopup(null, null);
   };
 

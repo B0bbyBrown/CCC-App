@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import styles from "./ThreeDSpiderDiagram.module.css";
-import { CentralNode } from "./CentralNode";
-import { PlatformNode } from "./PlatformNode";
-import { CurvedArm } from "./CurvedArm";
-import { Popup } from "./Popup";
+import { CentralNode } from "./Components/CentralNode";
+import { PlatformNode } from "./Components/PlatformNode";
+import { CurvedArm } from "./Components/CurvedArm";
+import { Popup } from "./Components/Popup";
 
 const categoryPositions = [
   [-7, 5, 0],
@@ -51,7 +51,11 @@ const ThreeDSpiderDiagram = () => {
       })
       .then((data) => {
         console.log("Fetched data:", data);
-        setCategories(Object.keys(data));
+        setCategories(
+          Object.keys(data).filter(
+            (key) => key !== "Individual 1" && key !== "Individual 2"
+          )
+        );
       })
       .catch((error) => console.error("Error fetching categories:", error));
   }, []);
@@ -66,7 +70,7 @@ const ThreeDSpiderDiagram = () => {
     }
   };
 
-  const showPopup = (label, position) => {
+  const showPopup = useCallback((label, position) => {
     if (label) {
       fetch("/src/components/Diagram/data.json")
         .then((response) => {
@@ -84,21 +88,25 @@ const ThreeDSpiderDiagram = () => {
             individual2: data[label]?.["Individual 2"],
             details: data[label]?.Details,
           });
-          setPopupPosition({
-            x: position.x + window.innerWidth / 2, // Adjust x coordinate
-            y: -position.y + window.innerHeight / 2, // Adjust y coordinate
-          });
+          setPopupPosition(position);
         })
         .catch((error) => console.error("Error fetching data:", error));
     } else {
       setPopupData(null);
     }
-  };
+  }, []);
+
+  console.log("Categories:", categories);
 
   return (
     <div className={styles.container}>
       <div className={styles.canvasContainer}>
-        <Canvas>
+        <Canvas
+          camera={{
+            position: [0, 0, 50], // Adjust the Z value to fit the diagram within the view
+            fov: 75,
+          }}
+        >
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
 
@@ -175,7 +183,7 @@ const ThreeDSpiderDiagram = () => {
           <OrbitControls />
         </Canvas>
 
-        <Popup position={popupPosition} data={popupData} />
+        {popupData && <Popup position={popupPosition} data={popupData} />}
       </div>
     </div>
   );

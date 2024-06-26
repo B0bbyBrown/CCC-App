@@ -5,6 +5,14 @@ const CurvedArm = ({ start, end, color, thickness = 0.05 }) => {
   const curveRef = useRef();
 
   useEffect(() => {
+    if (!start || !end) {
+      console.error("Invalid start or end position for CurvedArm", {
+        start,
+        end,
+      });
+      return;
+    }
+
     const startVec = new THREE.Vector3(...start);
     const endVec = new THREE.Vector3(...end);
     const midPoint = new THREE.Vector3()
