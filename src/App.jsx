@@ -1,22 +1,16 @@
 import React from "react";
-import "/src/App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
 import { Scene } from "./components/Shaders/Background";
 import { ThreeDSpiderDiagram } from "./components/Diagram/ThreeDSpiderDiagram";
-import { ErrorBoundary } from "./components/Diagram/ErrorBoundary";
+import { MindMap } from "./components/Diagram/Components/mindMapFld/MindMap";
+import CompanyPage from "./routes/CompanyPage";
+import Individual1Page from "./routes/Individual1Page";
+import Individual2Page from "./routes/Individual2Page";
 
-// import {
-//   Header,
-//   Hero,
-//   About,
-//   Services,
-//   CaseStudies,
-//   Contact,
-//   Footer,
-// } from "/src/components/MainExport";
-
-function App() {
+export const App = () => {
   return (
-    <>
+    <Router>
       <div
         style={{
           position: "fixed",
@@ -27,24 +21,24 @@ function App() {
           zIndex: -1,
         }}
       >
-        <Scene />
+        {/* <Scene /> */}
       </div>
       <div style={{ position: "relative", zIndex: 1 }}>
-        {/* <Header />
-        <Hero />
-        <About />
-        <Services /> */}
-
-        <ErrorBoundary>
-          <ThreeDSpiderDiagram />
-        </ErrorBoundary>
-
-        {/* <CaseStudies />
-        <Contact />
-        <Footer /> */}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <ThreeDSpiderDiagram />
+                <MindMap />
+              </>
+            }
+          />
+          <Route path="/company" element={<CompanyPage />} />
+          <Route path="/individual1" element={<Individual1Page />} />
+          <Route path="/individual2" element={<Individual2Page />} />
+        </Routes>
       </div>
-    </>
+    </Router>
   );
-}
-
-export { App };
+};

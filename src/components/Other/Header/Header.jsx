@@ -1,6 +1,6 @@
 import "/src/components/Header/Header.css";
 import { Nav } from "/src/components/Nav/Nav";
-import { LightDark } from "../Light-Dark/Button/LightDark";
+import { LightDark } from "../../Light-Dark/Button/LightDark";
 import { ContactCTA } from "/src/components/Contact/ContactCTA";
 
 function Header() {
