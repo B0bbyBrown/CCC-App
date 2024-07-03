@@ -37,79 +37,27 @@ const MindMap = () => {
           stroke="white"
           strokeWidth="0.5"
         />
-
-        {/* Inner triangle 1 */}
-        <line
-          x1="50"
-          y1="25"
-          x2="20"
-          y2="75"
-          stroke="white"
-          strokeWidth="0.3"
-        />
-        <line
-          x1="50"
-          y1="25"
-          x2="80"
-          y2="75"
-          stroke="white"
-          strokeWidth="0.3"
-        />
-        <line
-          x1="20"
-          y1="75"
-          x2="80"
-          y2="75"
-          stroke="white"
-          strokeWidth="0.3"
-        />
-
-        {/* Inner triangle 2 */}
-        <line
-          x1="50"
-          y1="40"
-          x2="30"
-          y2="70"
-          stroke="white"
-          strokeWidth="0.3"
-        />
-        <line
-          x1="50"
-          y1="40"
-          x2="70"
-          y2="70"
-          stroke="white"
-          strokeWidth="0.3"
-        />
-        <line
-          x1="30"
-          y1="70"
-          x2="70"
-          y2="70"
-          stroke="white"
-          strokeWidth="0.3"
-        />
       </svg>
       <div
         className={styles.circle}
         id={styles.topCircle}
-        onClick={() => navigate("/company")}
+        onClick={() => navigate("/Curious-Cat-Creative")}
       >
-        Company
+        <h3>Curious Cat Creative</h3>
       </div>
       <div
         className={styles.circle}
         id={styles.leftCircle}
-        onClick={() => navigate("/individual1")}
+        onClick={() => navigate("/KeshavInfo")}
       >
-        Individual 1
+        <h3>Keshav</h3>
       </div>
       <div
         className={styles.circle}
         id={styles.rightCircle}
-        onClick={() => navigate("/individual2")}
+        onClick={() => navigate("/ShalkaInfo")}
       >
-        Individual 2
+        <h3>Shulka</h3>
       </div>
     </div>
   );

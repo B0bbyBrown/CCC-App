@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=K2D:wght@800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
+.Main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  border-radius: 10px;
+}
