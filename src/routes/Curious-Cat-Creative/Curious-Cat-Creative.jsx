@@ -1,13 +1,15 @@
 import React from "react";
+import "./Curious-Cat-Creative.css";
 
 const CuriousCatCreative = () => {
   return (
-    <section className="Main">
-      <header className="Header"> Header </header>
-      <body className="Content">
-        <div className="Contact"> body </div>
-      </body>
-    </section>
+    <div className="curious-cat-creative">
+      <section>
+        <h1>Curious Cat Creative</h1>
+        <p>Welcome to the Curious Cat Creative page.</p>
+        {/* Add more content here */}
+      </section>
+    </div>
   );
 };
 

@@ -5,20 +5,31 @@ export const PlatformNode = ({
   position,
   color,
   label,
-  isCentral,
   showPopup,
+  hidePopup,
+  isIndividualSubNode,
 }) => {
   return (
-    <group position={position} onClick={() => showPopup(label, position)}>
+    <group
+      position={position}
+      onClick={() => showPopup(label, position)}
+      onPointerOut={(e) => {
+        e.stopPropagation();
+        hidePopup();
+      }}
+    >
       <mesh>
         <sphereGeometry args={[1, 32, 32]} />
-        <meshBasicMaterial color={isCentral ? "black" : "white"} wireframe />
+        <meshBasicMaterial
+          color={isIndividualSubNode ? "black" : "white"}
+          wireframe={!isIndividualSubNode}
+        />
       </mesh>
       <Billboard>
         <Text
-          position={[0, 0, 2]} // Increase the Z value to move text further in front of the sphere
+          position={[0, 0, 1.5]} // Position the text in front of the sphere
           fontSize={0.5}
-          color={isCentral ? "#FFFFFF" : "#000000"}
+          color={isIndividualSubNode ? "#FFFFFF" : "black"}
           anchorX="center"
           anchorY="middle"
         >

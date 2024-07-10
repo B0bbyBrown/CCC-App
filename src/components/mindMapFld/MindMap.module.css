@@ -2,8 +2,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  /* width: 100vw;
-  height: 100vh; */
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -24,14 +22,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: black; /* Changed to black for text visibility on white background */
   text-align: center;
   font-size: 0.7vw;
   cursor: pointer;
   border-radius: 50%;
-  background: linear-gradient(145deg, #6f6f6f, #b1b1b1);
-  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.7),
-    -6px -6px 12px rgba(255, 255, 255, 0.3);
+  background: white; /* Changed to white */
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5),
+    /* Dark shadow effect */ -10px -10px 20px rgba(255, 255, 255, 0.3); /* Light shadow effect */
   position: absolute;
   transition: transform 0.3s;
 }
@@ -41,30 +39,30 @@
 }
 
 .topCircle {
-  background: linear-gradient(145deg, #800080, #a64ca6);
+  background: white; /* Ensures white background */
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
 }
 
 .leftCircle {
-  background: linear-gradient(145deg, #008080, #00a6a6);
+  background: white; /* Ensures white background */
   bottom: 0;
-  left: 0;
-  transform: translate(0, -50%);
+  left: 25%;
+  transform: translate(-50%, -50%);
 }
 
 .rightCircle {
-  background: linear-gradient(145deg, #ff00ff, #ff66ff);
+  background: white; /* Ensures white background */
   bottom: 0;
-  right: 0;
-  transform: translate(0, -50%);
+  right: 25%;
+  transform: translate(50%, -50%);
 }
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   .circle {
     width: 20vw;
     height: 20vw;
     font-size: 1.5vw;
   }
-} */
+}

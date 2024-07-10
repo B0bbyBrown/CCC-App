@@ -18,7 +18,7 @@ const Background = () => {
     }
 
     if (meshRef.current) {
-      console.log("Mesh dimensions:", meshRef.current.scale);
+      // console.log("Mesh dimensions:", meshRef.current.scale);
     }
   });
 

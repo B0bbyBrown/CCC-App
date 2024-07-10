@@ -6,10 +6,10 @@ const CurvedArm = ({ start, end, color, thickness = 0.05 }) => {
 
   useEffect(() => {
     if (!start || !end) {
-      console.error("Invalid start or end position for CurvedArm", {
-        start,
-        end,
-      });
+      // console.error("Invalid start or end position for CurvedArm", {
+      //   start,
+      //   end,
+      // });
       return;
     }
 

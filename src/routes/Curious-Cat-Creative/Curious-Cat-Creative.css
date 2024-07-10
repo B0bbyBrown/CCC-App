@@ -1,0 +1,19 @@
+.curious-cat-creative {
+  padding: 20px;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.curious-cat-creative section {
+  margin: 20px 0;
+}
+
+.curious-cat-creative h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.curious-cat-creative p {
+  font-size: 1.2em;
+  line-height: 1.5;
+}

@@ -20,16 +20,15 @@ const generateCirclePositions = (radius, count) => {
   });
 };
 
-// Adjust radius for the 2D circle pattern
-const companySubNodePositions = generateCirclePositions(20, 5); // Adjust the count based on actual categories
+const companySubNodePositions = generateCylinderPositions(20, 30, 10); // Adjust the height to fit between the other subnodes
 const combinedSubNodesPositions = generateCylinderPositions(20, 60, 10);
 
 const positions = {
   centralNode: [0, 0, 0],
   companySubNodes: companySubNodePositions,
   individualNodes: {
-    Keshav: [0, -15, 0],
-    Shulka: [0, 15, 0],
+    Keshav: [0, 15, 0], // Keshav at the top
+    Shulka: [0, -15, 0], // Shulka at the bottom
   },
   combinedSubNodes: combinedSubNodesPositions,
 };

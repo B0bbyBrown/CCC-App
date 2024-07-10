@@ -12,60 +12,70 @@ const ThreeDSpiderDiagram = () => {
   const [categories, setCategories] = useState([]);
   const [popupData, setPopupData] = useState(null);
   const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
+  const [companyData, setCompanyData] = useState(null);
+  const [keshavData, setKeshavData] = useState(null);
+  const [shulkaData, setShulkaData] = useState(null);
 
-  const color = "#800080"; // Dark Purple
-  const individual1Color = "#3CF3FF"; // Light Blue
-  const individual2Color = "#EB03FF"; // Light Pink
+  const centralColor = "#800080"; // Dark Purple
+  const keshavColor = "#3CF3FF"; // Baby Blue
+  const shulkaColor = "#EB03FF"; // Pink
 
   useEffect(() => {
-    fetch("/src/components/Diagram/data.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Fetched data:", data);
+    Promise.all([
+      fetch("/src/components/Diagram/Utils/companyData.json").then((response) =>
+        response.json()
+      ),
+      fetch("/src/components/Diagram/Utils/keshavData.json").then((response) =>
+        response.json()
+      ),
+      fetch("/src/components/Diagram/Utils/shulkaData.json").then((response) =>
+        response.json()
+      ),
+    ])
+      .then(([companyData, keshavData, shulkaData]) => {
+        console.log("Fetched data:", { companyData, keshavData, shulkaData });
+
+        setCompanyData(companyData);
+        setKeshavData(keshavData);
+        setShulkaData(shulkaData);
+
         const combinedCategories = new Set();
-        for (const individual in data.individuals) {
-          for (const category in data.individuals[individual].categories) {
-            combinedCategories.add(category);
-          }
+        for (const category in keshavData.categories) {
+          combinedCategories.add(category);
+        }
+        for (const category in shulkaData.categories) {
+          combinedCategories.add(category);
         }
         setCategories([...combinedCategories]);
       })
-      .catch((error) => console.error("Error fetching categories:", error));
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
   const handleClick = (data) => {
     console.log("Navigating to:", data); // Replace with actual navigation logic
   };
 
-  const showPopup = useCallback((label, position) => {
-    if (label) {
-      fetch("/src/components/Diagram/data.json")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log(`Showing popup for ${label}`);
-          setPopupData({
-            label,
-            company: data.company.categories[label],
-            individual1: data.individuals.Shulka.categories[label],
-            individual2: data.individuals.Keshav.categories[label],
-          });
-          setPopupPosition(position);
-        })
-        .catch((error) => console.error("Error fetching data:", error));
-    } else {
-      setPopupData(null);
-    }
-  }, []);
+  const showPopup = useCallback(
+    (label, position) => {
+      if (label) {
+        console.log(`Showing popup for ${label}`);
+        setPopupData({
+          label,
+          company: companyData?.categories[label],
+          individual1: shulkaData?.categories[label],
+          individual2: keshavData?.categories[label],
+        });
+        setPopupPosition(position);
+      } else {
+        setPopupData(null);
+      }
+    },
+    [companyData, keshavData, shulkaData]
+  );
+
+  const hidePopup = () => {
+    setPopupData(null);
+  };
 
   return (
     <div className={styles.container}>
@@ -82,71 +92,87 @@ const ThreeDSpiderDiagram = () => {
           {/* Central Sphere */}
           <CentralNode
             position={positions.centralNode}
-            color={color}
+            color={centralColor}
             label="Curious Cat Creative"
             showPopup={showPopup}
+            hidePopup={hidePopup}
           />
 
           {/* Main Bubbles for Individuals */}
           <PlatformNode
-            position={positions.individualNodes.Shulka}
-            label="Shulka"
-            color={individual1Color}
-            onClick={handleClick}
-            showPopup={showPopup}
-            scale={1.5} // Larger scale for main nodes
-          />
-          <PlatformNode
             position={positions.individualNodes.Keshav}
             label="Keshav"
-            color={individual2Color}
+            color={keshavColor}
             onClick={handleClick}
             showPopup={showPopup}
+            hidePopup={hidePopup}
             scale={1.5} // Larger scale for main nodes
+            isIndividualSubNode={true}
+          />
+          <PlatformNode
+            position={positions.individualNodes.Shulka}
+            label="Shulka"
+            color={shulkaColor}
+            onClick={handleClick}
+            showPopup={showPopup}
+            hidePopup={hidePopup}
+            scale={1.5} // Larger scale for main nodes
+            isIndividualSubNode={true}
           />
 
           {/* Company Sub Nodes */}
-          {positions.companySubNodes.map((pos, index) => (
-            <React.Fragment key={index}>
-              <CurvedArm
-                start={positions.centralNode}
-                end={pos}
-                color={color}
-              />
-              <PlatformNode
-                position={pos}
-                label={categories[index]}
-                color={color}
-                onClick={handleClick}
-                showPopup={showPopup}
-                isCentral={true} // Indicate central sub-nodes
-              />
-            </React.Fragment>
-          ))}
+          {positions.companySubNodes.map((pos, index) => {
+            const category = Object.keys(companyData?.categories || {})[index];
+            if (category) {
+              return (
+                <React.Fragment key={index}>
+                  <CurvedArm
+                    start={positions.centralNode}
+                    end={pos}
+                    color={centralColor}
+                  />
+                  <PlatformNode
+                    position={pos}
+                    label={category}
+                    color="black" // Black with wireframe for central sub nodes
+                    onClick={handleClick}
+                    showPopup={showPopup}
+                    hidePopup={hidePopup}
+                    isIndividualSubNode={false}
+                  />
+                </React.Fragment>
+              );
+            }
+            return null;
+          })}
 
           {/* Combined Sub Nodes */}
-          {categories.map((category, index) => (
-            <React.Fragment key={index}>
-              <CurvedArm
-                start={positions.individualNodes.Shulka}
-                end={positions.combinedSubNodes[index]}
-                color={individual1Color}
-              />
-              <CurvedArm
-                start={positions.individualNodes.Keshav}
-                end={positions.combinedSubNodes[index]}
-                color={individual2Color}
-              />
-              <PlatformNode
-                position={positions.combinedSubNodes[index]}
-                label={category}
-                color={color}
-                onClick={handleClick}
-                showPopup={showPopup}
-                isCentral={false} // Indicate non-central sub-nodes
-              />
-            </React.Fragment>
-          ))}
+          {categories.map((category, index) => {
+            const endPosition = positions.combinedSubNodes[index];
+            return (
+              <React.Fragment key={index}>
+                <CurvedArm
+                  start={positions.individualNodes.Keshav}
+                  end={endPosition}
+                  color={keshavColor}
+                />
+                <CurvedArm
+                  start={positions.individualNodes.Shulka}
+                  end={endPosition}
+                  color={shulkaColor}
+                />
+                <PlatformNode
+                  position={endPosition}
+                  label={category}
+                  color="white" // White with wireframe for combined sub nodes
+                  onClick={handleClick}
+                  showPopup={showPopup}
+                  hidePopup={hidePopup}
+                  isIndividualSubNode={true}
+                />
+              </React.Fragment>
+            );
+          })}
 
           <OrbitControls />
         </Canvas>

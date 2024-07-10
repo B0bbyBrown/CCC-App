@@ -1,0 +1,75 @@
+{
+  "name": "Shulka",
+  "categories": {
+    "Projects": [
+      {
+        "name": "Project A",
+        "description": "Description of Project A",
+        "duration": "1 year"
+      },
+      {
+        "name": "Project B",
+        "description": "Description of Project B",
+        "duration": "6 months"
+      },
+      {
+        "name": "Project C",
+        "description": "Description of Project C",
+        "duration": "8 months"
+      },
+      {
+        "name": "Project D",
+        "description": "Description of Project D",
+        "duration": "4 months"
+      },
+      {
+        "name": "Project E",
+        "description": "Description of Project E",
+        "duration": "2 years"
+      }
+    ],
+    "Companies": [
+      {
+        "role": "Role in Company 1",
+        "years": "Number of Years",
+        "skills": ["Skill 1", "Skill 2", "Skill 3"]
+      }
+    ],
+    "Ventures": [
+      {
+        "name": "Venture Name 1",
+        "duration": "Number of Years",
+        "skills": ["Skill 1", "Skill 2", "Skill 3"]
+      }
+    ],
+    "Skills": {
+      "primarySkills": ["Primary Skill 1", "Primary Skill 2"],
+      "secondarySkills": ["Secondary Skill 1", "Secondary Skill 2"]
+    },
+    "Experience": [
+      {
+        "role": "Role in Experience 1",
+        "duration": "Number of Years",
+        "projects": ["Project A", "Project B"]
+      }
+    ],
+    "Education": [
+      {
+        "degree": "Degree 1",
+        "experience": "Graduation Year"
+      }
+    ],
+    "Hobbies": ["Hobby 1", "Hobby 2", "Hobby 3"],
+    "Certifications": ["Certification 1", "Certification 2"],
+    "Achievements": ["Achievement 1", "Achievement 2"],
+    "Goals": {
+      "shortTermGoals": ["Short Term Goal 1", "Short Term Goal 2"],
+      "longTermGoals": ["Long Term Goal 1", "Long Term Goal 2"]
+    },
+    "Innovation": ["Innovation 1", "Innovation 2"],
+    "Research": ["Research Topic 1", "Research Topic 2"],
+    "Development": ["Development Project 1", "Development Project 2"],
+    "Teamwork": ["Team 1", "Team 2"],
+    "Leadership": ["Leadership Role 1", "Leadership Role 2"]
+  }
+}
