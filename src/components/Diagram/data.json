@@ -1,181 +1,259 @@
 {
-  "Projects": {
-    "Company": "Example Company",
-    "Individual 1": {
-      "Role": "Developer",
-      "Years": "2",
-      "Skills": ["JavaScript", "React", "Node.js"]
-    },
-    "Individual 2": {
-      "Role": "Designer",
-      "Years": "3",
-      "Skills": ["Photoshop", "Illustrator", "Figma"]
-    },
-    "Details": "Details about the project work and responsibilities."
+  "company": {
+    "name": "Curious Cat Creative",
+    "details": "NA",
+    "categories": {
+      "Projects": [
+        {
+          "name": "Project 1",
+          "description": "Description of Project 1",
+          "duration": "6 months"
+        },
+        {
+          "name": "Project 2",
+          "description": "Description of Project 2",
+          "duration": "1 year"
+        },
+        {
+          "name": "Project 3",
+          "description": "Description of Project 3",
+          "duration": "3 months"
+        },
+        {
+          "name": "Project 4",
+          "description": "Description of Project 4",
+          "duration": "2 years"
+        },
+        {
+          "name": "Project 5",
+          "description": "Description of Project 5",
+          "duration": "5 months"
+        }
+      ],
+      "Clients": [
+        {
+          "name": "Client 1",
+          "industry": "Industry of Client 1",
+          "projects": ["Project 1", "Project 3"]
+        },
+        {
+          "name": "Client 2",
+          "industry": "Industry of Client 2",
+          "projects": ["Project 2"]
+        },
+        {
+          "name": "Client 3",
+          "industry": "Industry of Client 3",
+          "projects": ["Project 4", "Project 5"]
+        },
+        {
+          "name": "Client 4",
+          "industry": "Industry of Client 4",
+          "projects": ["Project 1"]
+        },
+        {
+          "name": "Client 5",
+          "industry": "Industry of Client 5",
+          "projects": ["Project 2", "Project 3"]
+        }
+      ],
+      "Partnerships": [
+        {
+          "name": "Partner 1",
+          "collaboration": "Details of collaboration with Partner 1",
+          "duration": "2 years"
+        },
+        {
+          "name": "Partner 2",
+          "collaboration": "Details of collaboration with Partner 2",
+          "duration": "3 years"
+        },
+        {
+          "name": "Partner 3",
+          "collaboration": "Details of collaboration with Partner 3",
+          "duration": "1 year"
+        }
+      ],
+      "Achievements": [
+        "Achievement 1",
+        "Achievement 2",
+        "Achievement 3",
+        "Achievement 4",
+        "Achievement 5",
+        "Achievement 6",
+        "Achievement 7",
+        "Achievement 8",
+        "Achievement 9",
+        "Achievement 10"
+      ],
+      "Goals": {
+        "shortTermGoals": [
+          "Short Term Goal 1",
+          "Short Term Goal 2",
+          "Short Term Goal 3",
+          "Short Term Goal 4",
+          "Short Term Goal 5"
+        ],
+        "longTermGoals": [
+          "Long Term Goal 1",
+          "Long Term Goal 2",
+          "Long Term Goal 3",
+          "Long Term Goal 4",
+          "Long Term Goal 5"
+        ]
+      }
+    }
   },
-  "Companies": {
-    "Company": "Another Company",
-    "Individual 1": {
-      "Role": "Project Manager",
-      "Years": "4",
-      "Skills": ["Management", "Scrum", "Agile"]
+  "individuals": {
+    "Shulka": {
+      "name": "Shulka",
+      "categories": {
+        "Projects": [
+          {
+            "name": "Project A",
+            "description": "Description of Project A",
+            "duration": "1 year"
+          },
+          {
+            "name": "Project B",
+            "description": "Description of Project B",
+            "duration": "6 months"
+          },
+          {
+            "name": "Project C",
+            "description": "Description of Project C",
+            "duration": "8 months"
+          },
+          {
+            "name": "Project D",
+            "description": "Description of Project D",
+            "duration": "4 months"
+          },
+          {
+            "name": "Project E",
+            "description": "Description of Project E",
+            "duration": "2 years"
+          }
+        ],
+        "Companies": [
+          {
+            "role": "Role in Company 1",
+            "years": "Number of Years",
+            "skills": ["Skill 1", "Skill 2", "Skill 3"]
+          }
+        ],
+        "Ventures": [
+          {
+            "name": "Venture Name 1",
+            "duration": "Number of Years",
+            "skills": ["Skill 1", "Skill 2", "Skill 3"]
+          }
+        ],
+        "Skills": {
+          "primarySkills": ["Primary Skill 1", "Primary Skill 2"],
+          "secondarySkills": ["Secondary Skill 1", "Secondary Skill 2"]
+        },
+        "Experience": [
+          {
+            "role": "Role in Experience 1",
+            "duration": "Number of Years",
+            "projects": ["Project A", "Project B"]
+          }
+        ],
+        "Education": [
+          {
+            "degree": "Degree 1",
+            "experience": "Graduation Year"
+          }
+        ],
+        "Hobbies": ["Hobby 1", "Hobby 2", "Hobby 3"],
+        "Certifications": ["Certification 1", "Certification 2"],
+        "Achievements": ["Achievement 1", "Achievement 2"],
+        "Goals": {
+          "shortTermGoals": ["Short Term Goal 1", "Short Term Goal 2"],
+          "longTermGoals": ["Long Term Goal 1", "Long Term Goal 2"]
+        },
+        "Innovation": ["Innovation 1", "Innovation 2"],
+        "Research": ["Research Topic 1", "Research Topic 2"],
+        "Development": ["Development Project 1", "Development Project 2"],
+        "Teamwork": ["Team 1", "Team 2"],
+        "Leadership": ["Leadership Role 1", "Leadership Role 2"]
+      }
     },
-    "Individual 2": {
-      "Role": "Marketing Lead",
-      "Years": "5",
-      "Skills": ["SEO", "Content Marketing", "Social Media"]
-    },
-    "Details": "Information about the company and roles."
-  },
-  "Ventures": {
-    "Company": "Venture Inc.",
-    "Individual 1": {
-      "Role": "Founder",
-      "Years": "6",
-      "Skills": ["Entrepreneurship", "Fundraising", "Networking"]
-    },
-    "Individual 2": {
-      "Role": "Co-Founder",
-      "Years": "6",
-      "Skills": ["Strategy", "Operations", "Leadership"]
-    },
-    "Details": "Details about the venture and achievements."
-  },
-  "Skills": {
-    "Company": "Skill Building",
-    "Individual 1": {
-      "Primary Skills": ["JavaScript", "React"],
-      "Secondary Skills": ["Node.js", "Express"]
-    },
-    "Individual 2": {
-      "Primary Skills": ["UI/UX Design", "Figma"],
-      "Secondary Skills": ["Sketch", "InVision"]
-    },
-    "Details": "Details about the skills and projects related to them."
-  },
-  "Experience": {
-    "Company": "Experience Co.",
-    "Individual 1": {
-      "Role": "Software Engineer",
-      "Years": "5",
-      "Projects": ["Project A", "Project B"]
-    },
-    "Individual 2": {
-      "Role": "Product Designer",
-      "Years": "4",
-      "Projects": ["Design A", "Design B"]
-    },
-    "Details": "Work experience details and notable achievements."
-  },
-  "Education": {
-    "Company": "University of Learning",
-    "Individual 1": {
-      "Degree": "BSc Computer Science",
-      "Graduation Year": "2015"
-    },
-    "Individual 2": {
-      "Degree": "BA Graphic Design",
-      "Graduation Year": "2014"
-    },
-    "Details": "Educational background and accolades."
-  },
-  "Hobbies": {
-    "Company": "Hobby Corp",
-    "Individual 1": {
-      "Hobbies": ["Reading", "Traveling", "Coding"]
-    },
-    "Individual 2": {
-      "Hobbies": ["Photography", "Drawing", "Gaming"]
-    },
-    "Details": "Personal interests and hobby-related activities."
-  },
-  "Certifications": {
-    "Company": "Certification Institute",
-    "Individual 1": {
-      "Certifications": ["AWS Certified Developer", "PMP"]
-    },
-    "Individual 2": {
-      "Certifications": ["Certified UX Designer", "Google Analytics"]
-    },
-    "Details": "Professional certifications and their importance."
-  },
-  "Achievements": {
-    "Company": "Achievement Co.",
-    "Individual 1": {
-      "Achievements": ["Employee of the Year", "Top Developer Award"]
-    },
-    "Individual 2": {
-      "Achievements": ["Best Designer Award", "Innovation Prize"]
-    },
-    "Details": "Notable achievements and recognitions."
-  },
-  "Goals": {
-    "Company": "Goal Setting",
-    "Individual 1": {
-      "Short Term Goals": ["Learn TypeScript", "Contribute to Open Source"],
-      "Long Term Goals": ["Become a Tech Lead", "Start a Tech Blog"]
-    },
-    "Individual 2": {
-      "Short Term Goals": ["Improve UI Skills", "Learn 3D Design"],
-      "Long Term Goals": ["Lead a Design Team", "Create a Portfolio"]
-    },
-    "Details": "Personal and professional goals."
-  },
-  "Innovation": {
-    "Company": "Innovation Hub",
-    "Individual 1": {
-      "Innovations": ["Created a new framework", "Patented an algorithm"]
-    },
-    "Individual 2": {
-      "Innovations": ["Designed a new UI concept", "Developed a mobile app"]
-    },
-    "Details": "Innovative projects and their impact."
-  },
-  "Research": {
-    "Company": "Research Lab",
-    "Individual 1": {
-      "Research Topics": ["AI", "Machine Learning"]
-    },
-    "Individual 2": {
-      "Research Topics": ["Human-Computer Interaction", "UX Research"]
-    },
-    "Details": "Research work and publications."
-  },
-  "Development": {
-    "Company": "Development Co.",
-    "Individual 1": {
-      "Development Projects": ["Project X", "Project Y"]
-    },
-    "Individual 2": {
-      "Development Projects": ["Design X", "Design Y"]
-    },
-    "Details": "Development work and contributions."
-  },
-  "Teamwork": {
-    "Company": "Teamwork Inc.",
-    "Individual 1": {
-      "Teams": ["Agile Team", "Scrum Team"]
-    },
-    "Individual 2": {
-      "Teams": ["Design Team", "Product Team"]
-    },
-    "Details": "Teamwork experiences and roles."
-  },
-  "Leadership": {
-    "Company": "Leadership Co.",
-    "Individual 1": {
-      "Leadership Roles": ["Team Lead", "Project Manager"]
-    },
-    "Individual 2": {
-      "Leadership Roles": ["Creative Director", "Head of Design"]
-    },
-    "Individual 3": {
-      "Leadership Roles": ["Creative Director", "Head of Design"]
-    },
-    "Details": "Leadership roles and achievements."
-  },
-  "Central Node": {
-    "Company": "Core Company",
-    "Details": "Central Node details and information about the company."
+    "Keshav": {
+      "name": "Keshav",
+      "categories": {
+        "Projects": [
+          {
+            "name": "Project A",
+            "description": "Description of Project A",
+            "duration": "1 year"
+          },
+          {
+            "name": "Project B",
+            "description": "Description of Project B",
+            "duration": "6 months"
+          },
+          {
+            "name": "Project C",
+            "description": "Description of Project C",
+            "duration": "8 months"
+          },
+          {
+            "name": "Project D",
+            "description": "Description of Project D",
+            "duration": "4 months"
+          },
+          {
+            "name": "Project E",
+            "description": "Description of Project E",
+            "duration": "2 years"
+          }
+        ],
+        "Companies": [
+          {
+            "role": "Role in Company 1",
+            "years": "Number of Years",
+            "skills": ["Skill 1", "Skill 2", "Skill 3"]
+          }
+        ],
+        "Ventures": [
+          {
+            "name": "Venture Name 1",
+            "duration": "Number of Years",
+            "skills": ["Skill 1", "Skill 2", "Skill 3"]
+          }
+        ],
+        "Skills": {
+          "primarySkills": ["Primary Skill 1", "Primary Skill 2"],
+          "secondarySkills": ["Secondary Skill 1", "Secondary Skill 2"]
+        },
+        "Experience": [
+          {
+            "role": "Role in Experience 1",
+            "duration": "Number of Years",
+            "projects": ["Project A", "Project B"]
+          }
+        ],
+        "Education": [
+          {
+            "degree": "Degree 1",
+            "experience": "Graduation Year"
+          }
+        ],
+        "Hobbies": ["Hobby 1", "Hobby 2", "Hobby 3"],
+        "Certifications": ["Certification 1", "Certification 2"],
+        "Achievements": ["Achievement 1", "Achievement 2"],
+        "Goals": {
+          "shortTermGoals": ["Short Term Goal 1", "Short Term Goal 2"],
+          "longTermGoals": ["Long Term Goal 1", "Long Term Goal 2"]
+        },
+        "Innovation": ["Innovation 1", "Innovation 2"],
+        "Research": ["Research Topic 1", "Research Topic 2"],
+        "Development": ["Development Project 1", "Development Project 2"],
+        "Teamwork": ["Team 1", "Team 2"],
+        "Leadership": ["Leadership Role 1", "Leadership Role 2"]
+      }
+    }
   }
 }

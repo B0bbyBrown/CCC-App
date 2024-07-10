@@ -1,58 +1,70 @@
-@import url("https://fonts.googleapis.com/css2?family=K2D:wght@700&display=swap"); /* Import K2D font */
-
 .mindMapContainer {
-  position: fixed;
-  top: 50px;
-  left: 50px;
-  width: 300px;
-  height: 300px;
-  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* width: 100vw;
+  height: 100vh; */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
 }
 
-h3 {
-  font-family: "K2D", sans-serif; /* Use K2D font */
-  font-size: 20px; /* Adjust font size */
-  font-weight: bold;
-  color: #f0f0f0;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  text-align: center;
-}
-.lines {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.triangleContainer {
+  position: relative;
+  width: 180px;
+  height: 200px;
 }
 
 .circle {
-  position: absolute;
-  width: 80px; /* Adjust size as needed */
-  height: 80px; /* Adjust size as needed */
-  background-color: #3cf3ff;
-  color: #f0f0f0;
-  border-radius: 50%;
+  width: 15vw;
+  height: 15vw;
+  max-width: 80px;
+  max-height: 80px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  color: white;
   text-align: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-size: 0.7vw;
   cursor: pointer;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #6f6f6f, #b1b1b1);
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.7),
+    -6px -6px 12px rgba(255, 255, 255, 0.3);
+  position: absolute;
+  transition: transform 0.3s;
 }
 
-#topCircle {
-  top: 10%;
+.circle:hover {
+  transform: scale(1.1);
+}
+
+.topCircle {
+  background: linear-gradient(145deg, #800080, #a64ca6);
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #800080;
+  transform: translate(-50%, 0);
 }
 
-#leftCircle {
-  top: 85%;
-  left: 10%;
-  transform: translate(-50%, -50%);
+.leftCircle {
+  background: linear-gradient(145deg, #008080, #00a6a6);
+  bottom: 0;
+  left: 0;
+  transform: translate(0, -50%);
 }
 
-#rightCircle {
-  top: 85%;
-  left: 90%;
-  transform: translate(-50%, -50%);
+.rightCircle {
+  background: linear-gradient(145deg, #ff00ff, #ff66ff);
+  bottom: 0;
+  right: 0;
+  transform: translate(0, -50%);
 }
+
+/* @media (max-width: 768px) {
+  .circle {
+    width: 20vw;
+    height: 20vw;
+    font-size: 1.5vw;
+  }
+} */

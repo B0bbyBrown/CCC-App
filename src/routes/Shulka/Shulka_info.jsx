@@ -2,14 +2,16 @@ import React from "react";
 
 const ShulkaInfo = () => {
   return (
-    <section className="Main">
-      <header className="Header">
-        <div></div>
-      </header>
-      <body>
-        <div></div>
-      </body>
-    </section>
+    <>
+      <section className="Main">
+        <header className="Header">
+          <div>Shulka</div>
+        </header>
+        <body>
+          <div>Body</div>
+        </body>
+      </section>
+    </>
   );
 };
 

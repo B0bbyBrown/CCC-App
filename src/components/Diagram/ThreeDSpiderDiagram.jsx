@@ -6,40 +6,16 @@ import { CentralNode } from "./Components/CentralNode";
 import { PlatformNode } from "./Components/PlatformNode";
 import { CurvedArm } from "./Components/CurvedArm";
 import { Popup } from "./Components/Popup";
-
-const categoryPositions = [
-  [-7, 5, 0],
-  [-7, -5, 0],
-  [-7, 0, 5],
-  [-7, 0, -5], // Left-side categories
-  [7, 5, 0],
-  [7, -5, 0],
-  [7, 0, 5],
-  [7, 0, -5], // Right-side categories
-  [0, 5, 7],
-  [0, -5, 7],
-  [0, 5, -7],
-  [0, -5, -7], // Top-bottom categories
-  [5, 7, 0],
-  [-5, 7, 0],
-  [5, -7, 0],
-  [-5, -7, 0], // Front-back categories
-];
+import positions from "./Utils/Positions";
 
 const ThreeDSpiderDiagram = () => {
-  const [categories, setCategories] = useState([]); // Initialize as an empty array
+  const [categories, setCategories] = useState([]);
   const [popupData, setPopupData] = useState(null);
   const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
 
   const color = "#800080"; // Dark Purple
   const individual1Color = "#3CF3FF"; // Light Blue
   const individual2Color = "#EB03FF"; // Light Pink
-
-  const mainBubbleDistance = 14; // Distance of individual bubbles from center
-  const mainBubblePositions = [
-    [-mainBubbleDistance, 0, 0], // Left
-    [mainBubbleDistance, 0, 0], // Right
-  ];
 
   useEffect(() => {
     fetch("/src/components/Diagram/data.json")
@@ -51,23 +27,19 @@ const ThreeDSpiderDiagram = () => {
       })
       .then((data) => {
         console.log("Fetched data:", data);
-        setCategories(
-          Object.keys(data).filter(
-            (key) => key !== "Individual 1" && key !== "Individual 2"
-          )
-        );
+        const combinedCategories = new Set();
+        for (const individual in data.individuals) {
+          for (const category in data.individuals[individual].categories) {
+            combinedCategories.add(category);
+          }
+        }
+        setCategories([...combinedCategories]);
       })
       .catch((error) => console.error("Error fetching categories:", error));
   }, []);
 
   const handleClick = (data) => {
-    if (data === "Individual 1") {
-      console.log("Navigating to Individual 1's details"); // Replace with actual navigation logic for Individual 1
-    } else if (data === "Individual 2") {
-      console.log("Navigating to Individual 2's details"); // Replace with actual navigation logic for Individual 2
-    } else {
-      console.log("Navigating to:", data); // Replace with actual navigation logic for categories
-    }
+    console.log("Navigating to:", data); // Replace with actual navigation logic
   };
 
   const showPopup = useCallback((label, position) => {
@@ -83,10 +55,9 @@ const ThreeDSpiderDiagram = () => {
           console.log(`Showing popup for ${label}`);
           setPopupData({
             label,
-            company: data[label]?.Company,
-            individual1: data[label]?.["Individual 1"],
-            individual2: data[label]?.["Individual 2"],
-            details: data[label]?.Details,
+            company: data.company.categories[label],
+            individual1: data.individuals.Shulka.categories[label],
+            individual2: data.individuals.Keshav.categories[label],
           });
           setPopupPosition(position);
         })
@@ -95,8 +66,6 @@ const ThreeDSpiderDiagram = () => {
       setPopupData(null);
     }
   }, []);
-
-  console.log("Categories:", categories);
 
   return (
     <div className={styles.container}>
@@ -112,73 +81,72 @@ const ThreeDSpiderDiagram = () => {
 
           {/* Central Sphere */}
           <CentralNode
-            position={[0, 0, 0]}
+            position={positions.centralNode}
             color={color}
+            label="Curious Cat Creative"
             showPopup={showPopup}
           />
 
           {/* Main Bubbles for Individuals */}
           <PlatformNode
-            position={mainBubblePositions[0]}
-            label="Individual 1"
+            position={positions.individualNodes.Shulka}
+            label="Shulka"
             color={individual1Color}
             onClick={handleClick}
             showPopup={showPopup}
             scale={1.5} // Larger scale for main nodes
           />
           <PlatformNode
-            position={mainBubblePositions[1]}
-            label="Individual 2"
+            position={positions.individualNodes.Keshav}
+            label="Keshav"
             color={individual2Color}
             onClick={handleClick}
             showPopup={showPopup}
             scale={1.5} // Larger scale for main nodes
           />
 
-          {/* Curved Arms */}
-          {Array.isArray(categories) && categories.length > 0 ? (
-            categories.map((category, index) => {
-              const endPosition = categoryPositions[index];
-              if (!endPosition) {
-                console.error(`No position defined for category ${category}`);
-                return null;
-              }
-              console.log(
-                `Rendering arm for ${category} at position`,
-                endPosition
-              );
-              return (
-                <React.Fragment key={index}>
-                  <CurvedArm
-                    start={[0, 0, 0]}
-                    end={endPosition}
-                    color={color}
-                  />
-                  <CurvedArm
-                    start={mainBubblePositions[0]}
-                    end={endPosition}
-                    color={individual1Color}
-                    thickness={0.03}
-                  />
-                  <CurvedArm
-                    start={mainBubblePositions[1]}
-                    end={endPosition}
-                    color={individual2Color}
-                    thickness={0.03}
-                  />
-                  <PlatformNode
-                    position={endPosition}
-                    label={category}
-                    color={color}
-                    onClick={handleClick}
-                    showPopup={showPopup}
-                  />
-                </React.Fragment>
-              );
-            })
-          ) : (
-            <></>
-          )}
+          {/* Company Sub Nodes */}
+          {positions.companySubNodes.map((pos, index) => (
+            <React.Fragment key={index}>
+              <CurvedArm
+                start={positions.centralNode}
+                end={pos}
+                color={color}
+              />
+              <PlatformNode
+                position={pos}
+                label={categories[index]}
+                color={color}
+                onClick={handleClick}
+                showPopup={showPopup}
+                isCentral={true} // Indicate central sub-nodes
+              />
+            </React.Fragment>
+          ))}
+
+          {/* Combined Sub Nodes */}
+          {categories.map((category, index) => (
+            <React.Fragment key={index}>
+              <CurvedArm
+                start={positions.individualNodes.Shulka}
+                end={positions.combinedSubNodes[index]}
+                color={individual1Color}
+              />
+              <CurvedArm
+                start={positions.individualNodes.Keshav}
+                end={positions.combinedSubNodes[index]}
+                color={individual2Color}
+              />
+              <PlatformNode
+                position={positions.combinedSubNodes[index]}
+                label={category}
+                color={color}
+                onClick={handleClick}
+                showPopup={showPopup}
+                isCentral={false} // Indicate non-central sub-nodes
+              />
+            </React.Fragment>
+          ))}
 
           <OrbitControls />
         </Canvas>

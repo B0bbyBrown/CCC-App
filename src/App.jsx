@@ -21,7 +21,7 @@ export const App = () => {
           zIndex: -1,
         }}
       >
-        {/* <Scene /> */}
+        <Scene />
       </div>
       <div style={{ position: "relative", zIndex: 1 }}>
         <Routes>

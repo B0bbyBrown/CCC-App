@@ -1,26 +1,24 @@
 import React from "react";
+import { Text, Billboard } from "@react-three/drei";
 
-const CentralNode = ({ position, color, showPopup }) => {
-  const handlePointerOver = () => {
-    console.log("Pointer over Central Node");
-    showPopup("Central Node", { x: position[0], y: position[1] });
-  };
-
-  const handlePointerOut = () => {
-    console.log("Pointer out Central Node");
-    showPopup(null, null);
-  };
-
+export const CentralNode = ({ position, color, label, showPopup }) => {
   return (
-    <mesh
-      position={position}
-      onPointerOver={handlePointerOver}
-      onPointerOut={handlePointerOut}
-    >
-      <sphereGeometry args={[1, 32, 32]} />
-      <meshStandardMaterial color={color} />
-    </mesh>
+    <group position={position}>
+      <mesh>
+        <sphereGeometry args={[3, 32, 32]} />
+        <meshStandardMaterial color={color} />
+      </mesh>
+      <Billboard>
+        <Text
+          position={[0, 0, 5]} // Increase the Z value to move text further in front of the sphere
+          fontSize={1}
+          color="#FFFFFF"
+          anchorX="center"
+          anchorY="middle"
+        >
+          {label}
+        </Text>
+      </Billboard>
+    </group>
   );
 };
-
-export { CentralNode };

@@ -1,58 +1,30 @@
-import React, { useRef } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
-import { Text } from "@react-three/drei";
+import React from "react";
+import { Text, Billboard } from "@react-three/drei";
 
-const PlatformNode = ({
+export const PlatformNode = ({
   position,
-  label,
   color,
-  onClick,
-  scale = 1,
+  label,
+  isCentral,
   showPopup,
 }) => {
-  const textRef = useRef();
-  const platformRef = useRef();
-  const { camera } = useThree();
-
-  useFrame(() => {
-    if (textRef.current) {
-      textRef.current.quaternion.copy(camera.quaternion);
-    }
-  });
-
-  const handlePointerOver = (event) => {
-    showPopup(label, {
-      x: event.clientX,
-      y: event.clientY,
-    });
-  };
-
-  const handlePointerOut = () => {
-    showPopup(null, null);
-  };
-
   return (
-    <mesh
-      position={position}
-      onClick={() => onClick(label)}
-      onPointerOver={handlePointerOver}
-      onPointerOut={handlePointerOut}
-    >
-      <cylinderGeometry args={[0.6 * scale, 0.6 * scale, 0.1 * scale, 32]} />
-      <meshStandardMaterial color="#333" />
-      <Text
-        ref={textRef}
-        position={[0, 0.3 * scale, 0]}
-        fontSize={0.35 * scale}
-        color="white"
-        anchorX="center"
-        anchorY="middle"
-        fontFamily="k2d-extrabold, sans-serif"
-      >
-        {label}
-      </Text>
-    </mesh>
+    <group position={position} onClick={() => showPopup(label, position)}>
+      <mesh>
+        <sphereGeometry args={[1, 32, 32]} />
+        <meshBasicMaterial color={isCentral ? "black" : "white"} wireframe />
+      </mesh>
+      <Billboard>
+        <Text
+          position={[0, 0, 2]} // Increase the Z value to move text further in front of the sphere
+          fontSize={0.5}
+          color={isCentral ? "#FFFFFF" : "#000000"}
+          anchorX="center"
+          anchorY="middle"
+        >
+          {label}
+        </Text>
+      </Billboard>
+    </group>
   );
 };
-
-export { PlatformNode };
