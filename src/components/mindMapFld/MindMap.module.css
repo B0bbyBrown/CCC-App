@@ -14,7 +14,7 @@
   height: 200px;
 }
 
-.circle {
+.sphere {
   width: 15vw;
   height: 15vw;
   max-width: 80px;
@@ -22,45 +22,44 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black; /* Changed to black for text visibility on white background */
+  color: black;
   text-align: center;
   font-size: 0.7vw;
   cursor: pointer;
   border-radius: 50%;
-  background: white; /* Changed to white */
+  background: white;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5),
-    /* Dark shadow effect */ -10px -10px 20px rgba(255, 255, 255, 0.3); /* Light shadow effect */
+    -10px -10px 20px rgba(255, 255, 255, 0.5);
   position: absolute;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.circle:hover {
+.sphere:hover {
   transform: scale(1.1);
+  box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.7),
+    -12px -12px 24px rgba(255, 255, 255, 0.7);
 }
 
-.topCircle {
-  background: white; /* Ensures white background */
+.topSphere {
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
 }
 
-.leftCircle {
-  background: white; /* Ensures white background */
+.leftSphere {
   bottom: 0;
-  left: 25%;
-  transform: translate(-50%, -50%);
+  left: 0;
+  transform: translate(0, -50%);
 }
 
-.rightCircle {
-  background: white; /* Ensures white background */
+.rightSphere {
   bottom: 0;
-  right: 25%;
-  transform: translate(50%, -50%);
+  right: 0;
+  transform: translate(0, -50%);
 }
 
 @media (max-width: 768px) {
-  .circle {
+  .sphere {
     width: 20vw;
     height: 20vw;
     font-size: 1.5vw;

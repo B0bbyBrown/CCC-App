@@ -9,19 +9,19 @@ const MindMap = () => {
     <div className={styles.mindMapContainer}>
       <div className={styles.triangleContainer}>
         <div
-          className={`${styles.circle} ${styles.topCircle}`}
+          className={`${styles.sphere} ${styles.topSphere}`}
           onClick={() => navigate("/Curious-Cat-Creative")}
         >
           <h3>Curious Cat Creative</h3>
         </div>
         <div
-          className={`${styles.circle} ${styles.leftCircle}`}
+          className={`${styles.sphere} ${styles.leftSphere}`}
           onClick={() => navigate("/KeshavInfo")}
         >
           <h3>Keshav</h3>
         </div>
         <div
-          className={`${styles.circle} ${styles.rightCircle}`}
+          className={`${styles.sphere} ${styles.rightSphere}`}
           onClick={() => navigate("/ShulkaInfo")}
         >
           <h3>Shulka</h3>
