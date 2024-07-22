@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import fetchData from "../../components/Diagram/Utils/fetchData";
 import { Card } from "../../components/DataCard/Card";
+import { Nav } from "../../components/Nav/Nav"; // Import the Nav component
 import styles from "./Curious-Cat-CreativeInfo.module.css";
 
 export const CuriousCatCreative = () => {
@@ -20,6 +21,7 @@ export const CuriousCatCreative = () => {
 
   return (
     <div className={styles.container}>
+      <Nav /> {/* Add the Nav component */}
       <div className={styles.header}>
         <div className={styles.headerText}>Curious Cat Creative</div>
       </div>

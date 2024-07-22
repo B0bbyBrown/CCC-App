@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import fetchData from "../../components/Diagram/Utils/fetchData";
 import { Card } from "../../components/DataCard/Card";
+import { Nav } from "../../components/Nav/Nav"; // Import the Nav component
 import styles from "./KeshavInfo.module.css";
 
 export const Keshav = () => {
@@ -20,6 +21,7 @@ export const Keshav = () => {
 
   return (
     <div className={styles.container}>
+      <Nav /> {/* Add the Nav component */}
       <div className={styles.header}>
         <div className={styles.headerText}>Keshav</div>
       </div>
