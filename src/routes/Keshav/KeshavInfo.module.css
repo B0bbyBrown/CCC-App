@@ -1,0 +1,45 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+}
+
+.header {
+  width: 100%;
+  background: #028da5;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three cards per row */
+  gap: 20px;
+  width: 90%; /* Adjust to fill more space */
+  margin: 0 auto; /* Center the grid */
+  padding: 20px;
+}
+
+.card {
+  width: 100%;
+  height: 300px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Two cards per row for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr; /* One card per row for mobile screens */
+  }
+}

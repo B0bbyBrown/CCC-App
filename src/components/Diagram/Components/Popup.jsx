@@ -6,6 +6,33 @@ export const Popup = ({ position, data }) => {
 
   const { label, company, individual1, individual2 } = data;
 
+  const renderCategoryData = (categoryData) => {
+    if (!categoryData) return <li>No data available</li>;
+
+    return Object.keys(categoryData).map((key, index) => {
+      const value = categoryData[key];
+      if (Array.isArray(value)) {
+        return (
+          <li key={index}>
+            <strong>{key}:</strong> {value.join(", ")}
+          </li>
+        );
+      } else if (typeof value === "object") {
+        return (
+          <li key={index}>
+            <strong>{key}:</strong> {JSON.stringify(value)}
+          </li>
+        );
+      } else {
+        return (
+          <li key={index}>
+            <strong>{key}:</strong> {value}
+          </li>
+        );
+      }
+    });
+  };
+
   return (
     <div
       className={styles.popup}
@@ -18,54 +45,15 @@ export const Popup = ({ position, data }) => {
       <div className={styles.content}>
         <div className={styles.column}>
           <h3>Company</h3>
-          <ul>
-            {company && Object.keys(company).length > 0 ? (
-              Object.keys(company).map((key, index) => (
-                <li key={index}>
-                  <strong>{key}:</strong>{" "}
-                  {Array.isArray(company[key])
-                    ? company[key].join(", ")
-                    : company[key]}
-                </li>
-              ))
-            ) : (
-              <li>No data available</li>
-            )}
-          </ul>
+          <ul>{renderCategoryData(company)}</ul>
         </div>
         <div className={styles.column}>
           <h3>Shulka</h3>
-          <ul>
-            {individual1 && Object.keys(individual1).length > 0 ? (
-              Object.keys(individual1).map((key, index) => (
-                <li key={index}>
-                  <strong>{key}:</strong>{" "}
-                  {Array.isArray(individual1[key])
-                    ? individual1[key].join(", ")
-                    : individual1[key]}
-                </li>
-              ))
-            ) : (
-              <li>No data available</li>
-            )}
-          </ul>
+          <ul>{renderCategoryData(individual1)}</ul>
         </div>
         <div className={styles.column}>
           <h3>Keshav</h3>
-          <ul>
-            {individual2 && Object.keys(individual2).length > 0 ? (
-              Object.keys(individual2).map((key, index) => (
-                <li key={index}>
-                  <strong>{key}:</strong>{" "}
-                  {Array.isArray(individual2[key])
-                    ? individual2[key].join(", ")
-                    : individual2[key]}
-                </li>
-              ))
-            ) : (
-              <li>No data available</li>
-            )}
-          </ul>
+          <ul>{renderCategoryData(individual2)}</ul>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
-import "./Shulka_info.css";
+import "./ShulkaInfo.css";
 
-const ShulkaInfo = () => {
+export const Shulka = () => {
   return (
     <>
       <div className="shulka-info">
@@ -10,5 +10,3 @@ const ShulkaInfo = () => {
     </>
   );
 };
-
-export { ShulkaInfo };

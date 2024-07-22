@@ -1,21 +1,31 @@
-export const fetchData = async () => {
-  const companyResponse = await fetch(
-    "/src/components/Diagram/Utils/companyData.json"
-  );
-  const keshavResponse = await fetch(
-    "/src/components/Diagram/Utils/keshavData.json"
-  );
-  const shulkaResponse = await fetch(
-    "/src/components/Diagram/Utils/shulkaData.json"
-  );
+const fetchData = async () => {
+  const [companyData, keshavData, shulkaData] = await Promise.all([
+    fetch("/src/components/Diagram/Utils/Json/companyData.json").then((res) =>
+      res.json()
+    ),
+    fetch("/src/components/Diagram/Utils/Json/keshavData.json").then((res) =>
+      res.json()
+    ),
+    fetch("/src/components/Diagram/Utils/Json/shulkaData.json").then((res) =>
+      res.json()
+    ),
+  ]);
 
-  const companyData = await companyResponse.json();
-  const keshavData = await keshavResponse.json();
-  const shulkaData = await shulkaResponse.json();
+  const combinedCategories = {};
 
-  return {
-    companyData,
-    keshavData,
-    shulkaData,
+  const addCategories = (data, name) => {
+    Object.keys(data.categories).forEach((category) => {
+      if (!combinedCategories[category]) {
+        combinedCategories[category] = {};
+      }
+      combinedCategories[category][name] = data.categories[category];
+    });
   };
+
+  addCategories(keshavData, "Keshav");
+  addCategories(shulkaData, "Shulka");
+
+  return { companyData, keshavData, shulkaData, combinedCategories };
 };
+
+export default fetchData;

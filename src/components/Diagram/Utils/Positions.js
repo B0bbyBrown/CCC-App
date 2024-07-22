@@ -1,14 +1,3 @@
-const generateCylinderPositions = (radius, height, count) => {
-  const angleStep = (2 * Math.PI) / count;
-  return Array.from({ length: count }, (_, i) => {
-    const angle = i * angleStep;
-    const x = radius * Math.cos(angle);
-    const y = (i / count) * height - height / 2; // Distribute height evenly
-    const z = radius * Math.sin(angle);
-    return [x, y, z];
-  });
-};
-
 const generateCirclePositions = (radius, count) => {
   const angleStep = (2 * Math.PI) / count;
   return Array.from({ length: count }, (_, i) => {
@@ -20,17 +9,24 @@ const generateCirclePositions = (radius, count) => {
   });
 };
 
-const companySubNodePositions = generateCylinderPositions(20, 30, 10); // Adjust the height to fit between the other subnodes
-const combinedSubNodesPositions = generateCylinderPositions(20, 60, 10);
+const keshavSubNodePositions = generateCirclePositions(20, 10); // Adjust the radius and count as needed
+const shulkaSubNodePositions = generateCirclePositions(20, 10); // Adjust the radius and count as needed
+const companySubNodePositions = generateCirclePositions(30, 5); // Example values
 
 const positions = {
   centralNode: [0, 0, 0],
-  companySubNodes: companySubNodePositions,
   individualNodes: {
-    Keshav: [0, 15, 0], // Keshav at the top
-    Shulka: [0, -15, 0], // Shulka at the bottom
+    Keshav: {
+      origin: [0, 20, 0], // Origin for Keshav
+      positions: keshavSubNodePositions, // Positions for Keshav's nodes
+    },
+    Shulka: {
+      origin: [0, -20, 0], // Origin for Shulka
+      positions: shulkaSubNodePositions, // Positions for Shulka's nodes
+    },
   },
-  combinedSubNodes: combinedSubNodesPositions,
+  companySubNodes: companySubNodePositions,
+  generateCirclePositions, // Export the function for dynamic positioning
 };
 
 export default positions;

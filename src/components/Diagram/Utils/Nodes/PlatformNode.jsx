@@ -1,19 +1,20 @@
 import React from "react";
 import { Text, Billboard } from "@react-three/drei";
 
-export const CentralNode = ({
+export const PlatformNode = ({
   position,
   color,
   label,
   showPopup,
   hidePopup,
+  isIndividualSubNode,
 }) => {
   return (
     <group
       position={position}
       onPointerOver={(e) => {
         e.stopPropagation();
-        showPopup(label, position);
+        showPopup(label, [e.clientX, e.clientY]);
       }}
       onPointerOut={(e) => {
         e.stopPropagation();
@@ -21,14 +22,17 @@ export const CentralNode = ({
       }}
     >
       <mesh>
-        <sphereGeometry args={[3, 32, 32]} />
-        <meshStandardMaterial color={color} />
+        <sphereGeometry args={[1, 32, 32]} />
+        <meshBasicMaterial
+          color={isIndividualSubNode ? "black" : "white"}
+          wireframe={!isIndividualSubNode}
+        />
       </mesh>
       <Billboard>
         <Text
-          position={[0, 0, 4]} // Ensure the text is outside the sphere
-          fontSize={1}
-          color="#FFFFFF"
+          position={[0, 0, 1.5]} // Position the text in front of the sphere
+          fontSize={0.5}
+          color={isIndividualSubNode ? "#FFFFFF" : "black"}
           anchorX="center"
           anchorY="middle"
         >

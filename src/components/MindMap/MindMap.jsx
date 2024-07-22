@@ -16,13 +16,13 @@ const MindMap = () => {
         </div>
         <div
           className={`${styles.sphere} ${styles.leftSphere}`}
-          onClick={() => navigate("/KeshavInfo")}
+          onClick={() => navigate("/Keshav")}
         >
           <h3>Keshav</h3>
         </div>
         <div
           className={`${styles.sphere} ${styles.rightSphere}`}
-          onClick={() => navigate("/ShulkaInfo")}
+          onClick={() => navigate("/Shulka")}
         >
           <h3>Shulka</h3>
         </div>

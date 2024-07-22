@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Scene } from "./components/Shaders/Background";
 import { ThreeDSpiderDiagram } from "./components/Diagram/ThreeDSpiderDiagram";
-import { MindMap } from "./components/mindMapFld/MindMap";
+import { MindMap } from "./components/MindMap/MindMap";
 import { CuriousCatCreative } from "./routes/Curious-Cat-Creative/Curious-Cat-Creative";
-import { KeshavInfo } from "./routes/Keshav/Keshav_info";
-import { ShulkaInfo } from "./routes/Shulka/Shulka_info";
+import { Keshav } from "./routes/Keshav/Keshav";
+import { Shulka } from "./routes/Shulka/Shulka";
 
 export const App = () => {
   return (
@@ -38,8 +38,8 @@ export const App = () => {
             path="/Curious-Cat-Creative"
             element={<CuriousCatCreative />}
           />
-          <Route path="/KeshavInfo" element={<KeshavInfo />} />
-          <Route path="/ShulkaInfo" element={<ShulkaInfo />} />
+          <Route path="/Keshav" element={<Keshav />} />
+          <Route path="/Shulka" element={<Shulka />} />
         </Routes>
       </div>
     </Router>
