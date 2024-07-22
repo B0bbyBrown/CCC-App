@@ -29,7 +29,7 @@ const Background = () => {
   return (
     <mesh ref={meshRef} scale={scale}>
       <planeGeometry args={[1, 1]} />
-      <myShaderMaterial ref={shaderRef} />
+      <MyShaderMaterial ref={shaderRef} />
       {/* BoxHelper is used to visualize the bounding box of the mesh */}
       {meshRef.current && <boxHelper args={[meshRef.current, 0xff0000]} />}
     </mesh>

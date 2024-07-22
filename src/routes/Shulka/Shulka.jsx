@@ -1,12 +1,37 @@
-import React from "react";
-import "./ShulkaInfo.css";
+import React, { useEffect, useState } from "react";
+import fetchData from "../../components/Diagram/Utils/fetchData";
+import { Card } from "../../components/DataCard/Card";
+import styles from "./ShulkaInfo.module.css";
 
 export const Shulka = () => {
+  const [shulkaData, setShulkaData] = useState(null);
+
+  useEffect(() => {
+    fetchData().then(({ shulkaData }) => {
+      setShulkaData(shulkaData);
+    });
+  }, []);
+
+  if (!shulkaData) {
+    return <div>Loading...</div>;
+  }
+
+  const categories = Object.keys(shulkaData.categories);
+
   return (
-    <>
-      <div className="shulka-info">
-        <h1 className="Label">Shulka</h1>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <div className={styles.headerText}>Shulka</div>
       </div>
-    </>
+      <div className={styles.grid}>
+        {categories.map((category, index) => (
+          <Card
+            key={index}
+            category={category}
+            data={shulkaData.categories[category]}
+          />
+        ))}
+      </div>
+    </div>
   );
 };

@@ -20,9 +20,9 @@ export const Keshav = () => {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        <h1>Keshav</h1>
-      </header>
+      <div className={styles.header}>
+        <div className={styles.headerText}>Keshav</div>
+      </div>
       <div className={styles.grid}>
         {categories.map((category, index) => (
           <Card
