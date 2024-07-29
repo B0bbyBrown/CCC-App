@@ -1,5 +1,5 @@
 .popup {
-  position: absolute;
+  position: absolute; /* Ensure the pop-up is absolutely positioned */
   background: white;
   border: 1px solid #ccc;
   padding: 10px;

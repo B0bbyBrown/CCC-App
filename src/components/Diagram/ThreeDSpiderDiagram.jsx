@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useNavigate } from "react-router-dom";
 import styles from "./ThreeDSpiderDiagram.module.css";
@@ -7,6 +7,24 @@ import fetchData from "./Utils/fetchData";
 import { renderNodes } from "./Utils/Nodes/NodeRenderer";
 import positions from "./Utils/Positions";
 import { PopupMain } from "./Utils/Popups/PopupMain";
+
+const Scene = ({ data, positions, showPopup, hidePopup, handleNodeClick }) => {
+  const { camera } = useThree();
+
+  return (
+    <>
+      {renderNodes(
+        data,
+        positions,
+        showPopup,
+        hidePopup,
+        handleNodeClick,
+        camera
+      )}
+      <OrbitControls />
+    </>
+  );
+};
 
 export function ThreeDSpiderDiagram() {
   const [data, setData] = useState({
@@ -34,7 +52,8 @@ export function ThreeDSpiderDiagram() {
   }, []);
 
   const showPopup = useCallback((label, position, data) => {
-    setPopupData({ label, ...data });
+    console.log("showPopup called with:", { label, position, data });
+    setPopupData({ label, categories: data });
     setPopupPosition({ x: position[0], y: position[1] });
   }, []);
 
@@ -46,9 +65,9 @@ export function ThreeDSpiderDiagram() {
     if (label === "Curious Cat Creative") {
       navigate("/Curious-Cat-Creative");
     } else if (label === "Keshav") {
-      navigate("/KeshavInfo");
+      navigate("/Keshav");
     } else if (label === "Shulka") {
-      navigate("/ShulkaInfo");
+      navigate("/Shulka");
     }
   };
 
@@ -56,10 +75,13 @@ export function ThreeDSpiderDiagram() {
     <div className={styles.container}>
       <div className={styles.canvasContainer}>
         <Canvas camera={{ position: [0, 0, 50], fov: 75 }}>
-          <ambientLight />
-          <pointLight position={[10, 10, 10]} />
-          {renderNodes(data, positions, showPopup, hidePopup, handleNodeClick)}
-          <OrbitControls />
+          <Scene
+            data={data}
+            positions={positions}
+            showPopup={showPopup}
+            hidePopup={hidePopup}
+            handleNodeClick={handleNodeClick}
+          />
         </Canvas>
         {popupData && <PopupMain position={popupPosition} data={popupData} />}
       </div>

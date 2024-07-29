@@ -1,18 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=K2D:wght@400;700&display=swap");
 
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .container {
   width: 100%;
-  height: 100%;
+  min-height: 100vh; /* Ensure the container takes at least the full viewport height */
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; /* Center content vertically */
+  position: relative; /* Ensure the gradient background is positioned correctly */
   background: linear-gradient(
     135deg,
     #02f5b8,
     #fa04e5
   ); /* Gradient background */
-  padding-top: 20px; /* Add padding at the top */
-  position: relative; /* Ensure the background is positioned correctly */
 }
 
 .header {
@@ -33,18 +39,18 @@
   color: #fff;
   font-family: "K2D", sans-serif;
   font-size: 5em;
-  z-index: 1; /* Ensure the text is above the background */
-  position: relative; /* Position it above the background */
+  z-index: 1;
+  position: relative;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Three cards per row */
   gap: 20px;
-  width: 90%; /* Adjust to fill more space */
-  margin: 20px auto; /* Center the grid and add margin at the top */
+  width: 90%;
+  margin: 20px auto;
   padding: 20px;
-  z-index: 1; /* Ensure the grid is above the background */
+  z-index: 1;
 }
 
 .card {

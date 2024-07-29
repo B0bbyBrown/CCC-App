@@ -1,27 +1,45 @@
 import React, { useEffect, useState } from "react";
 import fetchData from "../../components/Diagram/Utils/fetchData";
 import { Card } from "../../components/DataCard/Card";
-import { Nav } from "../../components/Nav/Nav"; // Import the Nav component
 import styles from "./ShulkaInfo.module.css";
+import { LoadingScreen } from "../../components/Loading/LoadingScreen";
+import { Nav } from "../../components/Nav/Nav";
 
 export const Shulka = () => {
   const [shulkaData, setShulkaData] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchData().then(({ shulkaData }) => {
-      setShulkaData(shulkaData);
-    });
+    console.log("Fetching data for Shulka...");
+    fetchData()
+      .then(({ shulkaData }) => {
+        if (!shulkaData) {
+          throw new Error("Shulka data is undefined");
+        }
+        console.log("Fetched data:", shulkaData);
+        setShulkaData(shulkaData);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setError(error.message);
+      });
   }, []);
 
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   if (!shulkaData) {
-    return <div>Loading...</div>;
+    console.log("Shulka data not loaded yet...");
+    return <LoadingScreen />;
   }
 
   const categories = Object.keys(shulkaData.categories);
+  console.log("Shulka categories:", categories);
 
   return (
     <div className={styles.container}>
-      <Nav /> {/* Add the Nav component */}
+      <Nav />
       <div className={styles.header}>
         <div className={styles.headerText}>Shulka</div>
       </div>
@@ -37,5 +55,3 @@ export const Shulka = () => {
     </div>
   );
 };
-
-export default Shulka;

@@ -1,7 +1,8 @@
 import React from "react";
-import { Text } from "@react-three/drei";
-import extendText from "../extendText";
+import { Text, Billboard } from "@react-three/drei";
 import { CurvedArm } from "../../Components/CurvedArm";
+import * as THREE from "three";
+import { getScreenPosition } from "../../Utils/getScreenPosition";
 
 export function RenderIndividualSubNodes({
   data,
@@ -9,6 +10,7 @@ export function RenderIndividualSubNodes({
   showPopup,
   hidePopup,
   color,
+  camera,
 }) {
   const renderNodesForData = (combinedCategories, origin, positions, color) => {
     if (!combinedCategories) return null;
@@ -17,33 +19,42 @@ export function RenderIndividualSubNodes({
       const nodePosition = positions[index];
       if (!nodePosition) return null;
 
-      const label = extendText(category, 100);
       return (
         <group key={category}>
           <mesh
             position={nodePosition}
-            onPointerOver={(e) =>
+            onPointerOver={(e) => {
+              e.stopPropagation();
+              const worldPosition = new THREE.Vector3();
+              e.object.getWorldPosition(worldPosition);
+              const screenPosition = getScreenPosition(camera, worldPosition);
               showPopup(
                 category,
-                [e.clientX, e.clientY],
+                [screenPosition.x, screenPosition.y],
                 combinedCategories[category]
-              )
-            }
-            onPointerOut={hidePopup}
+              );
+            }}
+            onPointerOut={(e) => {
+              e.stopPropagation();
+              hidePopup();
+            }}
           >
             <sphereGeometry args={[1, 32, 32]} />
             <meshStandardMaterial color={color} wireframe />
           </mesh>
           <CurvedArm start={origin} end={nodePosition} color={color} />
-          <Text
-            position={[...nodePosition, 1.5, 0, 0]} // Adjust position as necessary
-            fontSize={0.5}
-            color={color}
-            anchorX="center"
-            anchorY="middle"
+          <Billboard
+            position={[nodePosition[0], nodePosition[1] + 2, nodePosition[2]]}
           >
-            {label}
-          </Text>
+            <Text
+              fontSize={0.5}
+              color={"white"}
+              anchorX="center"
+              anchorY="middle"
+            >
+              {category}
+            </Text>
+          </Billboard>
         </group>
       );
     });

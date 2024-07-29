@@ -3,18 +3,27 @@ import { PopupIndividual } from "./PopupIndividual";
 import { PopupCompany } from "./PopupCompany";
 import styles from "./PopupMain.module.css";
 
-export function PopupMain({ position, data }) {
-  if (!data) return null;
-
-  const isCompany = data.label === "Curious Cat Creative";
+export const PopupMain = ({ position, data }) => {
+  console.log("Rendering popup for:", data);
 
   return (
-    <div className={styles.popup} style={{ left: position.x, top: position.y }}>
-      {isCompany ? (
-        <PopupCompany position={position} data={data} />
+    <div
+      className={styles.popup}
+      style={{
+        position: "absolute",
+        top: `${position.y}px`,
+        left: `${position.x}px`,
+      }}
+    >
+      {data ? (
+        Array.isArray(data.categories || data) ? (
+          <PopupIndividual data={data.categories || data} />
+        ) : (
+          <PopupCompany data={data} />
+        )
       ) : (
-        <PopupIndividual position={position} data={data} />
+        <div>No data available</div>
       )}
     </div>
   );
-}
+};

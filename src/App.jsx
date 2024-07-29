@@ -6,29 +6,28 @@ import { Nav } from "./components/Nav/Nav";
 import { CuriousCatCreative } from "./routes/Curious-Cat-Creative/Curious-Cat-Creative";
 import { Keshav } from "./routes/Keshav/Keshav";
 import { Shulka } from "./routes/Shulka/Shulka";
+import { Scene } from "./components/Shaders/BackDrop/Scene";
 
 export const App = () => {
   return (
     <Router>
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              {/* {<Scene />} */}
+              <div style={{ position: "relative", zIndex: 1 }}>
                 <ThreeDSpiderDiagram />
-                <Nav /> {/* Add the Nav component to the home page */}
-              </>
-            }
-          />
-          <Route
-            path="/Curious-Cat-Creative"
-            element={<CuriousCatCreative />}
-          />
-          <Route path="/Keshav" element={<Keshav />} />
-          <Route path="/Shulka" element={<Shulka />} />
-        </Routes>
-      </div>
+                <Nav />
+              </div>
+            </>
+          }
+        />
+        <Route path="/Curious-Cat-Creative" element={<CuriousCatCreative />} />
+        <Route path="/Keshav" element={<Keshav />} />
+        <Route path="/Shulka" element={<Shulka />} />
+      </Routes>
     </Router>
   );
 };

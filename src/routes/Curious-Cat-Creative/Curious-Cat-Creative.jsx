@@ -1,27 +1,45 @@
 import React, { useEffect, useState } from "react";
 import fetchData from "../../components/Diagram/Utils/fetchData";
 import { Card } from "../../components/DataCard/Card";
-import { Nav } from "../../components/Nav/Nav"; // Import the Nav component
-import styles from "./Curious-Cat-CreativeInfo.module.css";
+import styles from "./CuriousCatCreative.module.css";
+import { LoadingScreen } from "../../components/Loading/LoadingScreen";
+import { Nav } from "../../components/Nav/Nav";
 
 export const CuriousCatCreative = () => {
-  const [companyData, setCompanyData] = useState(null);
+  const [curiousCatData, setCuriousCatData] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchData().then(({ companyData }) => {
-      setCompanyData(companyData);
-    });
+    console.log("Fetching data for Curious Cat Creative...");
+    fetchData()
+      .then(({ companyData }) => {
+        if (!companyData) {
+          throw new Error("Curious Cat Creative data is undefined");
+        }
+        console.log("Fetched data:", companyData);
+        setCuriousCatData(companyData);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setError(error.message);
+      });
   }, []);
 
-  if (!companyData) {
-    return <div>Loading...</div>;
+  if (error) {
+    return <div>Error: {error}</div>;
   }
 
-  const categories = Object.keys(companyData.categories);
+  if (!curiousCatData) {
+    console.log("Curious Cat Creative data not loaded yet...");
+    return <LoadingScreen />;
+  }
+
+  const categories = Object.keys(curiousCatData.categories);
+  console.log("Curious Cat Creative categories:", categories);
 
   return (
     <div className={styles.container}>
-      <Nav /> {/* Add the Nav component */}
+      <Nav />
       <div className={styles.header}>
         <div className={styles.headerText}>Curious Cat Creative</div>
       </div>
@@ -30,7 +48,7 @@ export const CuriousCatCreative = () => {
           <Card
             key={index}
             category={category}
-            data={companyData.categories[category]}
+            data={curiousCatData.categories[category]}
           />
         ))}
       </div>

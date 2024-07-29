@@ -1,9 +1,8 @@
 import React, { useRef } from "react";
 import { Canvas, useFrame, extend, useThree } from "@react-three/fiber";
-import { PlaneGeometry, BoxHelper } from "three";
+import { PlaneGeometry } from "three";
 import { MyShaderMaterial } from "./ShaderMaterial";
 
-// Extend Three.js geometries
 extend({ PlaneGeometry });
 
 const Background = () => {
@@ -16,10 +15,6 @@ const Background = () => {
       shaderRef.current.uniforms.iTime.value = clock.getElapsedTime();
       shaderRef.current.uniforms.iResolution.value.set(size.width, size.height);
     }
-
-    if (meshRef.current) {
-      // console.log("Mesh dimensions:", meshRef.current.scale);
-    }
   });
 
   // Calculate scale to cover the entire viewport
@@ -29,14 +24,12 @@ const Background = () => {
   return (
     <mesh ref={meshRef} scale={scale}>
       <planeGeometry args={[1, 1]} />
-      <MyShaderMaterial ref={shaderRef} />
-      {/* BoxHelper is used to visualize the bounding box of the mesh */}
-      {meshRef.current && <boxHelper args={[meshRef.current, 0xff0000]} />}
+      <myShaderMaterial ref={shaderRef} />
     </mesh>
   );
 };
 
-const Scene = () => {
+export const Scene = () => {
   return (
     <Canvas
       style={{
@@ -51,5 +44,3 @@ const Scene = () => {
     </Canvas>
   );
 };
-
-export { Scene };

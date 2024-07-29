@@ -5,6 +5,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 5%;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.377);
 }
 
 .cardInner {

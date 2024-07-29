@@ -1,55 +1,64 @@
 import React from "react";
-import { Text } from "@react-three/drei";
-import extendText from "../extendText";
+import { Text, Billboard } from "@react-three/drei";
 import { CurvedArm } from "../../Components/CurvedArm";
+import * as THREE from "three";
+import { getScreenPosition } from "../../Utils/getScreenPosition";
 
 export function RenderCompanySubNodes({
   data,
   positions,
   showPopup,
   hidePopup,
+  camera,
 }) {
-  if (!positions.companySubNodes) {
-    console.log("No companySubNodes positions defined");
-    return null;
-  }
+  if (!positions.companySubNodes) return null;
 
   return (
     <>
       {Object.keys(data.categories).map((category, index) => {
         const nodePosition = positions.companySubNodes[index];
-        if (!nodePosition) {
-          console.log(`No position defined for category ${category}`);
-          return null;
-        }
+        if (!nodePosition) return null;
 
-        const label = extendText(category, 100);
         return (
           <group key={category}>
             <mesh
               position={nodePosition}
-              onPointerOver={(e) =>
-                showPopup(category, [e.clientX, e.clientY], data)
-              }
-              onPointerOut={hidePopup}
+              onPointerOver={(e) => {
+                e.stopPropagation();
+                const worldPosition = new THREE.Vector3();
+                e.object.getWorldPosition(worldPosition);
+                const screenPosition = getScreenPosition(camera, worldPosition);
+                showPopup(
+                  category,
+                  [screenPosition.x, screenPosition.y],
+                  data.categories[category]
+                );
+              }}
+              onPointerOut={(e) => {
+                e.stopPropagation();
+                hidePopup();
+              }}
             >
               <sphereGeometry args={[1, 32, 32]} />
-              <meshStandardMaterial color={"black"} wireframe />
+              <meshStandardMaterial color={"#FFFFFF"} wireframe />
             </mesh>
             <CurvedArm
               start={positions.centralNode}
               end={nodePosition}
               color={"#FFFFFF"}
             />
-            <Text
-              position={[...nodePosition, 1.5, 0, 0]} // Adjust position as necessary
-              fontSize={0.5}
-              color={"#FFFFFF"}
-              anchorX="center"
-              anchorY="middle"
+            <Billboard
+              position={[nodePosition[0], nodePosition[1] + 2, nodePosition[2]]}
             >
-              {label}
-            </Text>
+              <Text
+                fontSize={0.5}
+                color={"#FFFFFF"}
+                anchorX="center"
+                anchorY="middle"
+              >
+                {category}
+              </Text>
+            </Billboard>
           </group>
         );
       })}
