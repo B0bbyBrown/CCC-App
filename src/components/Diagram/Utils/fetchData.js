@@ -11,33 +11,19 @@ const fetchData = async () => {
         res.json()
       ),
     ]);
-    console.log("Company Data:", companyData);
-    console.log("Keshav Data:", keshavData);
-    console.log("Shulka Data:", shulkaData);
 
-    // Combine categories from Keshav and Shulka
     const combinedCategories = {};
-    const addCategories = (data) => {
+    const addCategories = (data, name) => {
       Object.keys(data.categories).forEach((key) => {
         if (!combinedCategories[key]) {
-          combinedCategories[key] = [];
+          combinedCategories[key] = {};
         }
-        const categoryData = data.categories[key];
-        if (Array.isArray(categoryData)) {
-          combinedCategories[key] = [
-            ...combinedCategories[key],
-            ...categoryData,
-          ];
-        } else {
-          combinedCategories[key].push(categoryData);
-        }
+        combinedCategories[key][name] = data.categories[key];
       });
     };
 
-    addCategories(keshavData);
-    addCategories(shulkaData);
-
-    console.log("Combined Categories:", combinedCategories);
+    addCategories(keshavData, "Keshav");
+    addCategories(shulkaData, "Shulka");
 
     return { companyData, keshavData, shulkaData, combinedCategories };
   } catch (error) {

@@ -1,26 +1,33 @@
 .popup {
-  padding: 10px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.category {
+.header {
+  font-size: 1.5em;
   margin-bottom: 10px;
 }
 
-.categoryContent {
-  padding-left: 10px;
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
 }
 
-.item {
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
   margin-bottom: 5px;
-}
-
-.itemDetails {
-  padding-left: 10px;
-}
-
-.itemDetail {
-  margin-bottom: 2px;
 }

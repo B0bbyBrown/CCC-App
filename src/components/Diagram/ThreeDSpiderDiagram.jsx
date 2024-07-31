@@ -53,7 +53,7 @@ export function ThreeDSpiderDiagram() {
 
   const showPopup = useCallback((label, position, data) => {
     console.log("showPopup called with:", { label, position, data });
-    setPopupData({ label, categories: data });
+    setPopupData({ [label]: data });
     setPopupPosition({ x: position[0], y: position[1] });
   }, []);
 
