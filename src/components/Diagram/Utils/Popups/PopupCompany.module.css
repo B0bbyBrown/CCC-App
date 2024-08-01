@@ -7,27 +7,44 @@
   color: #fff;
   border-radius: 10px;
   padding: 20px;
-  max-width: 300px;
+  max-width: 600px;
+  max-height: 80vh; /* Set a max height for the pop-up */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure it's above other elements */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  text-align: center; /* Center-align all text */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .header {
   font-size: 1.5em;
   margin-bottom: 10px;
+  text-align: center; /* Center-align header text */
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   width: 100%;
+  overflow-y: auto; /* Enable vertical scrolling */
+  text-align: center; /* Center-align content */
 }
 
 ul {
   list-style-type: none;
   padding: 0;
+  text-align: center; /* Center-align list items */
 }
 
 li {
   margin-bottom: 5px;
+  text-align: center; /* Center-align list items */
+}
+
+.popup:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .popup {
+    max-width: 90%;
+  }
 }
