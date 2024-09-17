@@ -3,7 +3,6 @@ import fetchData from "../../components/Diagram/Utils/fetchData";
 import { Card } from "../../components/DataCard/Card";
 import styles from "./KeshavInfo.module.css";
 import { LoadingScreen } from "../../components/Loading/LoadingScreen";
-import { Nav } from "../../components/Nav/Nav";
 
 export const Keshav = () => {
   const [keshavData, setKeshavData] = useState(null);
@@ -39,7 +38,6 @@ export const Keshav = () => {
 
   return (
     <div className={styles.container}>
-      <Nav />
       <div className={styles.header}>
         <div className={styles.headerText}>Keshav</div>
       </div>

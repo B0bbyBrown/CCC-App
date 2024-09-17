@@ -1,32 +1,53 @@
-const generateCirclePositions = (radius, count) => {
-  const angleStep = (2 * Math.PI) / count;
+const generateCylindricalDoubleHelixPositions = (
+  radius,
+  count,
+  helixHeight
+) => {
+  const angleStep = (2 * Math.PI) / (count / 2); // Divide by 2 for two strands
+  const heightStep = helixHeight / count;
+  const phaseShift = Math.PI; // 180 degrees phase shift for the second strand
+
   return Array.from({ length: count }, (_, i) => {
     const angle = i * angleStep;
-    const x = radius * Math.cos(angle);
-    const y = 0; // Same y-coordinate for 2D circle
-    const z = radius * Math.sin(angle);
+    const height = i * heightStep;
+    const strand = i % 2; // Alternates between 0 and 1 for two strands
+
+    const x = radius * Math.cos(angle + strand * phaseShift);
+    const y = height;
+    const z = radius * Math.sin(angle + strand * phaseShift);
+
     return [x, y, z];
   });
 };
 
-const keshavSubNodePositions = generateCirclePositions(20, 10); // Adjust the radius and count as needed
-const shulkaSubNodePositions = generateCirclePositions(20, 10); // Adjust the radius and count as needed
-const companySubNodePositions = generateCirclePositions(30, 5); // Example values
+const helixRadius = 20;
+const helixHeight = 50; // Reduced height for tighter packing
+const nodeCount = 40; // Increased for more density
+
+const keshavSubNodePositions = generateCylindricalDoubleHelixPositions(
+  helixRadius,
+  nodeCount,
+  helixHeight
+);
+const shulkaSubNodePositions = generateCylindricalDoubleHelixPositions(
+  helixRadius,
+  nodeCount,
+  helixHeight
+);
 
 const positions = {
-  centralNode: [0, 0, 0],
+  centralNode: [0, helixHeight / 2, 0], // Central node at the center
   individualNodes: {
     Keshav: {
-      origin: [0, 20, 0], // Origin for Keshav
-      positions: keshavSubNodePositions, // Positions for Keshav's nodes
+      origin: [0, helixHeight, 0], // Position above the central node
+      positions: keshavSubNodePositions,
     },
     Shulka: {
-      origin: [0, -20, 0], // Origin for Shulka
-      positions: shulkaSubNodePositions, // Positions for Shulka's nodes
+      origin: [0, 0, 0], // Position below the central node
+      positions: shulkaSubNodePositions,
     },
   },
-  companySubNodes: companySubNodePositions,
-  generateCirclePositions, // Export the function for dynamic positioning
+  generateCylindricalDoubleHelixPositions, // Export the function for dynamic positioning
 };
 
 export default positions;

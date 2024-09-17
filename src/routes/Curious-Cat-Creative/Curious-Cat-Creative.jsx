@@ -3,7 +3,6 @@ import fetchData from "../../components/Diagram/Utils/fetchData";
 import { Card } from "../../components/DataCard/Card";
 import styles from "./CuriousCatCreative.module.css";
 import { LoadingScreen } from "../../components/Loading/LoadingScreen";
-import { Nav } from "../../components/Nav/Nav";
 
 export const CuriousCatCreative = () => {
   const [curiousCatData, setCuriousCatData] = useState(null);
@@ -39,7 +38,6 @@ export const CuriousCatCreative = () => {
 
   return (
     <div className={styles.container}>
-      <Nav />
       <div className={styles.header}>
         <div className={styles.headerText}>Curious Cat Creative</div>
       </div>

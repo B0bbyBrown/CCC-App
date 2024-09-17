@@ -1,0 +1,81 @@
+.header {
+  display: flex;
+  justify-content: space-between; /* Aligns logo and nav on opposite sides */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333; /* Adjust as needed */
+  position: relative; /* Needed for absolute positioning of child elements */
+}
+
+/* Container for the navigation */
+.nav {
+  position: relative; /* Creates a containing block for absolutely positioned items */
+  width: 150px; /* Adjust based on your layout requirements */
+  height: 200px; /* Adjust for sufficient space to form a triangle */
+}
+
+/* Nav List */
+.navList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: absolute; /* Use absolute positioning for triangle layout */
+  top: 0;
+  right: 0;
+}
+
+/* Individual Nav Items */
+.navItem {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: translate(-50%, -50%); /* Centering transform */
+}
+
+/* Positioning items to form a triangle */
+.item0 {
+  top: 0; /* Top of the triangle */
+  left: 50%; /* Centered horizontally */
+}
+
+.item1 {
+  bottom: 0; /* Bottom left */
+  left: 0; /* Left side */
+}
+
+.item2 {
+  bottom: 0; /* Bottom right */
+  right: 0; /* Right side */
+}
+
+/* Styling for the links */
+.link {
+  text-decoration: none;
+  color: #ffffff; /* Adjust as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sphere style */
+.sphere {
+  width: 50px; /* Adjust size as needed */
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ff7eb3, #ff65a3); /* Adjust colors */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Text on top of sphere */
+.navText {
+  position: absolute; /* Positions the text over the sphere */
+  color: white;
+  font-size: 12px; /* Adjust size */
+  text-align: center;
+  font-weight: bold;
+}
