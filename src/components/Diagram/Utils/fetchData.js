@@ -1,15 +1,9 @@
 const fetchData = async () => {
   try {
     const [companyData, keshavData, shulkaData] = await Promise.all([
-      fetch("/src/components/Diagram/Utils/Json/companyData.json").then((res) =>
-        res.json()
-      ),
-      fetch("/src/components/Diagram/Utils/Json/keshavData.json").then((res) =>
-        res.json()
-      ),
-      fetch("/src/components/Diagram/Utils/Json/shulkaData.json").then((res) =>
-        res.json()
-      ),
+      fetch("src/Utils/Json/companyData.json").then((res) => res.json()),
+      fetch("/src/Utils/Json/keshavData.json").then((res) => res.json()),
+      fetch("/src/Utils/Json/shulkaData.json").then((res) => res.json()),
     ]);
 
     const combinedCategories = {};

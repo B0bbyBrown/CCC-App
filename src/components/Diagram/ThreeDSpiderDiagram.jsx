@@ -30,6 +30,7 @@ export function ThreeDSpiderDiagram() {
   const [data, setData] = useState({
     keshav: null,
     shulka: null,
+    company: null,
     combinedCategories: null,
   });
   const [popupData, setPopupData] = useState(null);
@@ -38,15 +39,17 @@ export function ThreeDSpiderDiagram() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchData().then(({ keshavData, shulkaData, combinedCategories }) => {
-      setData({
-        keshav: keshavData,
-        shulka: shulkaData,
-        combinedCategories,
-      });
-    });
+    fetchData().then(
+      ({ companyData, keshavData, shulkaData, combinedCategories }) => {
+        setData({
+          company: companyData,
+          keshav: keshavData,
+          shulka: shulkaData,
+          combinedCategories,
+        });
+      }
+    );
   }, []);
-  s;
 
   const showPopup = useCallback((label, position, data) => {
     console.log("showPopup called with:", { label, position, data });
