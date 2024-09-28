@@ -41,7 +41,10 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
   vec3 subColor = vec3(0.4, 0.8, 0.2);
   vec3 addColor = vec3(0.3, 0.2, 0.1);
 
-  fragColor = vec4(vec3(0.9412, 0.6745, 0.9294) - accum * subColor + addColor, 1.0);
+  vec3 finalColor = vec3(0.9412, 0.6745, 0.9294) - accum * subColor + addColor;
+  float alpha = smoothstep(0.0, 1.0, length(finalColor) * 0.5);  // Adjust alpha based on the color intensity
+
+  fragColor = vec4(finalColor, alpha * 0.8); // 0.8 transparency for whites and blacks
 }
 
 void main() {

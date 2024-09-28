@@ -1,0 +1,23 @@
+.header {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  height: 10rem;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  height: 100%;
+  width: 10%;
+}
+
+.nav {
+  align-items: center;
+
+  height: 100%;
+  width: 10%;
+}

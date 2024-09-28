@@ -3,6 +3,7 @@ import { fetchData } from "../../Utils/fetchData";
 import { Card } from "../../components/DataCard/Card";
 import styles from "./CuriousCatCreative.module.css";
 import { LoadingScreen } from "../../components/Loading/LoadingScreen";
+import { Header } from "../../components/Header/Header";
 
 export const CuriousCatCreative = () => {
   const [curiousCatData, setCuriousCatData] = useState(null);
@@ -37,6 +38,23 @@ export const CuriousCatCreative = () => {
   console.log("Curious Cat Creative categories:", categories);
 
   return (
+    <>
+      <Header />
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <div className={styles.headerText}>Curious Cat Creative</div>
+        </div>
+        <div className={styles.grid}>
+          {categories.map((category, index) => (
+            <Card
+              key={index}
+              category={category}
+              data={curiousCatData.categories[category]}
+            />
+          ))}
+        </div>
+      </div>
+    </>
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.headerText}>Curious Cat Creative</div>

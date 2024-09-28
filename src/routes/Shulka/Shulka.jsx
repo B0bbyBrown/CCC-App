@@ -3,6 +3,7 @@ import { fetchData } from "../../Utils/fetchData";
 import { Card } from "../../components/DataCard/Card";
 import styles from "./ShulkaInfo.module.css";
 import { LoadingScreen } from "../../components/Loading/LoadingScreen";
+import { Header } from "../../components/Header/Header";
 
 export const Shulka = () => {
   const [shulkaData, setShulkaData] = useState(null);
@@ -37,19 +38,22 @@ export const Shulka = () => {
   console.log("Shulka categories:", categories);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <div className={styles.headerText}>Shulka</div>
+    <>
+      <Header />
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <div className={styles.headerText}>Shulka</div>
+        </div>
+        <div className={styles.grid}>
+          {categories.map((category, index) => (
+            <Card
+              key={index}
+              category={category}
+              data={shulkaData.categories[category]}
+            />
+          ))}
+        </div>
       </div>
-      <div className={styles.grid}>
-        {categories.map((category, index) => (
-          <Card
-            key={index}
-            category={category}
-            data={shulkaData.categories[category]}
-          />
-        ))}
-      </div>
-    </div>
+    </>
   );
 };
