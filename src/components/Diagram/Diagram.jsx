@@ -2,11 +2,12 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useNavigate } from "react-router-dom";
-import styles from "./ThreeDSpiderDiagram.module.css";
-import fetchData from "./Utils/fetchData";
+import styles from "./Diagram.module.css";
+import { fetchData } from "../../Utils/fetchData";
 import { renderNodes } from "./Utils/Nodes/NodeRenderer";
 import positions from "./Utils/Positions";
 import { PopupMain } from "./Utils/Popups/PopupMain";
+import { SceneBackground } from "../Shaders/BackDrop/SceneBackground";
 
 const Scene = ({ data, positions, showPopup, hidePopup, handleNodeClick }) => {
   const { camera } = useThree();
@@ -26,7 +27,7 @@ const Scene = ({ data, positions, showPopup, hidePopup, handleNodeClick }) => {
   );
 };
 
-export function ThreeDSpiderDiagram() {
+export function Diagram() {
   const [data, setData] = useState({
     keshav: null,
     shulka: null,
@@ -73,6 +74,7 @@ export function ThreeDSpiderDiagram() {
 
   return (
     <div className={styles.container}>
+      <SceneBackground />
       <div className={styles.canvasContainer}>
         <Canvas camera={{ position: [0, 0, 50], fov: 75 }}>
           <Scene

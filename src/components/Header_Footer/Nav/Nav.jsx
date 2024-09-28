@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./Nav.module.css";
 
 const navLinks = {
-  "/Curious-Cat-Creative": "Curious Cat Creative",
+  "/Curious-Cat-Creative": "CCC",
   "/Keshav": "Keshav",
   "/Shulka": "Shulka",
 };
@@ -15,7 +15,7 @@ export const Nav = () => {
         {Object.keys(navLinks).map((path, index) => (
           <li
             key={index}
-            className={`${styles.navItem} ${styles[`item${index}`]}`}
+            className={`${styles.navItem} ${styles[`item${index}`] || ""}`}
           >
             <Link to={path} className={styles.link}>
               <div className={styles.sphere}>

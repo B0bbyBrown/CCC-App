@@ -21,8 +21,8 @@ const generateCylindricalDoubleHelixPositions = (
 };
 
 const helixRadius = 20;
-const helixHeight = 50; // Reduced height for tighter packing
-const nodeCount = 40; // Increased for more density
+const helixHeight = 50;
+const nodeCount = 40;
 
 const keshavSubNodePositions = generateCylindricalDoubleHelixPositions(
   helixRadius,
@@ -36,14 +36,17 @@ const shulkaSubNodePositions = generateCylindricalDoubleHelixPositions(
 );
 
 const positions = {
-  centralNode: [0, helixHeight / 2, 0], // Central node at the center
+  centralNode: [0, 0, 0], // Central node (Curious Cat Creative)
   individualNodes: {
+    CuriousCatCreative: {
+      origin: [0, 0, 0], // Central node (CCC)
+    },
     Keshav: {
-      origin: [0, helixHeight, 0], // Position above the central node
+      origin: [0, helixHeight, 0], // Keshav above CCC
       positions: keshavSubNodePositions,
     },
     Shulka: {
-      origin: [0, 0, 0], // Position below the central node
+      origin: [0, -helixHeight, 0], // Shulka below CCC
       positions: shulkaSubNodePositions,
     },
   },

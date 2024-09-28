@@ -1,0 +1,82 @@
+{
+  "name": "Keshav",
+  "categories": {
+    "Projects": [
+      {
+        "name": "E-commerce Platform Development",
+        "description": "Developed a scalable e-commerce platform with React and Node.js, integrated with various third-party APIs.",
+        "duration": "1 year"
+      },
+      {
+        "name": "Mobile App for Healthcare",
+        "description": "Led the development of a healthcare app for scheduling appointments and tracking patient health data.",
+        "duration": "6 months"
+      },
+      {
+        "name": "AI-powered Chatbot",
+        "description": "Designed and deployed an AI chatbot using NLP techniques to enhance customer service for a financial firm.",
+        "duration": "8 months"
+      },
+      {
+        "name": "Social Media Automation Tool",
+        "description": "Built a tool for automating social media posts and analytics for small businesses.",
+        "duration": "4 months"
+      },
+      {
+        "name": "Blockchain Supply Chain Solution",
+        "description": "Implemented a blockchain solution for supply chain transparency and efficiency for a logistics company.",
+        "duration": "2 years"
+      }
+    ],
+    "Companies": [
+      {
+        "role": "Software Engineer at Tech Solutions Inc.",
+        "years": "3 years",
+        "skills": ["JavaScript", "React", "Node.js", "MongoDB"]
+      },
+      {
+        "role": "Lead Developer at InnovateX",
+        "years": "2 years",
+        "skills": ["Python", "Machine Learning", "AWS", "Docker"]
+      }
+    ],
+
+    "Skills": {
+      "primarySkills": ["Full Stack Development", "Cloud Computing"],
+      "secondarySkills": ["Data Science", "Agile Project Management"]
+    },
+    "Experience": [
+      {
+        "role": "Senior Developer at CloudNet",
+        "duration": "4 years",
+        "projects": ["E-commerce Platform Development", "AI-powered Chatbot"]
+      }
+    ],
+    "Education": [
+      {
+        "degree": "BSc in Computer Science",
+        "experience": "Graduated 2015"
+      }
+    ],
+
+    "Certifications": [
+      "AWS Certified Solutions Architect",
+      "Certified ScrumMaster"
+    ],
+    "Achievements": [
+      "Published AI research in top journal",
+      "Developed a patent-pending AI algorithm"
+    ],
+
+    "Research": ["AI Ethics and Responsible AI", "Advances in Neural Networks"],
+    "Development": [
+      "New mobile framework for iOS and Android",
+      "Serverless backend architecture"
+    ],
+    "Teamwork": [
+      "Collaborated on a fintech project with cross-functional teams",
+      "Participated in a global hackathon"
+    ],
+    "Leadership": ["Led a team of 10 developers", "Mentored junior engineers"]
+  }
+}

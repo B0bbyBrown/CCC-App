@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import fetchData from "../../components/Diagram/Utils/fetchData";
+import { fetchData } from "../../Utils/fetchData";
 import { Card } from "../../components/DataCard/Card";
 import styles from "./ShulkaInfo.module.css";
 import { LoadingScreen } from "../../components/Loading/LoadingScreen";

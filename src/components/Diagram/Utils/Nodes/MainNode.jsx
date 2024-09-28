@@ -38,7 +38,7 @@ export const MainNode = ({
         <Text
           position={[0, 0, 4]} // Ensure the text is outside the sphere
           fontSize={1}
-          color="#FFFFFF"
+          // color="#FFFFFF"
           anchorX="center"
           anchorY="middle"
         >

@@ -1,25 +1,36 @@
-body,
+/* Ensure the app takes up the entire height of the viewport */
 html,
+body,
 #root {
+  height: 100%;
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(66, 64, 64);
+}
+
+/* Make the app container stretch across the full viewport */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+}
+
+header,
+footer {
+  flex-shrink: 0; /* Prevents header and footer from resizing */
+}
+
+/* Ensure the content takes up all available space between the header and footer */
+.content {
+  flex: 1; /* This will take up the remaining space between header and footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevents overflow */
 }
 
 canvas {
   display: block;
-  width: 100% !important;
-  height: 100% !important;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-}
-
-#root > div {
-  position: relative;
-  z-index: 1;
+  width: 100%;
+  height: 100%;
 }

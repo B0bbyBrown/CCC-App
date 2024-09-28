@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  position: relative;
+  height: 100px; /* Adjust height if necessary */
+}
+
+.logo {
+  flex: 1;
+}
+
+.nav {
+  position: relative;
+  width: 150px; /* Adjust depending on how large you want the triangle */
+  height: 100px;
+}

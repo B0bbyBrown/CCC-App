@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Canvas, useFrame, extend, useThree } from "@react-three/fiber";
 import { PlaneGeometry } from "three";
-import { MyShaderMaterial } from "./ShaderMaterial";
+import { ShaderMaterial } from "./ShaderMaterial"; // Ensure this path is correct
 
 extend({ PlaneGeometry });
 
@@ -17,19 +17,18 @@ const Background = () => {
     }
   });
 
-  // Calculate scale to cover the entire viewport
-  const aspect = viewport.width / viewport.height;
+  // Scale to cover the viewport
   const scale = [viewport.width, viewport.height, 1];
 
   return (
     <mesh ref={meshRef} scale={scale}>
       <planeGeometry args={[1, 1]} />
-      <myShaderMaterial ref={shaderRef} />
+      <shaderMaterial ref={shaderRef} />
     </mesh>
   );
 };
 
-export const Scene = () => {
+export const SceneBackground = () => {
   return (
     <Canvas
       style={{
