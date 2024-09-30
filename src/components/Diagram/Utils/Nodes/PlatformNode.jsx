@@ -24,15 +24,15 @@ export const PlatformNode = ({
       <mesh>
         <sphereGeometry args={[1, 32, 32]} />
         <meshBasicMaterial
-          color={isIndividualSubNode ? "black" : "white"}
+          color={isIndividualSubNode ? color : "white"}
           wireframe={!isIndividualSubNode}
         />
       </mesh>
       <Billboard>
         <Text
-          position={[0, 0, 1.5]} // Position the text in front of the sphere
+          position={[0, 1.5, 0]}
           fontSize={0.5}
-          color={isIndividualSubNode ? "#FFFFFF" : "black"}
+          color={isIndividualSubNode ? "white" : "black"}
           anchorX="center"
           anchorY="middle"
         >

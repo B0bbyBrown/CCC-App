@@ -1,92 +1,98 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Canvas, useThree } from "@react-three/fiber";
+import React, { useMemo, useState, useEffect } from "react";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { useNavigate } from "react-router-dom";
-import styles from "./Diagram.module.css";
-import { fetchData } from "../../Utils/fetchData";
+import { generateDoubleHelixPositions } from "./Utils/Positions";
 import { renderNodes } from "./Utils/Nodes/NodeRenderer";
-import positions from "./Utils/Positions";
-import { PopupMain } from "./Utils/Popups/PopupMain";
-import { SceneBackground } from "../Shaders/BackDrop/SceneBackground";
+import { fetchData } from "../../Utils/fetchData";
+import { renderData } from "./Utils/renderData";
+import { LoadingAnimation } from "../Loading/LoadingAnimation";
+import styles from "./Diagram.module.css";
 
-const Scene = ({ data, positions, showPopup, hidePopup, handleNodeClick }) => {
-  const { camera } = useThree();
-
-  return (
-    <>
-      {renderNodes(
-        data,
-        positions,
-        showPopup,
-        hidePopup,
-        handleNodeClick,
-        camera
-      )}
-      <OrbitControls />
-    </>
-  );
-};
-
-export function Diagram() {
-  const [data, setData] = useState({
-    keshav: null,
-    shulka: null,
-    company: null,
-    combinedCategories: null,
-  });
+export const Diagram = () => {
+  const [data, setData] = useState(null);
   const [popupData, setPopupData] = useState(null);
-  const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
-
-  const navigate = useNavigate();
+  const [hoveredNode, setHoveredNode] = useState(null);
 
   useEffect(() => {
-    fetchData().then(
-      ({ companyData, keshavData, shulkaData, combinedCategories }) => {
+    fetchData().then((fetchedData) => {
+      if (fetchedData) {
         setData({
-          company: companyData,
-          keshav: keshavData,
-          shulka: shulkaData,
-          combinedCategories,
+          keshav: fetchedData.keshavData,
+          company: fetchedData.companyData,
+          shulka: fetchedData.shulkaData,
         });
       }
-    );
+    });
   }, []);
 
-  const showPopup = useCallback((label, position, data) => {
-    console.log("showPopup called with:", { label, position, data });
-    setPopupData({ [label]: data });
-    setPopupPosition({ x: position[0], y: position[1] });
-  }, []);
+  const helixPositions = useMemo(() => {
+    if (!data) return [];
+    const totalNodes = Object.values(data).reduce((acc, curr) => {
+      return (
+        acc + 1 + (curr.categories ? Object.keys(curr.categories).length : 0)
+      );
+    }, 0);
+    return generateDoubleHelixPositions(20, totalNodes, 100, 0, 0, 0);
+  }, [data]);
+
+  const showPopup = (label, position, data) => {
+    setPopupData({ label, position, data });
+  };
 
   const hidePopup = () => {
     setPopupData(null);
   };
 
-  const handleNodeClick = (label) => {
-    if (label === "Curious Cat Creative") {
-      navigate("/Curious-Cat-Creative");
-    } else if (label === "Keshav") {
-      navigate("/Keshav");
-    } else if (label === "Shulka") {
-      navigate("/Shulka");
-    }
+  const handleHover = (nodeKey) => {
+    setHoveredNode(nodeKey);
   };
+
+  const handleUnhover = () => {
+    setHoveredNode(null);
+  };
+
+  if (!data) {
+    return (
+      <div className={styles.container}>
+        <Canvas>
+          <LoadingAnimation />
+        </Canvas>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.container}>
-      <SceneBackground />
-      <div className={styles.canvasContainer}>
-        <Canvas camera={{ position: [0, 0, 50], fov: 75 }}>
-          <Scene
-            data={data}
-            positions={positions}
-            showPopup={showPopup}
-            hidePopup={hidePopup}
-            handleNodeClick={handleNodeClick}
-          />
-        </Canvas>
-        {popupData && <PopupMain position={popupPosition} data={popupData} />}
-      </div>
+      <Canvas camera={{ position: [0, 0, 150], fov: 60 }}>
+        <color attach="background" args={["#f0f0f0"]} />
+        <ambientLight intensity={0.5} />
+        <pointLight position={[10, 10, 10]} />
+        {renderNodes(
+          data,
+          helixPositions,
+          showPopup,
+          hidePopup,
+          handleHover,
+          handleUnhover,
+          hoveredNode
+        )}
+        <OrbitControls />
+      </Canvas>
+      {popupData && (
+        <div
+          style={{
+            position: "absolute",
+            left: popupData.position[0],
+            top: popupData.position[1],
+            background: "white",
+            padding: "10px",
+            borderRadius: "5px",
+          }}
+        >
+          <h3>{popupData.label}</h3>
+          {renderData(popupData.data)}
+        </div>
+      )}
     </div>
   );
-}
+};

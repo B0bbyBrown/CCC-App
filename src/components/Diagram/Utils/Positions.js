@@ -1,56 +1,30 @@
-const generateCylindricalDoubleHelixPositions = (
+export const generateDoubleHelixPositions = (
   radius,
   count,
-  helixHeight
+  height,
+  centerX,
+  centerY,
+  centerZ
 ) => {
-  const angleStep = (2 * Math.PI) / (count / 2); // Divide by 2 for two strands
-  const heightStep = helixHeight / count;
-  const phaseShift = Math.PI; // 180 degrees phase shift for the second strand
+  const positions = [];
+  const angleStep = (4 * Math.PI) / count;
+  const heightStep = height / count;
 
-  return Array.from({ length: count }, (_, i) => {
+  for (let i = 0; i < count; i++) {
     const angle = i * angleStep;
-    const height = i * heightStep;
-    const strand = i % 2; // Alternates between 0 and 1 for two strands
+    const x = centerX + radius * Math.cos(angle);
+    const y = centerY + i * heightStep - height / 2;
+    const z = centerZ + radius * Math.sin(angle);
 
-    const x = radius * Math.cos(angle + strand * phaseShift);
-    const y = height;
-    const z = radius * Math.sin(angle + strand * phaseShift);
+    positions.push([x, y, z]);
+  }
 
-    return [x, y, z];
-  });
+  console.log(`Generated ${positions.length} helix positions`);
+  return positions;
 };
 
-const helixRadius = 20;
-const helixHeight = 50;
-const nodeCount = 40;
-
-const keshavSubNodePositions = generateCylindricalDoubleHelixPositions(
-  helixRadius,
-  nodeCount,
-  helixHeight
-);
-const shulkaSubNodePositions = generateCylindricalDoubleHelixPositions(
-  helixRadius,
-  nodeCount,
-  helixHeight
-);
-
-const positions = {
-  centralNode: [0, 0, 0], // Central node (Curious Cat Creative)
-  individualNodes: {
-    CuriousCatCreative: {
-      origin: [0, 0, 0], // Central node (CCC)
-    },
-    Keshav: {
-      origin: [0, helixHeight, 0], // Keshav above CCC
-      positions: keshavSubNodePositions,
-    },
-    Shulka: {
-      origin: [0, -helixHeight, 0], // Shulka below CCC
-      positions: shulkaSubNodePositions,
-    },
-  },
-  generateCylindricalDoubleHelixPositions, // Export the function for dynamic positioning
+export const mainNodePositions = {
+  keshav: [0, 40, 0],
+  company: [0, 0, 0],
+  shulka: [0, -40, 0],
 };
-
-export default positions;

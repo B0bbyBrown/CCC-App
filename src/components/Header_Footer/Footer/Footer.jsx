@@ -7,7 +7,6 @@ export const Footer = () => {
       <div className={styles.footerContent}>
         <p>© 2024 Curious Cat Creative. All rights reserved.</p>
         <div className={styles.socialIcons}>
-          {/* You can add social media icons or links here */}
           <a href="#">Facebook</a> | <a href="#">Twitter</a> |{" "}
           <a href="#">LinkedIn</a>
         </div>

@@ -1,26 +1,16 @@
-/* Diagram.module.css */
-
-/* Make container flexible to take up remaining space between header and footer */
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
-  height: calc(
-    100vh - 120px
-  ); /* Adjust height to account for header and footer */
-  background: transparent;
-  margin-bottom: 20px;
-  overflow: hidden;
+  height: 100%;
+  position: relative;
 }
 
-/* Make canvas container stretch to fill available space */
 .canvasContainer {
   width: 100%;
-  height: 100%; /* Take up all available height */
+  height: 100%;
   position: relative;
-  background-color: #f8f9fa; /* Optional background for visibility */
 }
+
+/* Keep other styles as they are */
 
 /* Popup styling for node data */
 .popup {
@@ -69,4 +59,16 @@
 
 .column li {
   margin-bottom: 5px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

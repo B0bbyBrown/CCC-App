@@ -6,10 +6,10 @@ import { extend } from "@react-three/fiber";
 import vertexShader from "../BackDrop/myShader.vert.glsl";
 import fragmentShader from "../BackDrop/myShader.frag.glsl";
 
-// Create shader material without using 'new'
-const ShaderMaterial = shaderMaterial(
+// Create shader material
+const CustomShaderMaterial = shaderMaterial(
   {
-    iResolution: new THREE.Vector2(window.innerWidth, window.innerHeight),
+    iResolution: new THREE.Vector2(1, 1),
     iTime: 0,
   },
   vertexShader,
@@ -17,6 +17,8 @@ const ShaderMaterial = shaderMaterial(
 );
 
 // Extend the material to be used as a JSX element
-extend({ ShaderMaterial });
+extend({ CustomShaderMaterial });
 
-export { ShaderMaterial };
+console.log("CustomShaderMaterial created:", CustomShaderMaterial);
+
+export { CustomShaderMaterial };

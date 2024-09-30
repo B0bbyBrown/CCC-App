@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchData } from "../../Utils/fetchData";
 import { Card } from "../../components/DataCard/Card";
 import styles from "./ShulkaInfo.module.css";
-import { LoadingScreen } from "../../components/Loading/LoadingScreen";
-import { Header } from "../../components/Header/Header";
+import { LoadingAnimation } from "../../components/Loading/LoadingAnimation";
 
 export const Shulka = () => {
   const [shulkaData, setShulkaData] = useState(null);
@@ -31,7 +30,7 @@ export const Shulka = () => {
 
   if (!shulkaData) {
     console.log("Shulka data not loaded yet...");
-    return <LoadingScreen />;
+    return <LoadingAnimation />;
   }
 
   const categories = Object.keys(shulkaData.categories);
@@ -39,7 +38,6 @@ export const Shulka = () => {
 
   return (
     <>
-      <Header />
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.headerText}>Shulka</div>

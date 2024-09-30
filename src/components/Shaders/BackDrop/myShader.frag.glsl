@@ -23,7 +23,7 @@ vec2 hash21(float p) {
 }
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
-  vec2 uv = vec2(0.5) - (fragCoord.xy / iResolution.xy);
+  vec2 uv = fragCoord;
   uv.x *= iResolution.x / iResolution.y;
 
   float accum = 0.;
@@ -48,5 +48,5 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 }
 
 void main() {
-  mainImage(gl_FragColor, vUv * iResolution);
+  mainImage(gl_FragColor, vUv);
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Billboard } from "@react-three/drei";
+import { Text } from "@react-three/drei";
 import * as THREE from "three";
 
 export const MainNode = ({
@@ -9,42 +9,28 @@ export const MainNode = ({
   data,
   showPopup,
   hidePopup,
-  onClick,
+  size,
 }) => {
   return (
-    <group
-      position={position}
-      onPointerOver={(e) => {
-        e.stopPropagation();
-        const worldPosition = new THREE.Vector3();
-        e.object.getWorldPosition(worldPosition);
-        showPopup(
-          label,
-          [worldPosition.x, worldPosition.y, worldPosition.z],
-          data
-        );
-      }}
-      onPointerOut={(e) => {
-        e.stopPropagation();
-        hidePopup();
-      }}
-      onClick={onClick}
-    >
-      <mesh>
-        <sphereGeometry args={[3, 32, 32]} />
+    <group position={position}>
+      <mesh
+        onClick={() => showPopup(label, position, data)}
+        onPointerOut={hidePopup}
+      >
+        <sphereGeometry args={[size, 32, 32]} />
         <meshStandardMaterial color={color} />
       </mesh>
-      <Billboard>
-        <Text
-          position={[0, 0, 4]} // Ensure the text is outside the sphere
-          fontSize={1}
-          // color="#FFFFFF"
-          anchorX="center"
-          anchorY="middle"
-        >
-          {label}
-        </Text>
-      </Billboard>
+      <Text
+        position={[size + 2, 0, 0]}
+        fontSize={size * 0.75}
+        color="black"
+        anchorX="left"
+        anchorY="middle"
+        backgroundColor="white"
+        padding={[0.2, 0.2, 0.2, 0.2]}
+      >
+        {label}
+      </Text>
     </group>
   );
 };

@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Line } from "@react-three/drei";
 import * as THREE from "three";
 
 export const CurvedArm = ({ start, end, color }) => {
-  const curve = new THREE.QuadraticBezierCurve3(
-    new THREE.Vector3(...start),
-    new THREE.Vector3(
-      (start[0] + end[0]) / 2,
-      (start[1] + end[1]) / 2 + 5,
-      (start[2] + end[2]) / 2
-    ),
-    new THREE.Vector3(...end)
-  );
+  const curve = useMemo(() => {
+    const curveStart = new THREE.Vector3(...start);
+    const curveEnd = new THREE.Vector3(...end);
+    const midPoint = new THREE.Vector3()
+      .addVectors(curveStart, curveEnd)
+      .multiplyScalar(0.5);
+    midPoint.y += 5; // Adjust this value to control the curve height
 
-  const points = curve.getPoints(50);
-  const linePoints = points.map((point) => [point.x, point.y, point.z]);
+    return new THREE.QuadraticBezierCurve3(curveStart, midPoint, curveEnd);
+  }, [start, end]);
 
-  return <Line points={linePoints} color={color} lineWidth={2} />;
+  const points = useMemo(() => curve.getPoints(50), [curve]);
+
+  return <Line points={points} color={color} lineWidth={1} />;
 };

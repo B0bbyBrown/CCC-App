@@ -1,91 +1,78 @@
 import React from "react";
+import * as THREE from "three";
 import { MainNode } from "./MainNode";
-import { RenderIndividualSubNodes } from "./renderIndividualSubNodes";
-import { RenderCompanySubNodes } from "./renderCompanySubNodes";
+import { PlatformNode } from "./PlatformNode";
+import { CurvedArm } from "../../Components/CurvedArm";
 
-export const renderNodes = (
-  data,
-  positions,
-  showPopup,
-  hidePopup,
-  handleNodeClick,
-  camera
-) => {
-  return (
-    <>
-      {data.company && (
-        <MainNode
-          position={positions.centralNode}
-          color="#FFFFFF"
-          label="Curious Cat Creative"
-          data={data.company}
-          showPopup={showPopup}
-          hidePopup={hidePopup}
-          onClick={() => handleNodeClick("Curious Cat Creative")}
-        />
-      )}
+const nodeColors = {
+  keshav: "#FF6B6B",
+  company: "#4ECDC4",
+  shulka: "#45B7D1",
+};
 
-      {data.keshav && (
-        <MainNode
-          position={positions.individualNodes.Keshav.origin}
-          color="#3CF3FF"
-          label="Keshav"
-          data={data.keshav}
-          showPopup={showPopup}
-          hidePopup={hidePopup}
-          onClick={() => handleNodeClick("Keshav")}
-        />
-      )}
+export const renderNodes = (data, helixPositions, showPopup, hidePopup) => {
+  const nodes = [];
+  let positionIndex = 0;
 
-      {data.shulka && (
-        <MainNode
-          position={positions.individualNodes.Shulka.origin}
-          color="#EB03FF"
-          label="Shulka"
-          data={data.shulka}
-          showPopup={showPopup}
-          hidePopup={hidePopup}
-          onClick={() => handleNodeClick("Shulka")}
-        />
-      )}
+  Object.entries(data).forEach(([key, nodeData]) => {
+    if (positionIndex >= helixPositions.length) {
+      console.warn(`Not enough helix positions for node ${key}. Skipping.`);
+      return;
+    }
+    const position = new THREE.Vector3(...helixPositions[positionIndex]);
+    positionIndex++;
 
-      {data.combinedCategories && (
-        <RenderIndividualSubNodes
-          data={data}
-          origin={{
-            origin: positions.individualNodes.Keshav.origin,
-            positions: positions.individualNodes.Keshav.positions,
-          }}
-          showPopup={showPopup}
-          hidePopup={hidePopup}
-          color="#3CF3FF"
-          camera={camera}
-        />
-      )}
+    nodes.push(
+      <MainNode
+        key={`main-${key}`}
+        position={position}
+        color={nodeColors[key]}
+        label={nodeData.name}
+        data={nodeData}
+        showPopup={(label, position) => showPopup(label, position, nodeData)}
+        hidePopup={hidePopup}
+        size={8} // Increased size for main nodes
+      />
+    );
 
-      {data.combinedCategories && (
-        <RenderIndividualSubNodes
-          data={data}
-          origin={{
-            origin: positions.individualNodes.Shulka.origin,
-            positions: positions.individualNodes.Shulka.positions,
-          }}
-          showPopup={showPopup}
-          hidePopup={hidePopup}
-          color="#EB03FF"
-          camera={camera}
-        />
-      )}
+    if (nodeData.categories) {
+      Object.entries(nodeData.categories).forEach(
+        ([category, categoryData]) => {
+          if (positionIndex >= helixPositions.length) {
+            console.warn(
+              `Not enough helix positions for category ${category} of ${key}. Skipping.`
+            );
+            return;
+          }
+          const subNodePosition = new THREE.Vector3(
+            ...helixPositions[positionIndex]
+          );
+          positionIndex++;
 
-      {data.company && (
-        <RenderCompanySubNodes
-          data={data.company}
-          positions={positions}
-          showPopup={showPopup}
-          hidePopup={hidePopup}
-          camera={camera}
-        />
-      )}
-    </>
-  );
+          nodes.push(
+            <group key={`sub-${key}-${category}`}>
+              <PlatformNode
+                position={subNodePosition}
+                color={nodeColors[key]}
+                label={category}
+                showPopup={(label, position) =>
+                  showPopup(label, position, categoryData)
+                }
+                hidePopup={hidePopup}
+                isIndividualSubNode={true}
+                size={4} // Smaller size for sub-nodes
+              />
+              <CurvedArm
+                start={position}
+                end={subNodePosition}
+                color={nodeColors[key]}
+              />
+            </group>
+          );
+        }
+      );
+    }
+  });
+
+  return nodes;
 };

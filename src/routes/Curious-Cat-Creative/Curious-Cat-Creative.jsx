@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { fetchData } from "../../Utils/fetchData";
 import { Card } from "../../components/DataCard/Card";
 import styles from "./CuriousCatCreative.module.css";
-import { LoadingScreen } from "../../components/Loading/LoadingScreen";
-import { Header } from "../../components/Header/Header";
+import { LoadingAnimation } from "../../components/Loading/LoadingAnimation";
 
-export const CuriousCatCreative = () => {
+export const CCC = () => {
   const [curiousCatData, setCuriousCatData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -31,7 +30,7 @@ export const CuriousCatCreative = () => {
 
   if (!curiousCatData) {
     console.log("Curious Cat Creative data not loaded yet...");
-    return <LoadingScreen />;
+    return <LoadingAnimation />;
   }
 
   const categories = Object.keys(curiousCatData.categories);
@@ -39,7 +38,6 @@ export const CuriousCatCreative = () => {
 
   return (
     <>
-      <Header />
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.headerText}>Curious Cat Creative</div>
@@ -55,19 +53,5 @@ export const CuriousCatCreative = () => {
         </div>
       </div>
     </>
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <div className={styles.headerText}>Curious Cat Creative</div>
-      </div>
-      <div className={styles.grid}>
-        {categories.map((category, index) => (
-          <Card
-            key={index}
-            category={category}
-            data={curiousCatData.categories[category]}
-          />
-        ))}
-      </div>
-    </div>
   );
 };
