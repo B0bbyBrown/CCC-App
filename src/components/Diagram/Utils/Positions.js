@@ -1,3 +1,11 @@
+export const generateMainNodePositions = (centerY) => {
+  return {
+    keshav: [0, centerY + 40, 0],
+    company: [0, centerY, 0],
+    shulka: [0, centerY - 40, 0],
+  };
+};
+
 export const generateDoubleHelixPositions = (
   radius,
   count,

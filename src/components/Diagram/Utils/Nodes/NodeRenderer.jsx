@@ -10,17 +10,21 @@ const nodeColors = {
   shulka: "#45B7D1",
 };
 
-export const renderNodes = (data, helixPositions, showPopup, hidePopup) => {
+export const renderNodes = (
+  data,
+  mainNodePositions,
+  helixPositions,
+  showPopup,
+  hidePopup,
+  handleHover,
+  handleUnhover,
+  hoveredNode
+) => {
   const nodes = [];
   let positionIndex = 0;
 
   Object.entries(data).forEach(([key, nodeData]) => {
-    if (positionIndex >= helixPositions.length) {
-      console.warn(`Not enough helix positions for node ${key}. Skipping.`);
-      return;
-    }
-    const position = new THREE.Vector3(...helixPositions[positionIndex]);
-    positionIndex++;
+    const position = new THREE.Vector3(...mainNodePositions[key]);
 
     nodes.push(
       <MainNode
@@ -31,7 +35,7 @@ export const renderNodes = (data, helixPositions, showPopup, hidePopup) => {
         data={nodeData}
         showPopup={(label, position) => showPopup(label, position, nodeData)}
         hidePopup={hidePopup}
-        size={8} // Increased size for main nodes
+        size={8}
       />
     );
 
@@ -60,7 +64,7 @@ export const renderNodes = (data, helixPositions, showPopup, hidePopup) => {
                 }
                 hidePopup={hidePopup}
                 isIndividualSubNode={true}
-                size={4} // Smaller size for sub-nodes
+                size={4}
               />
               <CurvedArm
                 start={position}

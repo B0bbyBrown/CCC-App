@@ -1,7 +1,10 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { generateDoubleHelixPositions } from "./Utils/Positions";
+import {
+  generateDoubleHelixPositions,
+  generateMainNodePositions,
+} from "./Utils/Positions";
 import { renderNodes } from "./Utils/Nodes/NodeRenderer";
 import { fetchData } from "../../Utils/fetchData";
 import { renderData } from "./Utils/renderData";
@@ -12,6 +15,8 @@ export const Diagram = () => {
   const [data, setData] = useState(null);
   const [popupData, setPopupData] = useState(null);
   const [hoveredNode, setHoveredNode] = useState(null);
+  const containerRef = useRef(null);
+  const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     fetchData().then((fetchedData) => {
@@ -23,16 +28,29 @@ export const Diagram = () => {
         });
       }
     });
+
+    const updateSize = () => {
+      if (containerRef.current) {
+        setContainerSize({
+          width: containerRef.current.clientWidth,
+          height: containerRef.current.clientHeight,
+        });
+      }
+    };
+
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
   }, []);
+
+  const mainNodePositions = useMemo(() => generateMainNodePositions(0), []);
 
   const helixPositions = useMemo(() => {
     if (!data) return [];
-    const totalNodes = Object.values(data).reduce((acc, curr) => {
-      return (
-        acc + 1 + (curr.categories ? Object.keys(curr.categories).length : 0)
-      );
+    const totalSubNodes = Object.values(data).reduce((acc, curr) => {
+      return acc + (curr.categories ? Object.keys(curr.categories).length : 0);
     }, 0);
-    return generateDoubleHelixPositions(20, totalNodes, 100, 0, 0, 0);
+    return generateDoubleHelixPositions(20, totalSubNodes, 100, 0, 0, 0);
   }, [data]);
 
   const showPopup = (label, position, data) => {
@@ -53,7 +71,7 @@ export const Diagram = () => {
 
   if (!data) {
     return (
-      <div className={styles.container}>
+      <div className={styles.container} ref={containerRef}>
         <Canvas>
           <LoadingAnimation />
         </Canvas>
@@ -62,13 +80,14 @@ export const Diagram = () => {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={containerRef}>
       <Canvas camera={{ position: [0, 0, 150], fov: 60 }}>
         <color attach="background" args={["#f0f0f0"]} />
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
         {renderNodes(
           data,
+          mainNodePositions,
           helixPositions,
           showPopup,
           hidePopup,
