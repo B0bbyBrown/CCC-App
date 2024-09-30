@@ -1,46 +1,107 @@
 {
-  "name": "Keshav",
+  "name": "Keshav Sharma",
+  "title": "Full Stack Developer & AI Enthusiast",
+  "summary": "Experienced software engineer with a passion for innovative technologies and a track record of delivering scalable solutions.",
+  "contact": {
+    "email": "keshav.sharma@example.com",
+    "phone": "+1 (555) 123-4567",
+    "location": "San Francisco, CA"
+  },
+  "socialMedia": {
+    "linkedin": "https://www.linkedin.com/in/keshavsharma",
+    "github": "https://github.com/keshav-sharma",
+    "twitter": "https://twitter.com/keshavsharma_dev"
+  },
   "categories": {
     "Projects": [
       {
         "name": "E-commerce Platform Development",
         "description": "Developed a scalable e-commerce platform with React and Node.js, integrated with various third-party APIs.",
-        "duration": "1 year"
+        "duration": "1 year",
+        "technologies": ["React", "Node.js", "MongoDB", "Redux", "Stripe API"],
+        "role": "Lead Developer",
+        "achievements": [
+          "Increased conversion rates by 25%",
+          "Implemented real-time inventory management"
+        ]
       },
       {
         "name": "Mobile App for Healthcare",
         "description": "Led the development of a healthcare app for scheduling appointments and tracking patient health data.",
-        "duration": "6 months"
+        "duration": "6 months",
+        "technologies": ["React Native", "Firebase", "HealthKit", "Google Fit"],
+        "role": "Mobile App Developer",
+        "achievements": [
+          "Reduced appointment no-shows by 40%",
+          "Integrated with wearable devices for real-time health monitoring"
+        ]
       },
       {
         "name": "AI-powered Chatbot",
         "description": "Designed and deployed an AI chatbot using NLP techniques to enhance customer service for a financial firm.",
-        "duration": "8 months"
+        "duration": "8 months",
+        "technologies": ["Python", "TensorFlow", "NLTK", "AWS Lambda"],
+        "role": "AI Engineer",
+        "achievements": [
+          "Handled 70% of customer queries without human intervention",
+          "Reduced average response time by 60%"
+        ]
       },
       {
         "name": "Social Media Automation Tool",
         "description": "Built a tool for automating social media posts and analytics for small businesses.",
-        "duration": "4 months"
+        "duration": "4 months",
+        "technologies": ["Vue.js", "Node.js", "Express", "Social Media APIs"],
+        "role": "Full Stack Developer",
+        "achievements": [
+          "Increased client social media engagement by 35%",
+          "Automated reporting, saving 10 hours per week per client"
+        ]
       },
       {
         "name": "Blockchain Supply Chain Solution",
         "description": "Implemented a blockchain solution for supply chain transparency and efficiency for a logistics company.",
-        "duration": "2 years"
+        "duration": "2 years",
+        "technologies": ["Hyperledger Fabric", "Solidity", "Go", "React"],
+        "role": "Blockchain Developer",
+        "achievements": [
+          "Reduced product tracking time by 80%",
+          "Increased supply chain transparency, leading to 15% cost reduction"
+        ]
       }
     ],
     "Companies": [
       {
-        "role": "Software Engineer at Tech Solutions Inc.",
+        "name": "Tech Solutions Inc.",
+        "role": "Software Engineer",
         "years": "3 years",
-        "skills": ["JavaScript", "React", "Node.js", "MongoDB"]
+        "skills": ["JavaScript", "React", "Node.js", "MongoDB"],
+        "responsibilities": [
+          "Developed and maintained multiple web applications",
+          "Collaborated with cross-functional teams to define and implement new features",
+          "Mentored junior developers and conducted code reviews"
+        ],
+        "achievements": [
+          "Optimized database queries, improving application performance by 40%",
+          "Implemented CI/CD pipeline, reducing deployment time by 60%"
+        ]
       },
       {
-        "role": "Lead Developer at InnovateX",
+        "name": "InnovateX",
+        "role": "Lead Developer",
         "years": "2 years",
-        "skills": ["Python", "Machine Learning", "AWS", "Docker"]
+        "skills": ["Python", "Machine Learning", "AWS", "Docker"],
+        "responsibilities": [
+          "Led a team of 5 developers in building AI-powered solutions",
+          "Architected and implemented scalable cloud infrastructure",
+          "Collaborated with data scientists to integrate ML models into production"
+        ],
+        "achievements": [
+          "Successfully delivered 3 major AI projects ahead of schedule",
+          "Reduced cloud infrastructure costs by 30% through optimization"
+        ]
       }
     ],
-
     "Skills": {
       "primarySkills": ["Full Stack Development", "Cloud Computing"],
       "secondarySkills": ["Data Science", "Agile Project Management"]

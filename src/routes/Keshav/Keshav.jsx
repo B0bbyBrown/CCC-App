@@ -1,25 +1,49 @@
 import React, { useEffect, useState } from "react";
-import { DynamicJsonDisplay } from "../../components/D-J-D/DynamicJsonDisplay";
-
+import { Portfolio } from "../../components/Portfolio/Portfolio";
+import { fetchData } from "../../Utils/fetchData";
+import { Header } from "../../components/Header_Footer/Header/Header";
+import { Footer } from "../../components/Header_Footer/Footer/Footer";
 export function Keshav() {
   const [keshavData, setKeshavData] = useState(null);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/Json/keshavData.json")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Keshav Data:", data); // Debugging log
-        setKeshavData(data);
-      })
-      .catch((error) => console.error("Error fetching Keshav's data:", error));
+    const loadData = async () => {
+      try {
+        setIsLoading(true);
+        const data = await fetchData();
+        if (data && data.keshavData) {
+          console.log("Keshav Data:", data.keshavData);
+          setKeshavData(data.keshavData);
+        } else {
+          throw new Error("Keshav data not found");
+        }
+      } catch (error) {
+        console.error("Error fetching Keshav's data:", error);
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadData();
   }, []);
 
-  if (!keshavData) return <div>Loading...</div>;
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="keshav-container">
-      <h1>Keshav's Profile</h1>
-      <DynamicJsonDisplay data={keshavData} /> {/* Passing data to DJD */}
-    </div>
+    <>
+      <div>
+        <Header />
+      </div>
+      <div className="keshav-container">
+        <Portfolio data={keshavData} />
+      </div>
+      <div>
+        <Footer />
+      </div>
+    </>
   );
 }

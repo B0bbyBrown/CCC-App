@@ -1,6 +1,7 @@
 import React from "react";
 import { Text } from "@react-three/drei";
 import * as THREE from "three";
+import { colors } from "../../../../Utils/colors";
 
 export const MainNode = ({
   position,
@@ -23,7 +24,7 @@ export const MainNode = ({
       <Text
         position={[size + 2, 0, 0]}
         fontSize={size * 0.75}
-        color="black"
+        color={colors.mainNodeText}
         anchorX="left"
         anchorY="middle"
         backgroundColor="white"

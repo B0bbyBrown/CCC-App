@@ -1,75 +1,121 @@
 {
   "name": "Shulka",
+  "title": "Software Engineer & Entrepreneur",
+  "summary": "Innovative software engineer with a passion for creating impactful solutions and leading tech ventures.",
+  "contact": {
+    "email": "shulka@example.com",
+    "phone": "+1 (555) 987-6543",
+    "location": "New York, NY"
+  },
+  "socialMedia": {
+    "linkedin": "https://www.linkedin.com/in/shulka",
+    "github": "https://github.com/shulka",
+    "twitter": "https://twitter.com/shulka_tech"
+  },
   "categories": {
     "Projects": [
       {
         "name": "Project A",
         "description": "Description of Project A",
-        "duration": "1 year"
+        "duration": "1 year",
+        "technologies": ["Tech A1", "Tech A2", "Tech A3"],
+        "role": "Lead Developer",
+        "achievements": [
+          "Increased efficiency by 30%",
+          "Implemented new feature X"
+        ]
       },
       {
         "name": "Project B",
         "description": "Description of Project B",
-        "duration": "6 months"
+        "duration": "6 months",
+        "technologies": ["Tech B1", "Tech B2", "Tech B3"],
+        "role": "Backend Developer",
+        "achievements": [
+          "Optimized database queries",
+          "Reduced server response time by 40%"
+        ]
       },
       {
         "name": "Project C",
         "description": "Description of Project C",
-        "duration": "8 months"
+        "duration": "8 months",
+        "technologies": ["Tech C1", "Tech C2", "Tech C3"],
+        "role": "Full Stack Developer",
+        "achievements": [
+          "Developed responsive UI",
+          "Integrated payment gateway"
+        ]
       },
       {
         "name": "Project D",
         "description": "Description of Project D",
-        "duration": "4 months"
+        "duration": "4 months",
+        "technologies": ["Tech D1", "Tech D2", "Tech D3"],
+        "role": "Mobile App Developer",
+        "achievements": [
+          "Launched iOS and Android versions",
+          "Implemented push notifications"
+        ]
       },
       {
         "name": "Project E",
         "description": "Description of Project E",
-        "duration": "2 years"
-      }
-    ],
-    "Companies": [
-      {
-        "role": "Role in Company 1",
-        "years": "Number of Years",
-        "skills": ["Skill 1", "Skill 2", "Skill 3"]
-      }
-    ],
-    "Ventures": [
-      {
-        "name": "Venture Name 1",
-        "duration": "Number of Years",
-        "skills": ["Skill 1", "Skill 2", "Skill 3"]
+        "duration": "2 years",
+        "technologies": ["Tech E1", "Tech E2", "Tech E3"],
+        "role": "Project Manager",
+        "achievements": [
+          "Led a team of 10 developers",
+          "Delivered project under budget"
+        ]
       }
     ],
     "Skills": {
-      "primarySkills": ["Primary Skill 1", "Primary Skill 2"],
-      "secondarySkills": ["Secondary Skill 1", "Secondary Skill 2"]
+      "primarySkills": ["Full Stack Development", "Project Management"],
+      "secondarySkills": ["UI/UX Design", "Data Analysis"]
     },
     "Experience": [
       {
-        "role": "Role in Experience 1",
-        "duration": "Number of Years",
+        "role": "Senior Developer at TechCorp",
+        "duration": "3 years",
         "projects": ["Project A", "Project B"]
+      },
+      {
+        "role": "Project Manager at InnovateTech",
+        "duration": "2 years",
+        "projects": ["Project E"]
       }
     ],
     "Education": [
       {
-        "degree": "Degree 1",
-        "experience": "Graduation Year"
+        "degree": "MSc in Computer Science",
+        "experience": "Graduated 2018"
+      },
+      {
+        "degree": "BSc in Software Engineering",
+        "experience": "Graduated 2016"
       }
     ],
-    "Hobbies": ["Hobby 1", "Hobby 2", "Hobby 3"],
-    "Certifications": ["Certification 1", "Certification 2"],
-    "Achievements": ["Achievement 1", "Achievement 2"],
-    "Goals": {
-      "shortTermGoals": ["Short Term Goal 1", "Short Term Goal 2"],
-      "longTermGoals": ["Long Term Goal 1", "Long Term Goal 2"]
-    },
-    "Innovation": ["Innovation 1", "Innovation 2"],
-    "Research": ["Research Topic 1", "Research Topic 2"],
-    "Development": ["Development Project 1", "Development Project 2"],
-    "Teamwork": ["Team 1", "Team 2"],
-    "Leadership": ["Leadership Role 1", "Leadership Role 2"]
+    "Certifications": [
+      "Project Management Professional (PMP)",
+      "AWS Certified Developer"
+    ],
+    "Achievements": [
+      "Founded a successful tech startup",
+      "Speaker at multiple tech conferences"
+    ],
+    "Research": ["Machine Learning in Healthcare", "Blockchain Applications"],
+    "Development": [
+      "Created an open-source library for data visualization",
+      "Contributed to major cloud computing projects"
+    ],
+    "Teamwork": [
+      "Led cross-functional teams in agile environments",
+      "Mentored junior developers"
+    ],
+    "Leadership": [
+      "Managed development teams of up to 15 people",
+      "Initiated and led company-wide tech training programs"
+    ]
   }
 }

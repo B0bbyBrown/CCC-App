@@ -1,57 +1,40 @@
 import React, { useEffect, useState } from "react";
+import { Portfolio } from "../../components/Portfolio/Portfolio";
 import { fetchData } from "../../Utils/fetchData";
-import { Card } from "../../components/DataCard/Card";
-import styles from "./ShulkaInfo.module.css";
-import { LoadingAnimation } from "../../components/Loading/LoadingAnimation";
 
-export const Shulka = () => {
+export function Shulka() {
   const [shulkaData, setShulkaData] = useState(null);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    console.log("Fetching data for Shulka...");
-    fetchData()
-      .then(({ shulkaData }) => {
-        if (!shulkaData) {
-          throw new Error("Shulka data is undefined");
+    const loadData = async () => {
+      try {
+        setIsLoading(true);
+        const data = await fetchData();
+        if (data && data.shulkaData) {
+          console.log("Shulka Data:", data.shulkaData);
+          setShulkaData(data.shulkaData);
+        } else {
+          throw new Error("Shulka data not found");
         }
-        console.log("Fetched data:", shulkaData);
-        setShulkaData(shulkaData);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
+      } catch (error) {
+        console.error("Error fetching Shulka's data:", error);
         setError(error.message);
-      });
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadData();
   }, []);
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-  if (!shulkaData) {
-    console.log("Shulka data not loaded yet...");
-    return <LoadingAnimation />;
-  }
-
-  const categories = Object.keys(shulkaData.categories);
-  console.log("Shulka categories:", categories);
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
-    <>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <div className={styles.headerText}>Shulka</div>
-        </div>
-        <div className={styles.grid}>
-          {categories.map((category, index) => (
-            <Card
-              key={index}
-              category={category}
-              data={shulkaData.categories[category]}
-            />
-          ))}
-        </div>
-      </div>
-    </>
+    <div className="shulka-container">
+      <Portfolio data={shulkaData} />
+    </div>
   );
-};
+}

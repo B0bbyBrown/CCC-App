@@ -1,15 +1,17 @@
 import React, { useMemo, useState, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import {
-  generateDoubleHelixPositions,
-  generateMainNodePositions,
-} from "./Utils/Positions";
 import { renderNodes } from "./Utils/Nodes/NodeRenderer";
 import { fetchData } from "../../Utils/fetchData";
 import { renderData } from "./Utils/renderData";
 import { LoadingAnimation } from "../Loading/LoadingAnimation";
+import { colors } from "../../Utils/colors";
 import styles from "./Diagram.module.css";
+import {
+  generateDoubleHelixPositions,
+  generateMainNodePositions,
+  generateEquallySpacedHelixPositions,
+} from "./Utils/Positions";
 
 export const Diagram = () => {
   const [data, setData] = useState(null);
@@ -43,14 +45,29 @@ export const Diagram = () => {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  const mainNodePositions = useMemo(() => generateMainNodePositions(0), []);
+  const mainNodePositions = useMemo(
+    () => ({
+      keshav: [-30, 60, 0],
+      company: [30, 0, 0],
+      shulka: [-30, -60, 0],
+    }),
+    []
+  );
 
   const helixPositions = useMemo(() => {
     if (!data) return [];
     const totalSubNodes = Object.values(data).reduce((acc, curr) => {
       return acc + (curr.categories ? Object.keys(curr.categories).length : 0);
     }, 0);
-    return generateDoubleHelixPositions(20, totalSubNodes, 100, 0, 0, 0);
+    const extraPositions = Math.ceil(totalSubNodes * 1.2);
+    return generateEquallySpacedHelixPositions(
+      80,
+      extraPositions,
+      300,
+      0,
+      0,
+      0
+    );
   }, [data]);
 
   const showPopup = (label, position, data) => {
@@ -81,14 +98,12 @@ export const Diagram = () => {
 
   return (
     <div className={styles.container} ref={containerRef}>
-      <Canvas camera={{ position: [0, 0, 150], fov: 60 }}>
-        <color attach="background" args={["#f0f0f0"]} />
+      <Canvas camera={{ position: [150, 0, 0], fov: 60 }}>
+        <color attach="background" args={[colors.diagramBackground]} />
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
         {renderNodes(
           data,
-          mainNodePositions,
-          helixPositions,
           showPopup,
           hidePopup,
           handleHover,

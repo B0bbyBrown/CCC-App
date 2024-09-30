@@ -9,9 +9,15 @@ export const CurvedArm = ({ start, end, color }) => {
     const midPoint = new THREE.Vector3()
       .addVectors(curveStart, curveEnd)
       .multiplyScalar(0.5);
-    midPoint.y += 5; // Adjust this value to control the curve height
+    const direction = new THREE.Vector3().subVectors(curveEnd, curveStart);
+    const perpendicular = new THREE.Vector3(
+      -direction.z,
+      0,
+      direction.x
+    ).normalize();
+    const controlPoint = midPoint.clone().add(perpendicular.multiplyScalar(10));
 
-    return new THREE.QuadraticBezierCurve3(curveStart, midPoint, curveEnd);
+    return new THREE.QuadraticBezierCurve3(curveStart, controlPoint, curveEnd);
   }, [start, end]);
 
   const points = useMemo(() => curve.getPoints(50), [curve]);

@@ -31,6 +31,31 @@ export const generateDoubleHelixPositions = (
   return positions;
 };
 
+export const generateEquallySpacedHelixPositions = (
+  radius,
+  totalNodes,
+  height,
+  centerX,
+  centerY,
+  centerZ
+) => {
+  const positions = [];
+  const angleStep = (4 * Math.PI) / totalNodes; // Revert to full circle
+  const heightStep = height / totalNodes;
+
+  for (let i = 0; i < totalNodes; i++) {
+    const angle = i * angleStep;
+    const x = centerX + radius * Math.cos(angle);
+    const y = centerY + (i - totalNodes / 2) * heightStep;
+    const z = centerZ + radius * Math.sin(angle);
+
+    positions.push([x, y, z]);
+  }
+
+  console.log(`Generated ${positions.length} equally spaced helix positions`);
+  return positions;
+};
+
 export const mainNodePositions = {
   keshav: [0, 40, 0],
   company: [0, 0, 0],
