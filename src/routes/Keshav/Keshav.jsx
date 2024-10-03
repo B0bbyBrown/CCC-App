@@ -3,6 +3,7 @@ import { Portfolio } from "../../components/Portfolio/Portfolio";
 import { fetchData } from "../../Utils/fetchData";
 import { Header } from "../../components/Header_Footer/Header/Header";
 import { Footer } from "../../components/Header_Footer/Footer/Footer";
+
 export function Keshav() {
   const [keshavData, setKeshavData] = useState(null);
   const [error, setError] = useState(null);
@@ -13,10 +14,12 @@ export function Keshav() {
       try {
         setIsLoading(true);
         const data = await fetchData();
+        console.log("Fetched data:", JSON.stringify(data, null, 2));
         if (data && data.keshavData) {
-          console.log("Keshav Data:", data.keshavData);
+          console.log("Keshav Data:", JSON.stringify(data.keshavData, null, 2));
           setKeshavData(data.keshavData);
         } else {
+          console.log("Keshav data not found in fetched data");
           throw new Error("Keshav data not found");
         }
       } catch (error) {
@@ -33,17 +36,20 @@ export function Keshav() {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
+  console.log(
+    "Rendering Keshav component with data:",
+    JSON.stringify(keshavData, null, 2)
+  );
+
   return (
-    <>
-      <div>
-        <Header />
+    <div className="page-container">
+      <Header />
+      <div className="content-wrap">
+        <div className="keshav-container">
+          <Portfolio data={keshavData} />
+        </div>
       </div>
-      <div className="keshav-container">
-        <Portfolio data={keshavData} />
-      </div>
-      <div>
-        <Footer />
-      </div>
-    </>
+      <Footer />
+    </div>
   );
 }

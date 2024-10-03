@@ -13,9 +13,6 @@ export const Home = () => {
       <div className={styles.homeContainer}>
         <Diagram />
       </div>
-      <div>
-        <Footer />
-      </div>
     </>
   );
 };

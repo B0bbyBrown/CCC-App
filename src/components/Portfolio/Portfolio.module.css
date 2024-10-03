@@ -66,45 +66,46 @@ body {
 
 .socialLinks {
   display: flex;
-  gap: 20px;
+  gap: 15px;
+  margin-top: 10px;
+  justify-content: center;
 }
 
 .socialLink {
-  color: var(--text-color);
-  font-size: 1.5rem;
-  transition: color 0.3s ease, transform 0.3s ease;
+  color: #fff;
+  font-size: 24px;
+  transition: color 0.3s ease;
 }
 
 .socialLink:hover {
   color: var(--accent-color);
-  transform: translateY(-3px);
+}
+
+.socialLink svg {
+  width: 20px;
+  height: 20px;
 }
 
 .contactInfo {
-  background-color: var(--card-bg);
-  border-radius: 10px;
-  padding: 30px;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.contactInfo h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: var(--accent-color);
-}
-
-.contactDetails {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  align-items: center;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .contactItem {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 10px;
+}
+
+.contactItem svg {
+  font-size: 1.2rem;
+  color: var(--accent-color);
 }
 
 .portfolioNav {
@@ -124,6 +125,8 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .portfolioNav button:hover,
@@ -132,7 +135,26 @@ body {
   color: var(--bg-color);
 }
 
-.portfolioMain {
+.categoryIcon {
+  margin-right: 8px;
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+.categoryTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: var(--accent-color);
+}
+
+.categoryTitle .categoryIcon {
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+.portfolioContent {
   background-color: var(--card-bg);
   border-radius: 10px;
   padding: 40px;
@@ -140,7 +162,8 @@ body {
 }
 
 .projectsGrid,
-.companiesList {
+.companiesList,
+.educationList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
@@ -263,4 +286,92 @@ body {
 .educationCard,
 .certificationsSection li {
   animation: fadeIn 0.5s ease-out forwards;
+}
+
+.genericList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.genericList li {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.exhibitionCard,
+.collaborationCard,
+.workshopCard,
+.publicationCard {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.exhibitionCard:hover,
+.collaborationCard:hover,
+.workshopCard:hover,
+.publicationCard:hover {
+  transform: translateY(-5px);
+}
+
+.exhibitionCard h3,
+.collaborationCard h3,
+.workshopCard h3,
+.publicationCard h3 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.exhibitionCard p,
+.collaborationCard p,
+.workshopCard p,
+.publicationCard p {
+  margin: 5px 0;
+}
+
+.exhibitionsList,
+.collaborationsList,
+.workshopsList,
+.publicationsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.achievementCard,
+.certificationCard {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.achievementCard:hover,
+.certificationCard:hover {
+  transform: translateY(-5px);
+}
+
+.achievementCard h3,
+.certificationCard h3 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.achievementCard p,
+.certificationCard p {
+  margin: 5px 0;
+}
+
+.achievementsList,
+.certificationsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }

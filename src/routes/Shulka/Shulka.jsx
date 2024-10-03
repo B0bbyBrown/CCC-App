@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Portfolio } from "../../components/Portfolio/Portfolio";
 import { fetchData } from "../../Utils/fetchData";
+import { Header } from "../../components/Header_Footer/Header/Header";
+import { Footer } from "../../components/Header_Footer/Footer/Footer";
 
 export function Shulka() {
   const [shulkaData, setShulkaData] = useState(null);
@@ -33,8 +35,14 @@ export function Shulka() {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="shulka-container">
-      <Portfolio data={shulkaData} />
+    <div className="page-container">
+      <Header />
+      <div className="content-wrap">
+        <div className="shulka-container">
+          <Portfolio data={shulkaData} />
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 }

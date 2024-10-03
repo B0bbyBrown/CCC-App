@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { Line } from "@react-three/drei";
 import * as THREE from "three";
 
-export const CurvedArm = ({ start, end, color }) => {
+export function CurvedArm({ start, end, color }) {
   const curve = useMemo(() => {
     const curveStart = new THREE.Vector3(...start);
     const curveEnd = new THREE.Vector3(...end);
@@ -15,12 +15,15 @@ export const CurvedArm = ({ start, end, color }) => {
       0,
       direction.x
     ).normalize();
-    const controlPoint = midPoint.clone().add(perpendicular.multiplyScalar(10));
+    const controlPointOffset = direction.length() * 0.3;
+    const controlPoint = midPoint
+      .clone()
+      .add(perpendicular.multiplyScalar(controlPointOffset));
 
     return new THREE.QuadraticBezierCurve3(curveStart, controlPoint, curveEnd);
   }, [start, end]);
 
   const points = useMemo(() => curve.getPoints(50), [curve]);
 
-  return <Line points={points} color={color} lineWidth={1} />;
-};
+  return <Line points={points} color={color} lineWidth={0.3} />;
+}

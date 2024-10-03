@@ -15,7 +15,7 @@ export const MainNode = ({
   return (
     <group position={position}>
       <mesh
-        onClick={() => showPopup(label, position, data)}
+        onClick={() => showPopup(label, position.toArray(), data)}
         onPointerOut={hidePopup}
       >
         <sphereGeometry args={[size, 32, 32]} />

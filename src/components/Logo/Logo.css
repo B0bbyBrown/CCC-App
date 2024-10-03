@@ -1,8 +1,9 @@
-a {
-  text-decoration: none;
-  font-family: "K2D", sans-serif;
+.logo-container .logo-link,
+.logo-container .logo-link:hover,
+.logo-container .logo-link:visited {
+  text-decoration: none !important;
 }
 
-.logo {
-  font-size: 4rem;
+.logo-container .logo {
+  text-decoration: none !important;
 }

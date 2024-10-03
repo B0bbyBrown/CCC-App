@@ -1,121 +1,339 @@
 {
   "name": "Shulka",
-  "title": "Software Engineer & Entrepreneur",
-  "summary": "Innovative software engineer with a passion for creating impactful solutions and leading tech ventures.",
+  "title": "Creative Director & Digital Artist",
+  "summary": "Visionary creative director with a flair for blending traditional art with cutting-edge digital techniques.",
   "contact": {
-    "email": "shulka@example.com",
+    "email": "shulka@artistry.com",
     "phone": "+1 (555) 987-6543",
-    "location": "New York, NY"
+    "location": "Los Angeles, CA"
   },
   "socialMedia": {
-    "linkedin": "https://www.linkedin.com/in/shulka",
-    "github": "https://github.com/shulka",
-    "twitter": "https://twitter.com/shulka_tech"
+    "instagram": "https://www.instagram.com/shulka_art",
+    "behance": "https://www.behance.net/shulka",
+    "dribbble": "https://dribbble.com/shulka_designs",
+    "artstation": "https://www.artstation.com/shulka",
+    "linkedin": "https://www.linkedin.com/in/shulka-artist"
   },
   "categories": {
-    "Projects": [
+    "ArtProjects": [
       {
-        "name": "Project A",
-        "description": "Description of Project A",
-        "duration": "1 year",
-        "technologies": ["Tech A1", "Tech A2", "Tech A3"],
-        "role": "Lead Developer",
-        "achievements": [
-          "Increased efficiency by 30%",
-          "Implemented new feature X"
-        ]
-      },
-      {
-        "name": "Project B",
-        "description": "Description of Project B",
+        "name": "Neon Dreams",
+        "description": "A series of digital paintings exploring urban nightscapes",
         "duration": "6 months",
-        "technologies": ["Tech B1", "Tech B2", "Tech B3"],
-        "role": "Backend Developer",
+        "techniques": ["Digital Painting", "3D Modeling", "Neon Effects"],
+        "role": "Lead Artist",
         "achievements": [
-          "Optimized database queries",
-          "Reduced server response time by 40%"
+          "Featured in Digital Arts Magazine",
+          "Exhibited at LA Modern Art Gallery"
         ]
       },
       {
-        "name": "Project C",
-        "description": "Description of Project C",
-        "duration": "8 months",
-        "technologies": ["Tech C1", "Tech C2", "Tech C3"],
-        "role": "Full Stack Developer",
+        "name": "Eco Visions",
+        "description": "Mixed media project combining photography and digital art",
+        "duration": "3 months",
+        "techniques": ["Photography", "Digital Collage", "AR Integration"],
+        "role": "Concept Artist & Photographer",
         "achievements": [
-          "Developed responsive UI",
-          "Integrated payment gateway"
+          "Won 'Best Innovative Art Project' at Green Art Fair",
+          "Collaborated with environmental NGOs for awareness campaign"
         ]
       },
       {
-        "name": "Project D",
-        "description": "Description of Project D",
+        "name": "Cyberpunk Odyssey",
+        "description": "Interactive digital art installation",
+        "duration": "9 months",
+        "techniques": ["VR Art", "Motion Graphics", "Sound Design"],
+        "role": "Creative Director",
+        "achievements": [
+          "Showcased at Siggraph Art Gallery",
+          "Attracted over 50,000 visitors"
+        ]
+      },
+      {
+        "name": "Ethereal Landscapes",
+        "description": "A series of surreal digital landscapes inspired by dreams",
         "duration": "4 months",
-        "technologies": ["Tech D1", "Tech D2", "Tech D3"],
-        "role": "Mobile App Developer",
+        "techniques": ["Matte Painting", "Photobashing", "Color Grading"],
+        "role": "Digital Artist",
         "achievements": [
-          "Launched iOS and Android versions",
-          "Implemented push notifications"
+          "Selected for Lumen Prize Exhibition",
+          "Prints sold out within a week of release"
         ]
       },
       {
-        "name": "Project E",
-        "description": "Description of Project E",
-        "duration": "2 years",
-        "technologies": ["Tech E1", "Tech E2", "Tech E3"],
-        "role": "Project Manager",
+        "name": "Quantum Visions",
+        "description": "AI-assisted generative art project visualizing quantum phenomena",
+        "duration": "12 months",
+        "techniques": [
+          "Generative Adversarial Networks",
+          "Particle Simulation",
+          "Projection Mapping"
+        ],
+        "role": "AI Artist & Creative Technologist",
         "achievements": [
-          "Led a team of 10 developers",
-          "Delivered project under budget"
+          "Collaboration with CERN for science communication",
+          "Featured in 'Art meets Science' TED Talk"
         ]
       }
     ],
     "Skills": {
-      "primarySkills": ["Full Stack Development", "Project Management"],
-      "secondarySkills": ["UI/UX Design", "Data Analysis"]
+      "primarySkills": [
+        "Digital Illustration",
+        "3D Modeling",
+        "Art Direction",
+        "Concept Art",
+        "VR/AR Art Creation"
+      ],
+      "secondarySkills": [
+        "UI/UX Design",
+        "Motion Graphics",
+        "Photography",
+        "Video Editing",
+        "Creative Coding"
+      ]
     },
     "Experience": [
       {
-        "role": "Senior Developer at TechCorp",
-        "duration": "3 years",
-        "projects": ["Project A", "Project B"]
+        "role": "Creative Director",
+        "company": "Imaginarium Studios",
+        "duration": "2020 - Present",
+        "responsibilities": [
+          "Lead a team of 15 digital artists and designers",
+          "Develop creative strategies for major brand campaigns",
+          "Oversee the artistic direction of VR/AR projects"
+        ],
+        "achievements": [
+          "Increased studio revenue by 40% through innovative project approaches",
+          "Won 'Best Creative Studio' award at Digital Design Awards 2022"
+        ]
       },
       {
-        "role": "Project Manager at InnovateTech",
-        "duration": "2 years",
-        "projects": ["Project E"]
+        "role": "Senior Digital Artist",
+        "company": "PixelPerfect Studios",
+        "duration": "2016 - 2020",
+        "responsibilities": [
+          "Created key art for AAA video game titles",
+          "Developed concept art for film and TV productions",
+          "Mentored junior artists in digital techniques"
+        ],
+        "achievements": [
+          "Art featured on covers of 3 bestselling video games",
+          "Received 'Artist of the Year' award from the studio in 2019"
+        ]
+      },
+      {
+        "role": "Freelance Digital Artist",
+        "company": "Self-employed",
+        "duration": "2014 - 2016",
+        "responsibilities": [
+          "Produced digital art for various clients including music labels and book publishers",
+          "Managed client relationships and project timelines",
+          "Developed personal brand and online presence"
+        ],
+        "achievements": [
+          "Built a diverse portfolio leading to full-time industry position",
+          "Artwork featured in international digital art anthology"
+        ]
+      },
+      {
+        "role": "Junior Graphic Designer",
+        "company": "CreativeSpark Agency",
+        "duration": "2012 - 2014",
+        "responsibilities": [
+          "Assisted in creating visual assets for marketing campaigns",
+          "Contributed to UI design for mobile apps",
+          "Participated in brainstorming sessions for new project pitches"
+        ],
+        "achievements": [
+          "Designed logo for a startup that went on to be valued at $1 billion",
+          "Received 'Rising Star' award from the agency"
+        ]
+      },
+      {
+        "role": "Art Department Intern",
+        "company": "DreamWorks Animation",
+        "duration": "Summer 2011",
+        "responsibilities": [
+          "Assisted in background design for an animated feature film",
+          "Learned industry-standard animation software and workflows",
+          "Participated in daily art reviews with senior artists"
+        ],
+        "achievements": [
+          "Internship project selected for studio's internal art showcase",
+          "Received letter of recommendation from Art Director"
+        ]
       }
     ],
     "Education": [
       {
-        "degree": "MSc in Computer Science",
-        "experience": "Graduated 2018"
+        "degree": "Master of Fine Arts in Digital Arts",
+        "institution": "Rhode Island School of Design",
+        "graduationYear": "2012",
+        "achievements": [
+          "Thesis project: 'Bridging Realities: Exploring the Intersection of Physical and Digital Art'",
+          "Recipient of the President's Award for Creative Achievement"
+        ]
       },
       {
-        "degree": "BSc in Software Engineering",
-        "experience": "Graduated 2016"
+        "degree": "Bachelor of Fine Arts in Graphic Design",
+        "institution": "Parsons School of Design",
+        "graduationYear": "2010",
+        "achievements": [
+          "Graduated Summa Cum Laude",
+          "Winner of the Annual Student Design Competition"
+        ]
+      },
+      {
+        "degree": "Summer Intensive in Classical Drawing",
+        "institution": "Florence Academy of Art, Italy",
+        "graduationYear": "2009",
+        "achievements": [
+          "Received distinction for portrait studies",
+          "Exhibition of work in academy's student showcase"
+        ]
       }
     ],
     "Certifications": [
-      "Project Management Professional (PMP)",
-      "AWS Certified Developer"
+      {
+        "name": "Adobe Certified Expert in Photoshop and Illustrator",
+        "issuer": "Adobe",
+        "year": "2018"
+      },
+      {
+        "name": "Autodesk Certified Professional: Maya",
+        "issuer": "Autodesk",
+        "year": "2019"
+      },
+      {
+        "name": "Unity Certified Artist",
+        "issuer": "Unity Technologies",
+        "year": "2020"
+      },
+      {
+        "name": "Google AR/VR Development Certification",
+        "issuer": "Google",
+        "year": "2021"
+      },
+      {
+        "name": "Unreal Engine Certified Artist",
+        "issuer": "Epic Games",
+        "year": "2022"
+      }
     ],
     "Achievements": [
-      "Founded a successful tech startup",
-      "Speaker at multiple tech conferences"
+      "Winner of the Global Digital Art Award 2022",
+      "Featured artist in 'Next Gen Creators' documentary",
+      "TEDx speaker on 'The Future of Digital Art in a Post-AI World'",
+      "Judge for the Annual Rookie Awards in Digital Illustration category",
+      "Artist-in-Residence at the Museum of Modern Art's Digital Initiative"
     ],
-    "Research": ["Machine Learning in Healthcare", "Blockchain Applications"],
-    "Development": [
-      "Created an open-source library for data visualization",
-      "Contributed to major cloud computing projects"
+    "Exhibitions": [
+      {
+        "name": "Solo show: 'Pixels and Pigments'",
+        "venue": "Digital Frontier Gallery, New York",
+        "year": "2023"
+      },
+      {
+        "name": "Group Exhibition: 'Virtuality'",
+        "venue": "Tokyo Digital Art Expo",
+        "year": "2022"
+      },
+      {
+        "name": "Installation: 'Cyberpunk Odyssey'",
+        "venue": "Ars Electronica Festival, Linz, Austria",
+        "year": "2021"
+      },
+      {
+        "name": "Featured Artist",
+        "venue": "Affordable Art Fair, Los Angeles",
+        "year": "2020"
+      },
+      {
+        "name": "Group Show: 'Digital Renaissance'",
+        "venue": "Tate Modern, London",
+        "year": "2019"
+      }
     ],
-    "Teamwork": [
-      "Led cross-functional teams in agile environments",
-      "Mentored junior developers"
+    "Collaborations": [
+      {
+        "project": "Album Artwork",
+        "client": "Indie band 'Neon Pulse'",
+        "year": "2023"
+      },
+      {
+        "project": "AR Fashion Campaign",
+        "client": "Gucci",
+        "year": "2022"
+      },
+      {
+        "project": "VR Music Video",
+        "client": "Björk",
+        "year": "2021"
+      },
+      {
+        "project": "Interactive Museum Installation",
+        "client": "Smithsonian Institution",
+        "year": "2020"
+      },
+      {
+        "project": "Limited Edition Sneaker Design",
+        "client": "Nike",
+        "year": "2019"
+      }
     ],
-    "Leadership": [
-      "Managed development teams of up to 15 people",
-      "Initiated and led company-wide tech training programs"
+    "Workshops": [
+      {
+        "name": "Digital Art Mastery",
+        "venue": "Online Course Platform",
+        "year": "2023"
+      },
+      {
+        "name": "VR Art: New Frontiers",
+        "venue": "Gnomon School of Visual Effects",
+        "year": "2022"
+      },
+      {
+        "name": "Concept Art for Video Games",
+        "venue": "Game Developers Conference",
+        "year": "2021"
+      },
+      {
+        "name": "Digital Painting Techniques",
+        "venue": "Schoolism",
+        "year": "2020"
+      },
+      {
+        "name": "The Art of Color and Light in Digital Media",
+        "venue": "California Institute of the Arts",
+        "year": "2019"
+      }
+    ],
+    "Publications": [
+      {
+        "title": "Digital Art: Bridging Imagination and Technology",
+        "publisher": "Thames & Hudson",
+        "year": "2023"
+      },
+      {
+        "title": "The Future of Art in the Age of AI",
+        "publisher": "MIT Technology Review",
+        "year": "2022"
+      },
+      {
+        "title": "Virtual Realities: A New Canvas for Artists",
+        "publisher": "Wired Magazine",
+        "year": "2021"
+      },
+      {
+        "title": "From Pixels to Masterpieces: Digital Art Techniques",
+        "publisher": "3D Artist Magazine",
+        "year": "2020"
+      },
+      {
+        "title": "Blending Traditional and Digital Art",
+        "publisher": "ImagineFX",
+        "year": "2019"
+      }
     ]
   }
 }

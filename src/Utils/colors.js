@@ -1,8 +1,10 @@
 export const colors = {
-  // Main node colors
-  keshavMain: "#3CF3FF",
-  companyMain: "#4ECDC4",
-  shulkaMain: "#F237F6",
+  companyMain: "#your_color_here",
+  keshavMain: "#your_color_here",
+  shulkaMain: "#your_color_here",
+  defaultMain: "#your_default_color_here",
+  mainNodeText: "#your_text_color_here",
+  // ... any other colors you need
 
   // Sub-node colors (if different from main nodes)
   keshavSub: "#FF8C8C",
