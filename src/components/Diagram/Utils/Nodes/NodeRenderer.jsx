@@ -22,55 +22,100 @@ export const renderNodes = (data, showPopup, hidePopup) => {
   const spiralPositions = generateSpiralPositions(totalSubNodes, [0, 0, 0]);
   let spiralIndex = 0;
 
-  Object.entries(data).forEach(([key, nodeData]) => {
-    const position = mainNodePositions[key];
-    if (!position) {
-      console.error(`No position found for key: ${key}`);
-      return;
-    }
-    const mainPosition = new THREE.Vector3(...position);
-
-    nodes.push(
-      <MainNode
-        key={`main-${key}`}
-        position={mainPosition}
-        color={nodeColors[key] || colors.defaultMain}
-        label={nodeData.name}
-        data={nodeData}
-        showPopup={(label, position) => showPopup(label, position, nodeData)}
-        hidePopup={hidePopup}
-        size={5}
-      />
+  // Render Keshav's nodes
+  if (data.keshavData) {
+    renderNodeGroup(
+      data.keshavData,
+      "keshavData",
+      nodes,
+      spiralPositions,
+      spiralIndex,
+      showPopup,
+      hidePopup
     );
+    spiralIndex += Object.keys(data.keshavData.categories || {}).length;
+  }
 
-    Object.entries(nodeData.categories || {}).forEach(
-      ([category, categoryData]) => {
-        const subPosition = new THREE.Vector3(...spiralPositions[spiralIndex]);
-        spiralIndex++;
-
-        nodes.push(
-          <group key={`sub-${key}-${category}`}>
-            <PlatformNode
-              position={subPosition}
-              color={nodeColors[key] || colors.defaultMain}
-              label={category}
-              showPopup={(label, position) =>
-                showPopup(label, position, categoryData)
-              }
-              hidePopup={hidePopup}
-              isIndividualSubNode={true}
-              size={2}
-            />
-            <CurvedArm
-              start={mainPosition}
-              end={subPosition}
-              color={nodeColors[key] || colors.defaultMain}
-            />
-          </group>
-        );
-      }
+  // Render CCC nodes
+  if (data.companyData) {
+    renderNodeGroup(
+      data.companyData,
+      "companyData",
+      nodes,
+      spiralPositions,
+      spiralIndex,
+      showPopup,
+      hidePopup
     );
-  });
+    spiralIndex += Object.keys(data.companyData.categories || {}).length;
+  }
+
+  // Render Shulka's nodes
+  if (data.shulkaData) {
+    renderNodeGroup(
+      data.shulkaData,
+      "shulkaData",
+      nodes,
+      spiralPositions,
+      spiralIndex,
+      showPopup,
+      hidePopup
+    );
+  }
 
   return nodes;
+};
+
+const renderNodeGroup = (
+  nodeData,
+  key,
+  nodes,
+  spiralPositions,
+  startIndex,
+  showPopup,
+  hidePopup
+) => {
+  const mainPosition = new THREE.Vector3(...mainNodePositions[key]);
+
+  nodes.push(
+    <MainNode
+      key={`main-${key}`}
+      position={mainPosition}
+      color={nodeColors[key] || colors.defaultMain}
+      label={nodeData.name}
+      data={nodeData}
+      showPopup={showPopup}
+      hidePopup={hidePopup}
+      size={10}
+    />
+  );
+
+  Object.entries(nodeData.categories || {}).forEach(
+    ([category, categoryData], index) => {
+      const subPosition = new THREE.Vector3(
+        ...spiralPositions[startIndex + index]
+      );
+
+      nodes.push(
+        <group key={`sub-${key}-${category}`}>
+          <PlatformNode
+            position={subPosition}
+            color={nodeColors[key] || colors.defaultMain}
+            label={category}
+            showPopup={(label, position) =>
+              showPopup(label, position, categoryData)
+            }
+            hidePopup={hidePopup}
+            isIndividualSubNode={true}
+            size={5}
+          />
+          <CurvedArm
+            start={mainPosition}
+            end={subPosition}
+            color={nodeColors[key] || colors.defaultMain}
+          />
+        </group>
+      );
+    }
+  );
 };

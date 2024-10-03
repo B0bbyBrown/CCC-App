@@ -31,7 +31,7 @@ export const PlatformNode = ({
       <Billboard>
         <Text
           position={[0, 1.5, 0]}
-          fontSize={0.5}
+          fontSize={3}
           color={isIndividualSubNode ? "white" : "black"}
           anchorX="center"
           anchorY="middle"

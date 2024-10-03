@@ -1,25 +1,30 @@
 export const colors = {
-  companyMain: "#your_color_here",
-  keshavMain: "#your_color_here",
-  shulkaMain: "#your_color_here",
-  defaultMain: "#your_default_color_here",
-  mainNodeText: "#your_text_color_here",
-  // ... any other colors you need
+  companyMain: "#4A90E2", // A professional blue
+  keshavMain: "#02f5b8", // A vibrant teal
+  shulkaMain: "#fa04e5", // A warm orange
+  defaultMain: "#6B7C93", // A neutral slate gray
+  mainNodeText: "#FFFFFF", // White text for contrast
 
-  // Sub-node colors (if different from main nodes)
-  keshavSub: "#FF8C8C",
-  companySub: "#6FDED6",
-  shulkaSub: "#67C9E0",
+  // Sub-node colors
+  keshavSub: "#FF8C8C", // A soft pink
+  companySub: "#6FDED6", // A light teal
+  shulkaSub: "#67C9E0", // A sky blue
 
   // Text colors
-  mainNodeText: "#000000",
-  subNodeText: "#FFFFFF",
+  mainNodeText: "#FFF", // Black text for main nodes
+  subNodeText: "#FFFFFF", // White text for sub nodes
 
   // Background colors
-  diagramBackground: "#f0f0f0",
+  diagramBackground: "#F0F4F8", // A light grayish blue
 
-  // Other colors as needed
-  highlight: "#FFA500",
-  error: "#FF0000",
-  success: "#00FF00",
+  // Other colors
+  highlight: "#FFA500", // A bright orange for highlights
+  error: "#FF4D4F", // A soft red for errors
+  success: "#52C41A", // A vibrant green for success messages
+
+  // Additional colors for variety
+  accent1: "#8C54FF", // A rich purple
+  accent2: "#00D8FF", // A bright cyan
+  accent3: "#FF6B6B", // A coral red
+  accent4: "#4CAF50", // A material design green
 };

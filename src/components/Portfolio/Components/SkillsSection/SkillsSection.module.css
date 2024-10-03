@@ -1,0 +1,33 @@
+.skillsSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.skillCategory {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skillCategory h3 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.skillCategory ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.skillCategory li {
+  margin-bottom: 5px;
+  padding: 3px 8px;
+  background-color: var(--secondary-color);
+  color: var(--bg-color);
+  border-radius: 4px;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}

@@ -1,0 +1,56 @@
+.projectCard {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+}
+
+.projectCard h3 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.technologies {
+  margin-top: 15px;
+}
+
+.technologies h4 {
+  margin-bottom: 5px;
+}
+
+.technologies ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.technologies li {
+  background-color: var(--secondary-color);
+  color: var(--bg-color);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.projectLink {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 10px;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.projectLink:hover {
+  background-color: var(--secondary-color);
+}

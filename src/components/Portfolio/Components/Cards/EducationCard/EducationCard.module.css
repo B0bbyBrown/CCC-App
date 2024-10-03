@@ -1,0 +1,40 @@
+.educationCard {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.educationCard:hover {
+  transform: translateY(-5px);
+}
+
+.educationCard h3 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.institution {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.duration {
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.achievements h4 {
+  margin-bottom: 10px;
+}
+
+.achievements ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.achievements li {
+  margin-bottom: 5px;
+}

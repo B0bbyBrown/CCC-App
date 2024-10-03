@@ -1,7 +1,7 @@
 import React from "react";
-import { Text } from "@react-three/drei";
 import * as THREE from "three";
 import { colors } from "../../../../Utils/colors";
+import { BillboardText } from "../../Components/BillboardText";
 
 export const MainNode = ({
   position,
@@ -21,17 +21,15 @@ export const MainNode = ({
         <sphereGeometry args={[size, 32, 32]} />
         <meshStandardMaterial color={color} />
       </mesh>
-      <Text
+      <BillboardText
         position={[size + 2, 0, 0]}
         fontSize={size * 0.75}
         color={colors.mainNodeText}
         anchorX="left"
         anchorY="middle"
-        backgroundColor="white"
-        padding={[0.2, 0.2, 0.2, 0.2]}
       >
         {label}
-      </Text>
+      </BillboardText>
     </group>
   );
 };

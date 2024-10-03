@@ -1,0 +1,41 @@
+.certificationCard {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.certificationCard:hover {
+  transform: translateY(-5px);
+}
+
+.certificationCard h3 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.issuer {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.date {
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.certificationLink {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.certificationLink:hover {
+  background-color: var(--secondary-color);
+}

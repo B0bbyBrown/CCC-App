@@ -5,7 +5,6 @@ import { CCC } from "./routes/Curious-Cat-Creative/Curious-Cat-Creative";
 import { Keshav } from "./routes/Keshav/Keshav";
 import { Shulka } from "./routes/Shulka/Shulka";
 import { Error404 } from "./routes/404/Error404";
-import { Exp } from "./routes/EXP/exp";
 
 import "./App.css";
 
@@ -20,7 +19,6 @@ export const App = () => {
             <Route path="/Keshav" element={<Keshav />} />
             <Route path="/Shulka" element={<Shulka />} />
             <Route path="/Error404" element={<Error404 />} />
-            <Route path="/exp" element={<Exp />} />
           </Routes>
         </div>
       </Router>

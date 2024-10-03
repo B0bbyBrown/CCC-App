@@ -1,0 +1,19 @@
+.categoryTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: var(--accent-color);
+}
+
+.categoryTitle .categoryIcon {
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+.portfolioContent {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
