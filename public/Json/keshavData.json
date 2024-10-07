@@ -3,14 +3,14 @@
   "title": "Full Stack Developer & AI Enthusiast",
   "summary": "Experienced software engineer with a passion for innovative technologies and a track record of delivering scalable solutions.",
   "contact": {
-    "email": "keshav.sharma@example.com",
-    "phone": "+1 (555) 123-4567",
-    "location": "San Francisco, CA"
+    "email": "keshav@example.com",
+    "phone": "123 4567 890",
+    "location": "South Africa"
   },
   "socialMedia": {
-    "linkedin": "https://www.linkedin.com/in/keshavsharma",
-    "github": "https://github.com/keshav-sharma",
-    "twitter": "https://twitter.com/keshavsharma_dev"
+    "linkedin": "https://www.linkedin.com/in/keshav",
+    "github": "https://github.com/keshav",
+    "twitter": "https://twitter.com/keshav_dev"
   },
   "categories": {
     "Projects": [

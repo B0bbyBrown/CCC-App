@@ -1,10 +1,10 @@
-.portfolioHeader {
+.profileHeader {
   text-align: left;
   margin-bottom: 60px;
   position: relative;
 }
 
-.portfolioHeader h1 {
+.profileHeader h1 {
   font-family: "Playfair Display", serif;
   font-size: 4rem;
   margin-bottom: 10px;
@@ -13,7 +13,7 @@
   z-index: 1;
 }
 
-.portfolioHeader h1::after {
+.profileHeader h1::after {
   content: "";
   position: absolute;
   width: 60px;

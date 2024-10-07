@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Header } from "./Components/Header/Header";
+import { ProfileHeader } from "./Components/ProfileHeader/ProfileHeader";
 import { TabContent } from "./Components/TabContent/TabContent";
 import { categoryIcons } from "./utils/icons";
 import styles from "./Portfolio.module.css";
@@ -36,7 +36,7 @@ export const Portfolio = ({ data }) => {
 
   return (
     <div className={styles.portfolioContainer}>
-      <Header
+      <ProfileHeader
         name={name}
         title={title}
         summary={summary}
