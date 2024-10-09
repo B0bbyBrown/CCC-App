@@ -31,6 +31,7 @@ export const Diagram = () => {
   const [popupInfo, setPopupInfo] = useState(null);
   const canvasRef = useRef(null);
   const controlsRef = useRef(null);
+  const [camera, setCamera] = useState(null);
 
   useEffect(() => {
     fetchData().then(setData);
@@ -44,6 +45,10 @@ export const Diagram = () => {
     setPopupInfo(null);
   }, []);
 
+  const handleInteraction = useCallback(() => {
+    hidePopup();
+  }, [hidePopup]);
+
   const nodes = useMemo(() => {
     if (!data) return null;
     return renderNodes(data, showPopup, hidePopup);
@@ -53,7 +58,13 @@ export const Diagram = () => {
 
   return (
     <div className={styles.container}>
-      <Canvas ref={canvasRef} camera={{ fov: 50 }}>
+      <Canvas
+        ref={canvasRef}
+        camera={{ fov: 50 }}
+        onCreated={({ camera }) => setCamera(camera)}
+        onPointerDown={handleInteraction}
+        onWheel={handleInteraction}
+      >
         <CameraSetup />
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
@@ -63,14 +74,15 @@ export const Diagram = () => {
           enablePan={true}
           enableRotate={true}
           minPolarAngle={0} // Allow rotation to the top
-          maxPolarAngle={Math.PI / 2} // Restrict rotation to the horizon
+          maxPolarAngle={Math.PI} // Allow full 360-degree vertical rotation
+          onChange={handleInteraction}
         />
         {nodes}
       </Canvas>
-      {popupInfo && (
+      {popupInfo && camera && (
         <PopupMain
           label={popupInfo.label}
-          position={getScreenPosition(popupInfo.position, canvasRef.current)}
+          position={getScreenPosition(camera, popupInfo.position)}
           data={popupInfo.data}
           onClose={hidePopup}
         />

@@ -1,103 +1,110 @@
 {
   "name": "Curious Cat Creative",
+  "description": "A Small and Medium-sized Enterprise (SME) specializing in software development, web applications, and digital solutions.",
   "categories": {
     "Projects": [
       {
         "name": "Project 1",
-        "description": "Description of Project 1",
-        "duration": "6 months"
+        "description": "A web application for managing client relationships.",
+        "duration": "6 months",
+        "technologies": ["React", "Node.js"],
+        "teamMembers": ["Alice", "Bob"],
+        "status": "Completed",
+        "client": "Client 1",
+        "budget": "R50,000",
+        "outcomes": "Improved client engagement by 40%"
       },
       {
         "name": "Project 2",
-        "description": "Description of Project 2",
-        "duration": "1 year"
+        "description": "An e-commerce platform for a retail client.",
+        "duration": "1 year",
+        "technologies": ["Vue.js", "Express"],
+        "teamMembers": ["Charlie", "David"],
+        "status": "In Progress",
+        "client": "Client 2",
+        "budget": "R100,000",
+        "outcomes": "Expected to increase sales by 30%"
       },
       {
         "name": "Project 3",
-        "description": "Description of Project 3",
-        "duration": "3 months"
-      },
-      {
-        "name": "Project 4",
-        "description": "Description of Project 4",
-        "duration": "2 years"
-      },
-      {
-        "name": "Project 5",
-        "description": "Description of Project 5",
-        "duration": "5 months"
+        "description": "A mobile application for event management.",
+        "duration": "3 months",
+        "technologies": ["Angular", "Firebase"],
+        "teamMembers": ["Eve", "Frank"],
+        "status": "Completed",
+        "client": "Client 3",
+        "budget": "R25,000",
+        "outcomes": "Streamlined event registration process"
       }
     ],
     "Clients": [
       {
         "name": "Client 1",
-        "industry": "Industry of Client 1",
-        "projects": ["Project 1", "Project 3"]
+        "industry": "Technology",
+        "projects": ["Project 1", "Project 3"],
+        "contact": {
+          "email": "client1@example.com",
+          "phone": "123-456-7890"
+        },
+        "feedback": "Great collaboration! The team understood our needs perfectly."
       },
       {
         "name": "Client 2",
-        "industry": "Industry of Client 2",
-        "projects": ["Project 2"]
-      },
-      {
-        "name": "Client 3",
-        "industry": "Industry of Client 3",
-        "projects": ["Project 4", "Project 5"]
-      },
-      {
-        "name": "Client 4",
-        "industry": "Industry of Client 4",
-        "projects": ["Project 1"]
-      },
-      {
-        "name": "Client 5",
-        "industry": "Industry of Client 5",
-        "projects": ["Project 2", "Project 3"]
+        "industry": "Retail",
+        "projects": ["Project 2"],
+        "contact": {
+          "email": "client2@example.com",
+          "phone": "234-567-8901"
+        },
+        "feedback": "Very satisfied with the results. The project was delivered on time."
       }
     ],
     "Partnerships": [
       {
         "name": "Partner 1",
-        "collaboration": "Details of collaboration with Partner 1",
-        "duration": "2 years"
+        "collaboration": "Joint venture for software solutions.",
+        "duration": "2 years",
+        "impact": "Increased market reach by 30%"
       },
       {
         "name": "Partner 2",
-        "collaboration": "Details of collaboration with Partner 2",
-        "duration": "3 years"
-      },
-      {
-        "name": "Partner 3",
-        "collaboration": "Details of collaboration with Partner 3",
-        "duration": "1 year"
+        "collaboration": "Collaboration with a local tech incubator.",
+        "duration": "1 year",
+        "impact": "Access to new clients and resources"
       }
     ],
     "Achievements": [
-      "Achievement 1",
-      "Achievement 2",
-      "Achievement 3",
-      "Achievement 4",
-      "Achievement 5",
-      "Achievement 6",
-      "Achievement 7",
-      "Achievement 8",
-      "Achievement 9",
-      "Achievement 10"
+      {
+        "title": "Best SME Development Company 2022",
+        "description": "Awarded by the Local Business Association for outstanding service.",
+        "date": "2022-05-15"
+      },
+      {
+        "title": "ISO 9001 Certification",
+        "description": "Achieved certification for quality management systems.",
+        "date": "2023-01-10"
+      }
     ],
     "Goals": {
       "shortTermGoals": [
-        "Short Term Goal 1",
-        "Short Term Goal 2",
-        "Short Term Goal 3",
-        "Short Term Goal 4",
-        "Short Term Goal 5"
+        {
+          "goal": "Expand service offerings to include AI solutions",
+          "deadline": "2024-06-30"
+        },
+        {
+          "goal": "Increase client base by 20%",
+          "deadline": "2024-12-31"
+        }
       ],
       "longTermGoals": [
-        "Long Term Goal 1",
-        "Long Term Goal 2",
-        "Long Term Goal 3",
-        "Long Term Goal 4",
-        "Long Term Goal 5"
+        {
+          "goal": "Become a leading SME development company in the region",
+          "deadline": "2025-12-31"
+        },
+        {
+          "goal": "Achieve a revenue growth of 50% over the next 3 years",
+          "deadline": "2026-12-31"
+        }
       ]
     }
   }

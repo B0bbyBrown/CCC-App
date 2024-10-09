@@ -19,7 +19,7 @@ export const PopupMain = ({ position, data }) => (
         <PopupIndividual data={data} />
       )
     ) : (
-      <div>No data available</div>
+      <div className={styles.noData}>No data available</div>
     )}
   </div>
 );

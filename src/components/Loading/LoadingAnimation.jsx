@@ -1,13 +1,11 @@
 import React from "react";
-import { Html, useProgress } from "@react-three/drei";
+import styles from "./LoadingAnimation.module.css"; // Add your styles
 
-export function LoadingAnimation() {
-  const { progress } = useProgress();
+export const LoadingAnimation = () => {
   return (
-    <Html center>
-      <div style={{ color: "white", fontSize: "2em" }}>
-        Loading... {progress.toFixed(0)}%
-      </div>
-    </Html>
+    <div className={styles.loadingContainer}>
+      <div className={styles.spinner}></div>
+      <p>Loading...</p>
+    </div>
   );
-}
+};

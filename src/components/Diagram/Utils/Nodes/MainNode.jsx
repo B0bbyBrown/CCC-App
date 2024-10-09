@@ -1,35 +1,33 @@
-import React from "react";
-import * as THREE from "three";
+import React, { useRef } from "react";
+import { Text } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import { colors } from "../../../../Utils/colors";
-import { BillboardText } from "../../Components/BillboardText";
 
-export const MainNode = ({
-  position,
-  color,
-  label,
-  data,
-  showPopup,
-  hidePopup,
-  size,
-}) => {
+export const MainNode = ({ position, color, label, data, size }) => {
+  const textRef = useRef();
+
+  useFrame(({ camera }) => {
+    if (textRef.current) {
+      textRef.current.lookAt(camera.position);
+    }
+  });
+
   return (
     <group position={position}>
-      <mesh
-        onClick={() => showPopup(label, position.toArray(), data)}
-        onPointerOut={hidePopup}
-      >
+      <mesh>
         <sphereGeometry args={[size, 32, 32]} />
-        <meshStandardMaterial color={color} />
+        <meshStandardMaterial color={color} metalness={0.5} roughness={0.2} />
       </mesh>
-      <BillboardText
-        position={[size + 2, 0, 0]}
+      <Text
+        ref={textRef}
+        position={[0, size + 2, 0]}
         fontSize={size * 0.75}
         color={colors.mainNodeText}
-        anchorX="left"
-        anchorY="middle"
+        anchorX="center"
+        anchorY="bottom"
       >
         {label}
-      </BillboardText>
+      </Text>
     </group>
   );
 };

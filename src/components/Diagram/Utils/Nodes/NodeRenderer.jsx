@@ -86,7 +86,7 @@ const renderNodeGroup = (
       data={nodeData}
       showPopup={showPopup}
       hidePopup={hidePopup}
-      size={10}
+      size={15} // Increased size for main node
     />
   );
 
@@ -107,7 +107,7 @@ const renderNodeGroup = (
             }
             hidePopup={hidePopup}
             isIndividualSubNode={true}
-            size={5}
+            // Size is now handled within PlatformNode
           />
           <CurvedArm
             start={mainPosition}
