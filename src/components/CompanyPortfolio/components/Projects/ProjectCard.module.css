@@ -1,0 +1,28 @@
+.card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.projectName {
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.detail {
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.detail strong {
+  font-weight: bold;
+}

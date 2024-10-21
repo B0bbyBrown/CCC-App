@@ -7,32 +7,17 @@ body {
 }
 
 .container {
-  width: 100%;
-  min-height: 100vh; /* Ensure the container takes at least the full viewport height */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* Center content vertically */
-  position: relative; /* Ensure the gradient background is positioned correctly */
-  background: linear-gradient(
-    135deg,
-    #02f5b8,
-    #fa04e5
-  ); /* Gradient background */
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 5rem 0 5rem;
-  width: 98%;
-  height: 20%;
-  color: #fff;
-  font-family: "K2D", sans-serif;
-  font-size: 2em;
-  z-index: 1;
+  width: 100%;
+
+  padding: 0;
+  margin: 0;
 }
 
 .headerText {
@@ -64,6 +49,14 @@ body {
       2,
       1fr
     ); /* Two cards per row for smaller screens */
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .header {
+    padding: 0;
   }
 }
 

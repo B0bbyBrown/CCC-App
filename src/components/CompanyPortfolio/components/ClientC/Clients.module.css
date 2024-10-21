@@ -1,0 +1,92 @@
+.clientsSection {
+  padding: 2rem 0;
+  overflow: hidden; /* To prevent horizontal scrollbar */
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 3rem; /* Increased to accommodate the indented cards */
+}
+
+.clientGrid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem 0; /* Added padding to accommodate the indented cards */
+}
+
+.clientCard {
+  flex: 0 1 calc(20% - 1.2rem); /* Adjust width based on 5 cards */
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clientCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.clientCard.indented {
+  transform: translateY(25%);
+}
+
+.clientCard.indented:hover {
+  transform: translateY(calc(25% - 5px));
+}
+
+.clientName {
+  margin: 0 0 0.5rem 0;
+}
+
+.industry {
+  font-style: italic;
+
+  margin-bottom: 1rem;
+}
+
+.feedback {
+  font-style: italic;
+
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid #007bff;
+}
+
+.projects {
+  font-size: 0.9em;
+}
+
+@media (max-width: 1200px) {
+  .clientGrid {
+    flex-wrap: wrap;
+  }
+
+  .clientCard {
+    flex: 0 1 calc(33.333% - 1rem);
+  }
+
+  .clientCard.indented {
+    transform: translateY(0);
+  }
+
+  .clientCard.indented:hover {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .clientCard {
+    flex: 0 1 calc(50% - 0.75rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .clientCard {
+    flex: 0 1 100%;
+  }
+}

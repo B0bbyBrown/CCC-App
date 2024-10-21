@@ -1,0 +1,25 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.loading {
+  font-size: 24px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 50px;
+}

@@ -1,0 +1,96 @@
+.partnershipsSection {
+  padding: 2rem 0;
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.partnershipGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.partnershipItem {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: white;
+}
+
+.partnershipItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.partnershipIcon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #007bff;
+}
+
+.partnerName {
+  margin: 0 0 0.5rem 0;
+  color: white;
+}
+
+.collaboration {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.partnershipDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+.duration,
+.impact {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  color: white;
+}
+
+.focusAreas {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.focusAreas h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.focusAreas ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .partnershipGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .partnershipGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .partnershipGrid {
+    grid-template-columns: 1fr;
+  }
+}

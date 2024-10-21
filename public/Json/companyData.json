@@ -1,29 +1,40 @@
 {
   "name": "Curious Cat Creative",
   "description": "A Small and Medium-sized Enterprise (SME) specializing in software development, web applications, and digital solutions.",
+  "founded": "2018",
+  "location": "Cape Town, South Africa",
+  "employees": 25,
   "categories": {
     "Projects": [
       {
         "name": "Project 1",
         "description": "A web application for managing client relationships.",
         "duration": "6 months",
-        "technologies": ["React", "Node.js"],
-        "teamMembers": ["Alice", "Bob"],
+        "technologies": ["React", "Node.js", "MongoDB"],
+        "teamMembers": ["Alice", "Bob", "Charlie"],
         "status": "Completed",
         "client": "Client 1",
         "budget": "R50,000",
-        "outcomes": "Improved client engagement by 40%"
+        "outcomes": "Improved client engagement by 40%",
+        "challenges": "Integrating with legacy systems",
+        "testimonial": "The CRM has revolutionized our client management process!"
       },
       {
         "name": "Project 2",
         "description": "An e-commerce platform for a retail client.",
         "duration": "1 year",
-        "technologies": ["Vue.js", "Express"],
-        "teamMembers": ["Charlie", "David"],
+        "technologies": ["Vue.js", "Express", "PostgreSQL"],
+        "teamMembers": ["David", "Eve", "Frank"],
         "status": "In Progress",
         "client": "Client 2",
         "budget": "R100,000",
-        "outcomes": "Expected to increase sales by 30%"
+        "outcomes": "Expected to increase sales by 30%",
+        "challenges": "Implementing secure payment gateways",
+        "milestones": [
+          { "name": "Frontend Development", "status": "Completed" },
+          { "name": "Backend Integration", "status": "In Progress" },
+          { "name": "Payment System", "status": "Pending" }
+        ]
       },
       {
         "name": "Project 3",
@@ -35,28 +46,137 @@
         "client": "Client 3",
         "budget": "R25,000",
         "outcomes": "Streamlined event registration process"
+      },
+      {
+        "name": "Project 4",
+        "description": "AI-powered chatbot for customer support.",
+        "duration": "4 months",
+        "technologies": ["Python", "TensorFlow", "AWS"],
+        "teamMembers": ["Grace", "Henry"],
+        "status": "Completed",
+        "client": "Client 4",
+        "budget": "R75,000",
+        "outcomes": "Reduced customer support response time by 60%"
+      },
+      {
+        "name": "Project 5",
+        "description": "Blockchain-based supply chain management system.",
+        "duration": "8 months",
+        "technologies": ["Ethereum", "Solidity", "React"],
+        "teamMembers": ["Isaac", "Julia", "Kevin"],
+        "status": "In Progress",
+        "client": "Client 5",
+        "budget": "R150,000",
+        "outcomes": "Expected to improve traceability and reduce fraud"
+      },
+      {
+        "name": "Project 6",
+        "description": "Virtual reality training platform for industrial workers.",
+        "duration": "5 months",
+        "technologies": ["Unity", "C#", "Oculus SDK"],
+        "teamMembers": ["Liam", "Mia"],
+        "status": "Completed",
+        "client": "Client 1",
+        "budget": "R80,000",
+        "outcomes": "Reduced training time by 30% and improved safety metrics"
+      },
+      {
+        "name": "Project 7",
+        "description": "IoT-based smart home automation system.",
+        "duration": "6 months",
+        "technologies": ["Raspberry Pi", "Python", "MQTT"],
+        "teamMembers": ["Noah", "Olivia", "Paul"],
+        "status": "In Progress",
+        "client": "Client 3",
+        "budget": "R90,000",
+        "outcomes": "Aiming for 20% reduction in energy consumption"
+      },
+      {
+        "name": "Project 8",
+        "description": "Machine learning model for predictive maintenance.",
+        "duration": "4 months",
+        "technologies": ["Python", "Scikit-learn", "TensorFlow"],
+        "teamMembers": ["Quinn", "Rachel"],
+        "status": "Completed",
+        "client": "Client 2",
+        "budget": "R60,000",
+        "outcomes": "Reduced equipment downtime by 25%"
+      },
+      {
+        "name": "Project 9",
+        "description": "Augmented reality app for interior design.",
+        "duration": "7 months",
+        "technologies": ["ARKit", "Swift", "Unity"],
+        "teamMembers": ["Samuel", "Tara", "Uma"],
+        "status": "In Progress",
+        "client": "Client 5",
+        "budget": "R120,000",
+        "outcomes": "Expected to increase customer satisfaction and reduce returns"
+      },
+      {
+        "name": "Project 10",
+        "description": "Cybersecurity assessment and improvement program.",
+        "duration": "3 months",
+        "technologies": ["Kali Linux", "Metasploit", "Wireshark"],
+        "teamMembers": ["Victor", "Wendy"],
+        "status": "Completed",
+        "client": "Client 4",
+        "budget": "R40,000",
+        "outcomes": "Identified and patched 15 critical vulnerabilities"
       }
     ],
     "Clients": [
       {
         "name": "Client 1",
         "industry": "Technology",
-        "projects": ["Project 1", "Project 3"],
+        "projects": ["Project 1", "Project 6"],
         "contact": {
           "email": "client1@example.com",
           "phone": "123-456-7890"
         },
-        "feedback": "Great collaboration! The team understood our needs perfectly."
+        "feedback": "Great collaboration! The team understood our needs perfectly.",
+        "relationshipDuration": "2 years",
+        "futureProjects": "Discussing a mobile app development"
       },
       {
         "name": "Client 2",
         "industry": "Retail",
-        "projects": ["Project 2"],
+        "projects": ["Project 2", "Project 8"],
         "contact": {
           "email": "client2@example.com",
           "phone": "234-567-8901"
         },
         "feedback": "Very satisfied with the results. The project was delivered on time."
+      },
+      {
+        "name": "Client 3",
+        "industry": "Event Management",
+        "projects": ["Project 3", "Project 7"],
+        "contact": {
+          "email": "client3@example.com",
+          "phone": "345-678-9012"
+        },
+        "feedback": "The mobile app has significantly improved our event management process."
+      },
+      {
+        "name": "Client 4",
+        "industry": "Customer Service",
+        "projects": ["Project 4", "Project 10"],
+        "contact": {
+          "email": "client4@example.com",
+          "phone": "456-789-0123"
+        },
+        "feedback": "The AI chatbot has transformed our customer support capabilities."
+      },
+      {
+        "name": "Client 5",
+        "industry": "Manufacturing",
+        "projects": ["Project 5", "Project 9"],
+        "contact": {
+          "email": "client5@example.com",
+          "phone": "567-890-1234"
+        },
+        "feedback": "Looking forward to the completion of our blockchain and AR projects."
       }
     ],
     "Partnerships": [
@@ -64,46 +184,167 @@
         "name": "Partner 1",
         "collaboration": "Joint venture for software solutions.",
         "duration": "2 years",
-        "impact": "Increased market reach by 30%"
+        "impact": "Increased market reach by 30%",
+        "focusAreas": ["AI", "Machine Learning"],
+        "jointProjects": 3,
+        "futureCollaborations": "Exploring blockchain solutions"
       },
       {
         "name": "Partner 2",
         "collaboration": "Collaboration with a local tech incubator.",
         "duration": "1 year",
         "impact": "Access to new clients and resources"
+      },
+      {
+        "name": "Partner 3",
+        "collaboration": "Research partnership with a local university.",
+        "duration": "3 years",
+        "impact": "Access to cutting-edge research and talent pool",
+        "focusAreas": ["AI Ethics", "Quantum Computing"],
+        "jointProjects": 2,
+        "futureCollaborations": "Developing AI curriculum"
+      },
+      {
+        "name": "Partner 4",
+        "collaboration": "Strategic alliance with a cybersecurity firm.",
+        "duration": "18 months",
+        "impact": "Enhanced security offerings for clients",
+        "focusAreas": ["Penetration Testing", "Security Audits"],
+        "jointProjects": 4,
+        "futureCollaborations": "Developing a security-as-a-service platform"
+      },
+      {
+        "name": "Partner 5",
+        "collaboration": "Co-development agreement with an IoT hardware manufacturer.",
+        "duration": "2 years",
+        "impact": "Expanded product range to include hardware solutions",
+        "focusAreas": ["Smart Home Devices", "Industrial IoT"],
+        "jointProjects": 2,
+        "futureCollaborations": "Developing an end-to-end IoT ecosystem"
       }
     ],
     "Achievements": [
       {
         "title": "Best SME Development Company 2022",
         "description": "Awarded by the Local Business Association for outstanding service.",
-        "date": "2022-05-15"
+        "date": "2022-05-15",
+        "category": "Business Excellence",
+        "impact": "Increased brand recognition and client inquiries"
       },
       {
         "title": "ISO 9001 Certification",
         "description": "Achieved certification for quality management systems.",
         "date": "2023-01-10"
+      },
+      {
+        "title": "Innovation Award 2023",
+        "description": "Recognized for the AI-powered chatbot solution at the National Tech Awards.",
+        "date": "2023-09-20",
+        "category": "Technology Innovation",
+        "impact": "Increased interest in AI solutions from potential clients"
+      },
+      {
+        "title": "Top 10 Fastest Growing Tech Companies",
+        "description": "Listed in the regional business magazine's annual ranking.",
+        "date": "2023-11-05",
+        "category": "Business Growth",
+        "impact": "Attracted attention from investors and potential partners"
+      },
+      {
+        "title": "Community Impact Award",
+        "description": "Recognized for pro-bono work on a local non-profit's website and app.",
+        "date": "2024-02-28",
+        "category": "Corporate Social Responsibility",
+        "impact": "Strengthened community relations and employee satisfaction"
       }
     ],
     "Goals": {
       "shortTermGoals": [
         {
           "goal": "Expand service offerings to include AI solutions",
-          "deadline": "2024-06-30"
+          "deadline": "2024-06-30",
+          "progress": "25%",
+          "keyMilestones": [
+            "Hire AI specialist",
+            "Develop prototype AI product",
+            "Launch marketing campaign"
+          ]
         },
         {
           "goal": "Increase client base by 20%",
           "deadline": "2024-12-31"
+        },
+        {
+          "goal": "Implement a company-wide agile methodology",
+          "deadline": "2024-09-30",
+          "progress": "50%",
+          "keyMilestones": [
+            "Train all staff in agile principles",
+            "Implement agile project management tools",
+            "Conduct first company-wide sprint review"
+          ]
+        },
+        {
+          "goal": "Launch an internship program for local university students",
+          "deadline": "2025-01-31",
+          "progress": "10%",
+          "keyMilestones": [
+            "Develop internship curriculum",
+            "Establish university partnerships",
+            "Recruit first batch of interns"
+          ]
+        },
+        {
+          "goal": "Achieve carbon neutrality in office operations",
+          "deadline": "2025-06-30",
+          "progress": "15%",
+          "keyMilestones": [
+            "Conduct carbon footprint assessment",
+            "Implement energy-saving measures",
+            "Offset remaining emissions"
+          ]
         }
       ],
       "longTermGoals": [
         {
           "goal": "Become a leading SME development company in the region",
-          "deadline": "2025-12-31"
+          "deadline": "2025-12-31",
+          "strategies": [
+            "Expand partnerships",
+            "Invest in employee training",
+            "Increase marketing efforts"
+          ]
         },
         {
           "goal": "Achieve a revenue growth of 50% over the next 3 years",
           "deadline": "2026-12-31"
+        },
+        {
+          "goal": "Establish a presence in three new African countries",
+          "deadline": "2027-12-31",
+          "strategies": [
+            "Conduct market research",
+            "Establish local partnerships",
+            "Adapt services to local needs"
+          ]
+        },
+        {
+          "goal": "Develop and launch a proprietary SaaS product",
+          "deadline": "2028-06-30",
+          "strategies": [
+            "Identify market gaps",
+            "Allocate R&D resources",
+            "Beta test with existing clients"
+          ]
+        },
+        {
+          "goal": "Achieve B Corp Certification",
+          "deadline": "2028-12-31",
+          "strategies": [
+            "Align business practices with B Corp standards",
+            "Implement sustainability initiatives",
+            "Enhance employee benefits and community engagement"
+          ]
         }
       ]
     }

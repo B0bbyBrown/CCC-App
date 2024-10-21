@@ -1,0 +1,15 @@
+.shortTermGoals {
+  flex: 1;
+  min-width: 300px;
+}
+
+.subSectionTitle {
+  font-size: 20px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.goalsGrid {
+  display: grid;
+  gap: 15px;
+}

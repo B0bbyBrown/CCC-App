@@ -1,0 +1,113 @@
+.goalsSection {
+  padding: 2rem 0;
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.goalsContainer {
+  display: flex;
+  gap: 2rem;
+}
+
+.goalColumn {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: white;
+}
+
+.goalColumn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.columnTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.columnIcon {
+  margin-right: 0.5rem;
+  color: #007bff;
+}
+
+.goalItem {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #070022;
+}
+
+.goalItem:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.goalTitle {
+  margin: 0 0 0.5rem 0;
+  color: white;
+}
+
+.goalDeadline {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.progressBar {
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: #4caf50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.8rem;
+  transition: width 0.5s ease-in-out;
+}
+
+.milestones,
+.strategies {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0.5rem;
+}
+
+.milestones li,
+.strategies li {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.3rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.milestones li:before,
+.strategies li:before {
+  content: "•";
+  color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  .goalsContainer {
+    flex-direction: column;
+  }
+}
