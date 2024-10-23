@@ -1,10 +1,9 @@
-export const colors = {
-  companyMain: "#4A90E2", // A professional blue
-  keshavMain: "#02f5b8", // A vibrant teal
-  shulkaMain: "#fa04e5", // A warm orange
-  defaultMain: "#6B7C93", // A neutral slate gray
-  mainNodeText: "#FFFFFF", // White text for contrast
-
+export const Colors = {
+  companyMain: "#02f5b8",
+  keshavMain: "#4A90E2",
+  shulkaMain: "#fa04e5",
+  defaultMain: "#6B7C93",
+  mainNodeText: "#FFFFFF",
   // Sub-node colors
   keshavSub: "#FF8C8C", // A soft pink
   companySub: "#6FDED6", // A light teal

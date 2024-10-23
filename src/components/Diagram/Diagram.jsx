@@ -1,90 +1,66 @@
-import React, {
-  useMemo,
-  useState,
-  useEffect,
-  useRef,
-  useCallback,
-} from "react";
-import { Canvas, useThree } from "@react-three/fiber";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import * as THREE from "three";
-import { fetchData } from "../../Utils/fetchData";
-import { renderNodes } from "./Utils/Nodes/NodeRenderer";
-import { PopupMain } from "./Utils/Popups/PopupMain";
 import { getScreenPosition } from "./Utils/getScreenPosition";
+import { PopupMain } from "./Utils/Popups/PopupMain";
+import { renderNodes } from "./Utils/Nodes/NodeRenderer";
+import { fetchData } from "../../Utils/fetchData";
 import styles from "./Diagram.module.css";
-
-// New component to set up the initial camera position
-const CameraSetup = () => {
-  const { camera } = useThree();
-
-  useEffect(() => {
-    camera.position.set(0, 400, 0); // Position the camera above the diagram
-    camera.lookAt(0, 0, 0); // Make the camera look at the center of the scene
-  }, [camera]);
-
-  return null;
-};
 
 export const Diagram = () => {
   const [data, setData] = useState(null);
   const [popupInfo, setPopupInfo] = useState(null);
   const canvasRef = useRef(null);
-  const controlsRef = useRef(null);
-  const [camera, setCamera] = useState(null);
+  const cameraRef = useRef(null);
 
   useEffect(() => {
-    fetchData().then(setData);
+    const loadData = async () => {
+      const fetchedData = await fetchData();
+      setData(fetchedData);
+    };
+    loadData();
   }, []);
 
-  const showPopup = useCallback((label, position, data) => {
-    setPopupInfo({ label, position, data });
+  const showPopup = useCallback((label, position, nodeData) => {
+    setPopupInfo({ label, position, data: nodeData });
   }, []);
 
   const hidePopup = useCallback(() => {
     setPopupInfo(null);
   }, []);
 
-  const handleInteraction = useCallback(() => {
-    hidePopup();
-  }, [hidePopup]);
-
-  const nodes = useMemo(() => {
-    if (!data) return null;
-    return renderNodes(data, showPopup, hidePopup);
-  }, [data, showPopup, hidePopup]);
-
-  if (!data) return null;
-
   return (
     <div className={styles.container}>
-      <Canvas
-        ref={canvasRef}
-        camera={{ fov: 50 }}
-        onCreated={({ camera }) => setCamera(camera)}
-        onPointerDown={handleInteraction}
-        onWheel={handleInteraction}
-      >
-        <CameraSetup />
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} />
-        <OrbitControls
-          ref={controlsRef}
-          enableZoom={true}
-          enablePan={true}
-          enableRotate={true}
-          minPolarAngle={0} // Allow rotation to the top
-          maxPolarAngle={Math.PI} // Allow full 360-degree vertical rotation
-          onChange={handleInteraction}
-        />
-        {nodes}
-      </Canvas>
-      {popupInfo && camera && (
+      <div className={styles.canvasContainer} ref={canvasRef}>
+        <Canvas
+          camera={{
+            fov: 75,
+            near: 0.1,
+            far: 1000,
+            position: [0, 0, 200],
+          }}
+          onCreated={({ camera }) => {
+            cameraRef.current = camera;
+          }}
+        >
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} />
+          <OrbitControls
+            enablePan={true}
+            enableZoom={true}
+            enableRotate={true}
+          />
+          {data && renderNodes(data, showPopup, hidePopup)}
+        </Canvas>
+      </div>
+      {popupInfo && cameraRef.current && canvasRef.current && (
         <PopupMain
-          label={popupInfo.label}
-          position={getScreenPosition(camera, popupInfo.position)}
+          position={getScreenPosition(
+            popupInfo.position,
+            canvasRef.current,
+            cameraRef.current
+          )}
           data={popupInfo.data}
-          onClose={hidePopup}
         />
       )}
     </div>

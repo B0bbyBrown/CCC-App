@@ -8,6 +8,7 @@ export const PlatformNode = ({
   label,
   showPopup,
   hidePopup,
+  nodeData,
 }) => {
   const [hovered, setHovered] = useState(false);
   const size = 3; // Increased size
@@ -24,35 +25,35 @@ export const PlatformNode = ({
     (e) => {
       e.stopPropagation();
       if (!hovered) {
-        console.log(`Mouse entered: ${label}`);
         setHovered(true);
-        showPopup(label, position.toArray());
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+          timeoutRef.current = null;
+        }
+        showPopup(label, position, nodeData);
       }
     },
-    [label, position, showPopup, hovered]
+    [label, position, showPopup, hovered, nodeData]
   );
 
   const handlePointerOut = useCallback(
     (e) => {
       e.stopPropagation();
-      console.log(`Mouse left: ${label}`);
       setHovered(false);
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
       timeoutRef.current = setTimeout(() => {
         hidePopup();
-        console.log(`Popup hidden for: ${label}`);
-      }, 100); // 100ms delay before hiding popup
+        timeoutRef.current = null;
+      }, 100);
     },
-    [hidePopup, label]
+    [hidePopup]
   );
 
   return (
-    <group
-      position={position}
-      onPointerOver={handlePointerOver}
-      onPointerOut={handlePointerOut}
-    >
-      <mesh>
+    <group position={position}>
+      <mesh onPointerOver={handlePointerOver} onPointerOut={handlePointerOut}>
         <sphereGeometry args={[size, 32, 32]} />
         <meshStandardMaterial
           color={hovered ? "#ffffff" : color}
