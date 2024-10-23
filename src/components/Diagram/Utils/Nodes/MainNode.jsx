@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Text } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { colors } from "../../../../Utils/colors";
+import { Colors } from "../../../../Utils/colors";
 
 export const MainNode = ({ position, color, label, data, size }) => {
   const textRef = useRef();
@@ -22,7 +22,7 @@ export const MainNode = ({ position, color, label, data, size }) => {
         ref={textRef}
         position={[0, size + 2, 0]}
         fontSize={size * 0.75}
-        color={colors.mainNodeText}
+        color={Colors.mainNodeText}
         anchorX="center"
         anchorY="bottom"
       >
