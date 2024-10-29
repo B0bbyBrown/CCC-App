@@ -30,6 +30,11 @@ export const PlatformNode = ({
           clearTimeout(timeoutRef.current);
           timeoutRef.current = null;
         }
+        console.group("PlatformNode Hover");
+        console.log("Label:", label);
+        console.log("Position:", position);
+        console.log("Node Data:", nodeData);
+        console.groupEnd();
         showPopup(label, position, nodeData);
       }
     },

@@ -3,6 +3,7 @@ import { Portfolio } from "../../components/Portfolio/Portfolio";
 import { fetchData } from "../../Utils/fetchData";
 import { Header } from "../../components/Header_Footer/Header/Header";
 import { Footer } from "../../components/Header_Footer/Footer/Footer";
+import styles from "./Keshav.module.css";
 
 export function Keshav() {
   const [keshavData, setKeshavData] = useState(null);
@@ -42,13 +43,11 @@ export function Keshav() {
   );
 
   return (
-    <div className="page-container">
+    <div className={styles.pageContainer}>
       <Header />
-      <div className="content-wrap">
-        <div className="keshav-container">
-          <Portfolio data={keshavData} />
-        </div>
-      </div>
+      <main className={styles.contentWrap}>
+        <Portfolio data={keshavData} />
+      </main>
       <Footer />
     </div>
   );

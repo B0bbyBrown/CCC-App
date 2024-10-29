@@ -1,57 +1,52 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
-import { CustomShaderMaterial } from "./ShaderMaterial";
+import "./ShaderMaterial";
 
 export const SceneBackground = () => {
-  const shaderRef = useRef();
   const meshRef = useRef();
-  const { size, viewport } = useThree();
-  const [isReady, setIsReady] = useState(false);
+  const materialRef = useRef();
+  const { size, camera } = useThree();
 
   useEffect(() => {
-    const initializeShader = () => {
-      if (shaderRef.current && shaderRef.current.uniforms) {
-        shaderRef.current.uniforms.iResolution.value.set(
-          size.width,
-          size.height
-        );
-        setIsReady(true);
-      } else {
-        requestAnimationFrame(initializeShader);
-      }
-    };
+    console.log("Viewport size:", size);
+    console.log("Camera position:", camera.position);
+    console.log("Camera FOV:", camera.fov);
+    console.log("Camera aspect:", camera.aspect);
 
-    initializeShader();
+    // Adjust the calculation to ensure full coverage
+    const distance = camera.position.z;
+    const vFov = (camera.fov * Math.PI) / 180;
+    const height = 2 * Math.tan(vFov / 2) * distance;
+    const width = height * camera.aspect;
 
-    return () => setIsReady(false);
-  }, [size]);
+    // Scale up by 1.5 to ensure full coverage
+    const scale = 1.5;
+
+    if (meshRef.current) {
+      meshRef.current.scale.set(width * scale, height * scale, 1);
+      console.log("Mesh scale:", meshRef.current.scale);
+    }
+  }, [camera, size]);
 
   useFrame(({ clock }) => {
-    if (isReady && shaderRef.current && shaderRef.current.uniforms) {
-      if (shaderRef.current.uniforms.iTime) {
-        shaderRef.current.uniforms.iTime.value = clock.getElapsedTime();
-      }
-      if (shaderRef.current.uniforms.iResolution) {
-        shaderRef.current.uniforms.iResolution.value.set(
-          size.width,
-          size.height
-        );
-      }
+    if (materialRef.current?.uniforms) {
+      materialRef.current.uniforms.iTime.value = clock.getElapsedTime();
+      materialRef.current.uniforms.iResolution.value = new THREE.Vector2(
+        size.width,
+        size.height
+      );
     }
   });
 
-  const scale = [viewport.width, viewport.height, 1];
-
   return (
-    <mesh ref={meshRef} scale={scale} position={[0, 0, -1]}>
-      <planeGeometry args={[1, 1]} />
+    <mesh ref={meshRef} position={[0, 0, -1]}>
+      <planeGeometry args={[2, 2]} /> {/* Increased base geometry size */}
       <customShaderMaterial
-        ref={shaderRef}
-        key={CustomShaderMaterial.key}
-        transparent={true}
-        iResolution={new THREE.Vector2(size.width, size.height)}
-        iTime={0}
+        ref={materialRef}
+        transparent
+        depthWrite={false}
+        depthTest={false}
       />
     </mesh>
   );

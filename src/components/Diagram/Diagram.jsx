@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { getScreenPosition } from "./Utils/getScreenPosition";
-import { PopupMain } from "./Utils/Popups/PopupMain";
 import { renderNodes } from "./Utils/Nodes/NodeRenderer";
 import { fetchData } from "../../Utils/fetchData";
+import { getScreenPosition } from "./Utils/getScreenPosition";
+import { PopupMain } from "./Utils/Popups/PopupMain";
 import styles from "./Diagram.module.css";
 
 export const Diagram = () => {
@@ -21,7 +21,18 @@ export const Diagram = () => {
     loadData();
   }, []);
 
+  useEffect(() => {
+    console.group("Diagram Data Update");
+    console.log("New data:", data);
+    console.groupEnd();
+  }, [data]);
+
   const showPopup = useCallback((label, position, nodeData) => {
+    console.group("Show Popup");
+    console.log("Label:", label);
+    console.log("Position:", position);
+    console.log("Node Data:", nodeData);
+    console.groupEnd();
     setPopupInfo({ label, position, data: nodeData });
   }, []);
 
@@ -34,13 +45,16 @@ export const Diagram = () => {
       <div className={styles.canvasContainer} ref={canvasRef}>
         <Canvas
           camera={{
-            fov: 75,
+            fov: 60,
             near: 0.1,
             far: 1000,
-            position: [0, 0, 200],
+            position: [0, 200, 0],
           }}
-          onCreated={({ camera }) => {
+          onCreated={({ camera, gl }) => {
             cameraRef.current = camera;
+            camera.lookAt(0, 0, 0);
+            // Make the canvas background transparent
+            gl.setClearColor(0x000000, 0);
           }}
         >
           <ambientLight intensity={0.5} />
@@ -60,6 +74,7 @@ export const Diagram = () => {
             canvasRef.current,
             cameraRef.current
           )}
+          label={popupInfo.label}
           data={popupInfo.data}
         />
       )}

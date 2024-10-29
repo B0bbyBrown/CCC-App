@@ -1,8 +1,17 @@
 .container {
   width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
+  background-color: #0f172a;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: 30px;
 }
 
 .title {
@@ -14,12 +23,59 @@
 .description {
   font-size: 18px;
   color: #ffffff;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-.loading {
+.companyInfo {
+  display: flex;
+  justify-content: space-between;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.loading,
+.error {
   font-size: 24px;
   color: #ffffff;
   text-align: center;
   margin-top: 50px;
+}
+
+.tabNav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tabButton {
+  background-color: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.tabButton:hover {
+  color: #ffffff;
+}
+
+.activeTab {
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+.content {
+  flex-grow: 1;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -1,67 +1,177 @@
 @import url("https://fonts.googleapis.com/css2?family=K2D:wght@400;700&display=swap");
 
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.container {
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-.header {
+.pageContainer {
   width: 100%;
-
-  padding: 0;
-  margin: 0;
-}
-
-.headerText {
-  color: #fff;
-  font-family: "K2D", sans-serif;
-  font-size: 5em;
-  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0f172a;
   position: relative;
+  overflow: hidden;
 }
 
+/* Animated gradient background */
+.gradientBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(15, 23, 42, 0.9),
+    rgba(88, 28, 135, 0.8),
+    rgba(15, 23, 42, 0.9)
+  );
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  z-index: 0;
+}
+
+.contentWrap {
+  flex: 1;
+  width: 100%;
+  max-width: 1440px;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Grid layout with hover effects */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three cards per row */
-  gap: 20px;
-  width: 90%;
-  margin: 20px auto;
-  padding: 20px;
-  z-index: 1;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  padding: 2rem 0;
 }
 
 .card {
-  width: 100%;
-  height: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Typography */
+.headerText {
+  color: #fff;
+  font-family: "K2D", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+  animation: slideDown 0.6s ease-out;
+}
+
+/* Animations */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glass morphism effects */
+.glassCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .contentWrap {
+    padding: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
   .grid {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); /* Two cards per row for smaller screens */
+    grid-template-columns: 1fr;
   }
 
-  .container {
-    padding: 0;
-  }
-
-  .header {
-    padding: 0;
+  .card {
+    margin: 1rem 0;
   }
 }
 
-@media (max-width: 480px) {
-  .grid {
-    grid-template-columns: 1fr; /* One card per row for mobile screens */
-  }
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
 }

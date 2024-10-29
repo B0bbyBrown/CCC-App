@@ -3,6 +3,7 @@ import { Portfolio } from "../../components/Portfolio/Portfolio";
 import { fetchData } from "../../Utils/fetchData";
 import { Header } from "../../components/Header_Footer/Header/Header";
 import { Footer } from "../../components/Header_Footer/Footer/Footer";
+import styles from "./Shulka.module.css";
 
 export function Shulka() {
   const [shulkaData, setShulkaData] = useState(null);
@@ -15,7 +16,6 @@ export function Shulka() {
         setIsLoading(true);
         const data = await fetchData();
         if (data && data.shulkaData) {
-          console.log("Shulka Data:", data.shulkaData);
           setShulkaData(data.shulkaData);
         } else {
           throw new Error("Shulka data not found");
@@ -35,13 +35,11 @@ export function Shulka() {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="page-container">
+    <div className={styles.pageContainer}>
       <Header />
-      <div className="content-wrap">
-        <div className="shulka-container">
-          <Portfolio data={shulkaData} />
-        </div>
-      </div>
+      <main className={styles.contentWrap}>
+        <Portfolio data={shulkaData} />
+      </main>
       <Footer />
     </div>
   );

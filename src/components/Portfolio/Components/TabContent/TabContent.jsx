@@ -12,97 +12,63 @@ import { AchievementCard } from "../Cards/AchievementCard/AchievementCard";
 import { categoryIcons } from "../../utils/icons";
 import styles from "./TabContent.module.css";
 
-export const TabContent = ({ category, data }) => {
+const renderContent = (category, content) => {
+  if (!content) return null;
+
+  switch (category) {
+    case "ArtProjects":
+      return content.map((project, index) => (
+        <ProjectCard key={index} project={project} />
+      ));
+    case "Skills":
+      return <SkillsSection skills={content} />;
+    case "Experience":
+      return content.map((company, index) => (
+        <CompanyCard key={index} company={company} />
+      ));
+    case "Education":
+      return content.map((education, index) => (
+        <EducationCard key={index} education={education} />
+      ));
+    case "Certifications":
+      return content.map((certification, index) => (
+        <CertificationCard key={index} certification={certification} />
+      ));
+    case "Exhibitions":
+      return content.map((exhibition, index) => (
+        <ExhibitionCard key={index} exhibition={exhibition} />
+      ));
+    case "Collaborations":
+      return content.map((collaboration, index) => (
+        <CollaborationCard key={index} collaboration={collaboration} />
+      ));
+    case "Workshops":
+      return content.map((workshop, index) => (
+        <WorkshopCard key={index} workshop={workshop} />
+      ));
+    case "Publications":
+      return content.map((publication, index) => (
+        <PublicationCard key={index} publication={publication} />
+      ));
+    case "Achievements":
+      return content.map((achievement, index) => (
+        <AchievementCard key={index} achievement={achievement} />
+      ));
+    default:
+      return null;
+  }
+};
+
+export const TabContent = ({ category, content }) => {
   const Icon = categoryIcons[category];
 
-  const renderContent = () => {
-    switch (category) {
-      case "Projects":
-        return (
-          <div className={styles.projectsGrid}>
-            {data.map((project, index) => (
-              <ProjectCard key={index} project={project} />
-            ))}
-          </div>
-        );
-      case "Experience":
-        return (
-          <div className={styles.companiesList}>
-            {data.map((company, index) => (
-              <CompanyCard key={index} company={company} />
-            ))}
-          </div>
-        );
-      case "Education":
-        return (
-          <div className={styles.educationList}>
-            {data.map((education, index) => (
-              <EducationCard key={index} education={education} />
-            ))}
-          </div>
-        );
-      case "Skills":
-        return <SkillsSection skills={data} />;
-      case "Certifications":
-        return (
-          <div className={styles.certificationsList}>
-            {data.map((certification, index) => (
-              <CertificationCard key={index} certification={certification} />
-            ))}
-          </div>
-        );
-      case "Exhibitions":
-        return (
-          <div className={styles.exhibitionsList}>
-            {data.map((exhibition, index) => (
-              <ExhibitionCard key={index} exhibition={exhibition} />
-            ))}
-          </div>
-        );
-      case "Collaborations":
-        return (
-          <div className={styles.collaborationsList}>
-            {data.map((collaboration, index) => (
-              <CollaborationCard key={index} collaboration={collaboration} />
-            ))}
-          </div>
-        );
-      case "Workshops":
-        return (
-          <div className={styles.workshopsList}>
-            {data.map((workshop, index) => (
-              <WorkshopCard key={index} workshop={workshop} />
-            ))}
-          </div>
-        );
-      case "Publications":
-        return (
-          <div className={styles.publicationsList}>
-            {data.map((publication, index) => (
-              <PublicationCard key={index} publication={publication} />
-            ))}
-          </div>
-        );
-      case "Achievements":
-        return (
-          <div className={styles.achievementsList}>
-            {data.map((achievement, index) => (
-              <AchievementCard key={index} achievement={achievement} />
-            ))}
-          </div>
-        );
-      default:
-        return <p>No data available for this category.</p>;
-    }
-  };
-
   return (
-    <div className={styles.tabContent}>
+    <div className={styles.portfolioContent}>
       <h2 className={styles.categoryTitle}>
         {Icon && <Icon className={styles.categoryIcon} />}
         {category}
       </h2>
-      {renderContent()}
+      {renderContent(category, content)}
     </div>
   );
 };

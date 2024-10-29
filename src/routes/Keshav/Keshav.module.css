@@ -6,15 +6,26 @@ body {
   box-sizing: border-box;
 }
 
-.container {
+.pageContainer {
   width: 100%;
-  min-height: 100vh; /* Ensure the container takes at least the full viewport height */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Center content vertically */
-  position: relative; /* Ensure the gradient background is positioned correctly */
-  background: linear-gradient(135deg, #02f5b8, #fa04e5);
+  background-color: #0f172a;
+}
+
+.contentWrap {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.keshavContainer {
+  width: 100%;
 }
 
 .header {
@@ -24,7 +35,7 @@ body {
   justify-content: center;
   margin: 0 5rem 0 5rem;
   width: 98%;
-  height: 20%;
+  height: 30%;
   color: #fff;
   font-family: "K2D", sans-serif;
   font-size: 2em;
@@ -41,7 +52,7 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three cards per row */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 90%;
   margin: 20px auto;
@@ -56,15 +67,12 @@ body {
 
 @media (max-width: 768px) {
   .grid {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); /* Two cards per row for smaller screens */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
   .grid {
-    grid-template-columns: 1fr; /* One card per row for mobile screens */
+    grid-template-columns: 1fr;
   }
 }

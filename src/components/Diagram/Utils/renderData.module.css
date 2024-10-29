@@ -1,0 +1,53 @@
+.dataContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.dataItem {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.dataKey {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.dataValue {
+  margin-left: 10px;
+}
+
+.list {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.list li {
+  margin-bottom: 5px;
+}
+
+.object {
+  margin-left: 20px;
+}
+
+.property {
+  margin-bottom: 5px;
+}
+
+.key {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.value {
+  color: #333;
+}
+
+.truncated {
+  color: #999;
+  font-style: italic;
+}

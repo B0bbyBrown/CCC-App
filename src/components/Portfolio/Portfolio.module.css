@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap");
 
 :root {
+  /* Dark theme (default) */
   --bg-color: #0f172a;
   --text-color: #e2e8f0;
   --accent-color: #60a5fa;
@@ -9,8 +10,18 @@
   --hover-color: #334155;
 }
 
+/* Light theme */
+[data-theme="light"] {
+  --bg-color: #f8fafc;
+  --text-color: #1e293b;
+  --accent-color: #3b82f6;
+  --secondary-color: #ec4899;
+  --card-bg: #ffffff;
+  --hover-color: #f1f5f9;
+}
+
 body {
-  background-color: var(--bg-color);
+  /* background-color: var(--bg-color); */
   color: var(--text-color);
   font-family: "Poppins", sans-serif;
   line-height: 1.6;

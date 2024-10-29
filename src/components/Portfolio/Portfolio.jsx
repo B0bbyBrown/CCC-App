@@ -1,72 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ProfileHeader } from "./Components/ProfileHeader/ProfileHeader";
+import { CategoryNav } from "./Components/CategoryNav/CategoryNav";
 import { TabContent } from "./Components/TabContent/TabContent";
-import { categoryIcons } from "./utils/icons";
+import { ThemeToggle } from "./Components/ThemeToggle/ThemeToggle";
 import styles from "./Portfolio.module.css";
 
-export const Portfolio = ({ data }) => {
-  console.log(
-    "Portfolio component received data:",
-    JSON.stringify(data, null, 2)
-  );
+export const Portfolio = ({ data, customStyles }) => {
+  const [activeTab, setActiveTab] = useState("ArtProjects");
+  const [theme, setTheme] = useState("dark");
 
-  if (!data) {
-    console.log("No data received in Portfolio component");
-    return <div>No data available</div>;
-  }
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
+
+  useEffect(() => {
+    // Initialize theme
+    document.documentElement.setAttribute("data-theme", theme);
+  }, []);
+
+  if (!data) return null;
 
   const { name, title, summary, contact, socialMedia, categories } = data;
-  console.log("Destructured data:", {
-    name,
-    title,
-    summary,
-    contact,
-    socialMedia,
-    categories: Object.keys(categories),
-  });
-
-  if (!name || !title || !summary || !contact || !socialMedia || !categories) {
-    console.error("Missing required data in Portfolio component");
-    return <div>Error: Incomplete data</div>;
-  }
-
-  const [activeTab, setActiveTab] = useState(
-    categories ? Object.keys(categories)[0] : ""
-  );
 
   return (
-    <div className={styles.portfolioContainer}>
+    <div className={`${styles.portfolioContainer} ${customStyles}`}>
+      <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
       <ProfileHeader
         name={name}
         title={title}
         summary={summary}
-        socialMedia={socialMedia}
         contact={contact}
+        socialMedia={socialMedia}
       />
-
-      {categories && (
-        <>
-          <nav className={styles.portfolioNav}>
-            {Object.keys(categories).map((category) => {
-              const Icon = categoryIcons[category] || null;
-              return (
-                <button
-                  key={category}
-                  className={activeTab === category ? styles.active : ""}
-                  onClick={() => setActiveTab(category)}
-                >
-                  {Icon && <Icon className={styles.categoryIcon} />}
-                  {category}
-                </button>
-              );
-            })}
-          </nav>
-
-          <section className={styles.portfolioContent}>
-            <TabContent category={activeTab} data={categories[activeTab]} />
-          </section>
-        </>
-      )}
+      <CategoryNav
+        categories={categories}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
+      <TabContent category={activeTab} content={categories[activeTab]} />
     </div>
   );
 };
