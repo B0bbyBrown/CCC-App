@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Portfolio } from "../../components/Portfolio/Portfolio";
 import { Loading } from "../../components/Loading/Loading";
-import { fetchData } from "../../utils/fetchData";
+import { fetchData } from "../../Utils/fetchData";
 import { Header } from "../../components/Header_Footer/Header/Header";
 import { Footer } from "../../components/Header_Footer/Footer/Footer";
 
