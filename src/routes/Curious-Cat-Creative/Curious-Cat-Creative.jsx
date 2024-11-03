@@ -7,7 +7,6 @@ import styles from "./CuriousCatCreative.module.css";
 export const CCC = () => {
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.gradientBackground} />
       <Header />
       <main className={styles.contentWrap}>
         <CompanyPortfolio />

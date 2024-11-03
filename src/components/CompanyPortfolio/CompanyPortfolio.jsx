@@ -48,13 +48,23 @@ export const CompanyPortfolio = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.gradientBackground} />
       <header className={styles.header}>
         <h1 className={styles.title}>{name}</h1>
         <p className={styles.description}>{description}</p>
         <div className={styles.companyInfo}>
-          <p>Founded: {founded}</p>
-          <p>Location: {location}</p>
-          <p>Employees: {employees}</p>
+          <div className={styles.infoItem}>
+            <span className={styles.infoLabel}>Founded:</span>
+            <span className={styles.infoValue}>{founded}</span>
+          </div>
+          <div className={styles.infoItem}>
+            <span className={styles.infoLabel}>Location:</span>
+            <span className={styles.infoValue}>{location}</span>
+          </div>
+          <div className={styles.infoItem}>
+            <span className={styles.infoLabel}>Employees:</span>
+            <span className={styles.infoValue}>{employees}</span>
+          </div>
         </div>
       </header>
 

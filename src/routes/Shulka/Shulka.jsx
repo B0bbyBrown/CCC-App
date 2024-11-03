@@ -1,46 +1,44 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Portfolio } from "../../components/Portfolio/Portfolio";
-import { fetchData } from "../../Utils/fetchData";
+import { Loading } from "../../components/Loading/Loading";
+import { fetchData } from "../../utils/fetchData";
 import { Header } from "../../components/Header_Footer/Header/Header";
 import { Footer } from "../../components/Header_Footer/Footer/Footer";
-import styles from "./Shulka.module.css";
 
-export function Shulka() {
-  const [shulkaData, setShulkaData] = useState(null);
-  const [error, setError] = useState(null);
+export const Shulka = () => {
+  const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const loadData = async () => {
+    console.log("Shulka component mounted");
+    const getData = async () => {
       try {
-        setIsLoading(true);
-        const data = await fetchData();
-        if (data && data.shulkaData) {
-          setShulkaData(data.shulkaData);
-        } else {
-          throw new Error("Shulka data not found");
-        }
+        console.log("Fetching Shulka data...");
+        const result = await fetchData("shulkaData.json");
+        console.log("Shulka data received:", result);
+        // Access the specific shulkaData object
+        setData(result.shulkaData);
       } catch (error) {
-        console.error("Error fetching Shulka's data:", error);
-        setError(error.message);
+        console.error("Error loading Shulka data:", error);
+        setError(error);
       } finally {
         setIsLoading(false);
       }
     };
-
-    loadData();
+    getData();
   }, []);
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  console.log("Shulka render state:", { isLoading, data, error });
+
+  if (error) return <div>Error loading portfolio: {error.message}</div>;
+  if (isLoading || !data) return <Loading />;
 
   return (
-    <div className={styles.pageContainer}>
+    <>
       <Header />
-      <main className={styles.contentWrap}>
-        <Portfolio data={shulkaData} />
-      </main>
+      <Portfolio data={data} portfolioType="light" />
       <Footer />
-    </div>
+    </>
   );
-}
+};

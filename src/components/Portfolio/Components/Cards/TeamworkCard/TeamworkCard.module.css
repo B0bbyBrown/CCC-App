@@ -1,0 +1,166 @@
+.teamworkCard {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Grid layout for square cards */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.header {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(76, 175, 80, 0.1);
+  border-radius: 8px;
+}
+
+.title {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Make each section a square card */
+.section {
+  aspect-ratio: 1;
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section h4 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(76, 175, 80, 0.2);
+}
+
+.section h4::before {
+  content: "👥";
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  flex: 1;
+  overflow-y: auto;
+  /* Scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(76, 175, 80, 0.3) transparent;
+}
+
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background-color: rgba(76, 175, 80, 0.3);
+  border-radius: 3px;
+}
+
+.list li {
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  background: rgba(76, 175, 80, 0.05);
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.list li:hover {
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(76, 175, 80, 0.05);
+  border-radius: 8px;
+  margin-top: auto;
+}
+
+.tag {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background: #4caf50;
+  color: white;
+}
+
+/* Details section styling */
+.details {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(76, 175, 80, 0.05),
+    transparent
+  );
+  border-radius: 8px;
+}
+
+.detail {
+  text-align: center;
+  padding: 1rem;
+  min-width: 150px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.value {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+}

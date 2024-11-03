@@ -1,0 +1,146 @@
+.leadershipCard {
+  background: var(--card-bg);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Circular layout with sections around */
+  position: relative;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  padding: 2rem;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 193, 7, 0.1) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  margin-bottom: 3rem;
+}
+
+.details {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.detail {
+  flex: 0 1 200px;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 193, 7, 0.05);
+  border-radius: 8px;
+  position: relative;
+}
+
+.detail::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: #ffc107;
+  border-radius: 50%;
+}
+
+.section {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 2rem;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 193, 7, 0.05),
+    transparent
+  );
+  border-radius: 12px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.list li {
+  flex: 1 1 300px;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.value {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.section h4 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section h4::before {
+  content: "👑";
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-start;
+}
+
+.tag {
+  background: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tag:hover {
+  background: #ffc107;
+  color: var(--text-primary);
+}

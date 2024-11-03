@@ -2,12 +2,12 @@ import React from "react";
 import { FaTrophy } from "react-icons/fa";
 import styles from "./Achievements.module.css";
 
-export function Achievements({ achievements }) {
+export const Achievements = ({ achievements }) => {
   return (
     <section className={styles.achievementsSection}>
       <h2 className={styles.sectionTitle}>Our Achievements</h2>
-      <div className={styles.achievementsRow}>
-        {achievements.map((achievement) => (
+      <div className={styles.achievementsGrid}>
+        {achievements?.map((achievement) => (
           <div key={achievement.title} className={styles.achievementItem}>
             <div className={styles.achievementIcon}>
               <FaTrophy />
@@ -22,4 +22,4 @@ export function Achievements({ achievements }) {
       </div>
     </section>
   );
-}
+};

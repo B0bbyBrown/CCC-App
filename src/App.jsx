@@ -7,21 +7,24 @@ import { Shulka } from "./routes/Shulka/Shulka";
 import { Error404 } from "./routes/404/Error404";
 
 import "./App.css";
+import { ThemeProvider } from "./context/ThemeContext";
 
 export const App = () => {
   return (
-    <div className="app-container">
+    <ThemeProvider>
       <Router>
-        <div className="content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Curious-Cat-Creative" element={<CCC />} />
-            <Route path="/Keshav" element={<Keshav />} />
-            <Route path="/Shulka" element={<Shulka />} />
-            <Route path="/Error404" element={<Error404 />} />
-          </Routes>
+        <div className="app-container">
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/Curious-Cat-Creative" element={<CCC />} />
+              <Route path="/Keshav" element={<Keshav />} />
+              <Route path="/Shulka" element={<Shulka />} />
+              <Route path="/Error404" element={<Error404 />} />
+            </Routes>
+          </div>
         </div>
       </Router>
-    </div>
+    </ThemeProvider>
   );
 };

@@ -20,6 +20,11 @@ import {
   FaBook,
   FaTrophy,
   FaProjectDiagram,
+  FaTools,
+  FaTheaterMasks,
+  FaMicroscope,
+  FaUsers,
+  FaCrown,
 } from "react-icons/fa";
 
 export const socialIcons = {
@@ -40,14 +45,21 @@ export const contactIcons = {
 };
 
 export const categoryIcons = {
+  Projects: FaProjectDiagram,
+  Skills: FaTools,
   Experience: FaBriefcase,
   Education: FaGraduationCap,
-  Certifications: FaCertificate,
-  Skills: FaCode,
-  Projects: FaProjectDiagram,
-  Exhibitions: FaPalette,
-  Collaborations: FaHandshake,
+  Research: FaMicroscope,
+  ArtProjects: FaPalette,
+  Exhibitions: FaTheaterMasks,
   Workshops: FaChalkboardTeacher,
-  Publications: FaBook,
+  Certifications: FaCertificate,
   Achievements: FaTrophy,
+  Development: FaCode,
+  Teamwork: FaUsers,
+  Leadership: FaCrown,
+};
+
+export const getIconForCategory = (category) => {
+  return categoryIcons[category] || FaProjectDiagram;
 };

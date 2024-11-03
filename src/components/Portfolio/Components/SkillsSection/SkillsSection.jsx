@@ -1,17 +1,40 @@
 import React from "react";
 import styles from "./SkillsSection.module.css";
 
-export const SkillsSection = ({ skills }) => (
-  <div className={styles.skillsSection}>
-    {Object.entries(skills).map(([category, skillList]) => (
-      <div key={category} className={styles.skillCategory}>
-        <h3>{category}</h3>
-        <ul>
-          {skillList.map((skill, index) => (
-            <li key={index}>{skill}</li>
-          ))}
-        </ul>
-      </div>
-    ))}
-  </div>
-);
+export const SkillsSection = ({ data }) => {
+  if (!data) {
+    return null;
+  }
+
+  const { primarySkills = [], secondarySkills = [] } = data;
+
+  return (
+    <div className={styles.skillsSection}>
+      {primarySkills.length > 0 && (
+        <div className={styles.skillCategory}>
+          <h3>Primary Skills</h3>
+          <div className={styles.skillsList}>
+            {primarySkills.map((skill, index) => (
+              <div key={index} className={styles.skillItem}>
+                {skill}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {secondarySkills.length > 0 && (
+        <div className={styles.skillCategory}>
+          <h3>Secondary Skills</h3>
+          <div className={styles.skillsList}>
+            {secondarySkills.map((skill, index) => (
+              <div key={index} className={styles.skillItem}>
+                {skill}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};

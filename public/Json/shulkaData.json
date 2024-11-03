@@ -1,339 +1,206 @@
 {
   "name": "Shulka",
-  "title": "Creative Director & Digital Artist",
-  "summary": "Visionary creative director with a flair for blending traditional art with cutting-edge digital techniques.",
+  "title": "Financial Analyst & Business Strategist",
+  "summary": "Strategic financial professional with expertise in investment analysis, risk management, and business development. Proven track record in delivering data-driven financial solutions and optimizing business operations.",
   "contact": {
-    "email": "shulka@artistry.com",
+    "email": "shulka@finance.com",
     "phone": "+1 (555) 987-6543",
-    "location": "Los Angeles, CA"
+    "location": "New York, NY"
   },
   "socialMedia": {
-    "instagram": "https://www.instagram.com/shulka_art",
-    "behance": "https://www.behance.net/shulka",
-    "dribbble": "https://dribbble.com/shulka_designs",
-    "artstation": "https://www.artstation.com/shulka",
-    "linkedin": "https://www.linkedin.com/in/shulka-artist"
+    "linkedin": "https://www.linkedin.com/in/shulka-finance",
+    "twitter": "https://twitter.com/shulka_finance",
+    "medium": "https://medium.com/@shulka.insights"
   },
   "categories": {
-    "ArtProjects": [
+    "Projects": [
       {
-        "name": "Neon Dreams",
-        "description": "A series of digital paintings exploring urban nightscapes",
-        "duration": "6 months",
-        "techniques": ["Digital Painting", "3D Modeling", "Neon Effects"],
-        "role": "Lead Artist",
+        "name": "Investment Portfolio Optimization",
+        "description": "Led the development of an automated portfolio optimization system for institutional clients.",
+        "duration": "8 months",
+        "technologies": ["Python", "R", "SQL", "Tableau"],
+        "role": "Lead Analyst",
         "achievements": [
-          "Featured in Digital Arts Magazine",
-          "Exhibited at LA Modern Art Gallery"
+          "Increased portfolio returns by 15%",
+          "Reduced risk exposure by 25%",
+          "Automated 80% of portfolio rebalancing processes"
         ]
       },
       {
-        "name": "Eco Visions",
-        "description": "Mixed media project combining photography and digital art",
-        "duration": "3 months",
-        "techniques": ["Photography", "Digital Collage", "AR Integration"],
-        "role": "Concept Artist & Photographer",
-        "achievements": [
-          "Won 'Best Innovative Art Project' at Green Art Fair",
-          "Collaborated with environmental NGOs for awareness campaign"
-        ]
-      },
-      {
-        "name": "Cyberpunk Odyssey",
-        "description": "Interactive digital art installation",
-        "duration": "9 months",
-        "techniques": ["VR Art", "Motion Graphics", "Sound Design"],
-        "role": "Creative Director",
-        "achievements": [
-          "Showcased at Siggraph Art Gallery",
-          "Attracted over 50,000 visitors"
-        ]
-      },
-      {
-        "name": "Ethereal Landscapes",
-        "description": "A series of surreal digital landscapes inspired by dreams",
-        "duration": "4 months",
-        "techniques": ["Matte Painting", "Photobashing", "Color Grading"],
-        "role": "Digital Artist",
-        "achievements": [
-          "Selected for Lumen Prize Exhibition",
-          "Prints sold out within a week of release"
-        ]
-      },
-      {
-        "name": "Quantum Visions",
-        "description": "AI-assisted generative art project visualizing quantum phenomena",
+        "name": "Risk Management Framework Implementation",
+        "description": "Designed and implemented a comprehensive risk assessment framework for a major financial institution.",
         "duration": "12 months",
-        "techniques": [
-          "Generative Adversarial Networks",
-          "Particle Simulation",
-          "Projection Mapping"
-        ],
-        "role": "AI Artist & Creative Technologist",
+        "technologies": ["Risk Metrics", "SAS", "Bloomberg Terminal"],
+        "role": "Risk Management Specialist",
         "achievements": [
-          "Collaboration with CERN for science communication",
-          "Featured in 'Art meets Science' TED Talk"
+          "Reduced operational risks by 30%",
+          "Implemented real-time risk monitoring system",
+          "Developed automated risk reporting dashboard"
+        ]
+      },
+      {
+        "name": "ESG Investment Strategy Development",
+        "description": "Created and implemented sustainable investment strategies for high-net-worth clients",
+        "duration": "10 months",
+        "technologies": ["ESG Analytics", "Bloomberg ESG Data", "Python"],
+        "role": "ESG Strategy Lead",
+        "achievements": [
+          "Developed ESG scoring system",
+          "Increased sustainable assets under management by 40%",
+          "Created comprehensive ESG reporting framework"
+        ]
+      },
+      {
+        "name": "Algorithmic Trading System",
+        "description": "Developed and implemented automated trading strategies for forex markets",
+        "duration": "14 months",
+        "technologies": ["Python", "Machine Learning", "MetaTrader API"],
+        "role": "Quantitative Analyst",
+        "achievements": [
+          "Achieved 25% annual return on investment",
+          "Reduced trading latency by 65%",
+          "Implemented risk management protocols"
         ]
       }
     ],
     "Skills": {
       "primarySkills": [
-        "Digital Illustration",
-        "3D Modeling",
-        "Art Direction",
-        "Concept Art",
-        "VR/AR Art Creation"
+        "Financial Analysis",
+        "Risk Management",
+        "Investment Strategy",
+        "Business Development",
+        "Data Analytics",
+        "Portfolio Management",
+        "Quantitative Analysis"
       ],
       "secondarySkills": [
-        "UI/UX Design",
-        "Motion Graphics",
-        "Photography",
-        "Video Editing",
-        "Creative Coding"
+        "Project Management",
+        "Market Research",
+        "Financial Modeling",
+        "Strategic Planning",
+        "Stakeholder Management",
+        "Python Programming",
+        "Data Visualization"
       ]
     },
     "Experience": [
       {
-        "role": "Creative Director",
-        "company": "Imaginarium Studios",
-        "duration": "2020 - Present",
+        "role": "Senior Financial Analyst",
+        "company": "Global Investment Corp",
+        "duration": "2019 - Present",
         "responsibilities": [
-          "Lead a team of 15 digital artists and designers",
-          "Develop creative strategies for major brand campaigns",
-          "Oversee the artistic direction of VR/AR projects"
+          "Lead investment strategy development",
+          "Manage portfolio risk assessment",
+          "Direct team of junior analysts",
+          "Develop quantitative trading strategies",
+          "Present investment recommendations to board"
         ],
         "achievements": [
-          "Increased studio revenue by 40% through innovative project approaches",
-          "Won 'Best Creative Studio' award at Digital Design Awards 2022"
+          "Generated $10M in additional revenue through strategic investments",
+          "Reduced operational costs by 20%",
+          "Grew team from 3 to 12 analysts"
         ]
       },
       {
-        "role": "Senior Digital Artist",
-        "company": "PixelPerfect Studios",
-        "duration": "2016 - 2020",
+        "role": "Business Strategy Consultant",
+        "company": "Finance Solutions LLC",
+        "duration": "2017 - 2019",
         "responsibilities": [
-          "Created key art for AAA video game titles",
-          "Developed concept art for film and TV productions",
-          "Mentored junior artists in digital techniques"
+          "Developed business optimization strategies",
+          "Conducted market analysis",
+          "Led client consultations",
+          "Implemented risk management frameworks",
+          "Managed stakeholder relationships"
         ],
         "achievements": [
-          "Art featured on covers of 3 bestselling video games",
-          "Received 'Artist of the Year' award from the studio in 2019"
+          "Improved client profitability by average of 25%",
+          "Secured $5M in new business opportunities",
+          "Developed innovative financial products"
         ]
       },
       {
-        "role": "Freelance Digital Artist",
-        "company": "Self-employed",
-        "duration": "2014 - 2016",
+        "role": "Investment Banking Analyst",
+        "company": "Morgan Stanley",
+        "duration": "2015 - 2017",
         "responsibilities": [
-          "Produced digital art for various clients including music labels and book publishers",
-          "Managed client relationships and project timelines",
-          "Developed personal brand and online presence"
+          "Performed financial modeling and valuation",
+          "Conducted due diligence",
+          "Prepared pitch books",
+          "Analyzed market trends"
         ],
         "achievements": [
-          "Built a diverse portfolio leading to full-time industry position",
-          "Artwork featured in international digital art anthology"
-        ]
-      },
-      {
-        "role": "Junior Graphic Designer",
-        "company": "CreativeSpark Agency",
-        "duration": "2012 - 2014",
-        "responsibilities": [
-          "Assisted in creating visual assets for marketing campaigns",
-          "Contributed to UI design for mobile apps",
-          "Participated in brainstorming sessions for new project pitches"
-        ],
-        "achievements": [
-          "Designed logo for a startup that went on to be valued at $1 billion",
-          "Received 'Rising Star' award from the agency"
-        ]
-      },
-      {
-        "role": "Art Department Intern",
-        "company": "DreamWorks Animation",
-        "duration": "Summer 2011",
-        "responsibilities": [
-          "Assisted in background design for an animated feature film",
-          "Learned industry-standard animation software and workflows",
-          "Participated in daily art reviews with senior artists"
-        ],
-        "achievements": [
-          "Internship project selected for studio's internal art showcase",
-          "Received letter of recommendation from Art Director"
+          "Participated in deals worth over $500M",
+          "Received early promotion",
+          "Mentored 5 junior analysts"
         ]
       }
     ],
     "Education": [
       {
-        "degree": "Master of Fine Arts in Digital Arts",
-        "institution": "Rhode Island School of Design",
-        "graduationYear": "2012",
+        "degree": "Master of Business Administration (MBA)",
+        "institution": "Harvard Business School",
+        "graduationYear": "2015",
         "achievements": [
-          "Thesis project: 'Bridging Realities: Exploring the Intersection of Physical and Digital Art'",
-          "Recipient of the President's Award for Creative Achievement"
+          "Beta Gamma Sigma Honor Society",
+          "President of Finance Club"
         ]
       },
       {
-        "degree": "Bachelor of Fine Arts in Graphic Design",
-        "institution": "Parsons School of Design",
-        "graduationYear": "2010",
-        "achievements": [
-          "Graduated Summa Cum Laude",
-          "Winner of the Annual Student Design Competition"
-        ]
-      },
-      {
-        "degree": "Summer Intensive in Classical Drawing",
-        "institution": "Florence Academy of Art, Italy",
-        "graduationYear": "2009",
-        "achievements": [
-          "Received distinction for portrait studies",
-          "Exhibition of work in academy's student showcase"
-        ]
+        "degree": "Bachelor of Science in Economics",
+        "institution": "London School of Economics",
+        "graduationYear": "2013",
+        "achievements": ["First Class Honours", "Dean's List all semesters"]
       }
     ],
-    "Certifications": [
+    "Research": [
       {
-        "name": "Adobe Certified Expert in Photoshop and Illustrator",
-        "issuer": "Adobe",
-        "year": "2018"
+        "title": "Market Volatility Analysis",
+        "description": "Research on emerging market volatility patterns and risk mitigation strategies",
+        "publication": "Journal of Financial Economics",
+        "date": "2022",
+        "keywords": ["Market Analysis", "Risk Assessment", "Emerging Markets"]
       },
       {
-        "name": "Autodesk Certified Professional: Maya",
-        "issuer": "Autodesk",
-        "year": "2019"
+        "title": "ESG Investment Impact Study",
+        "description": "Analysis of ESG investment performance in volatile markets",
+        "publication": "Sustainable Finance Review",
+        "date": "2021",
+        "keywords": ["ESG", "Sustainable Investment", "Market Performance"]
       },
       {
-        "name": "Unity Certified Artist",
-        "issuer": "Unity Technologies",
-        "year": "2020"
-      },
-      {
-        "name": "Google AR/VR Development Certification",
-        "issuer": "Google",
-        "year": "2021"
-      },
-      {
-        "name": "Unreal Engine Certified Artist",
-        "issuer": "Epic Games",
-        "year": "2022"
+        "title": "Algorithmic Trading Strategies",
+        "description": "Impact of AI on high-frequency trading",
+        "publication": "Quantitative Finance Journal",
+        "date": "2020",
+        "keywords": ["AI", "Trading", "Market Efficiency"]
       }
     ],
-    "Achievements": [
-      "Winner of the Global Digital Art Award 2022",
-      "Featured artist in 'Next Gen Creators' documentary",
-      "TEDx speaker on 'The Future of Digital Art in a Post-AI World'",
-      "Judge for the Annual Rookie Awards in Digital Illustration category",
-      "Artist-in-Residence at the Museum of Modern Art's Digital Initiative"
+    "Development": [
+      "Implemented automated trading algorithms using Python and machine learning",
+      "Developed financial modeling tools for risk assessment",
+      "Created data visualization dashboards for portfolio analysis",
+      "Built predictive models for market trend analysis",
+      "Designed automated reporting systems for compliance",
+      "Developed ESG scoring system using machine learning",
+      "Created custom Bloomberg Terminal applications"
     ],
-    "Exhibitions": [
-      {
-        "name": "Solo show: 'Pixels and Pigments'",
-        "venue": "Digital Frontier Gallery, New York",
-        "year": "2023"
-      },
-      {
-        "name": "Group Exhibition: 'Virtuality'",
-        "venue": "Tokyo Digital Art Expo",
-        "year": "2022"
-      },
-      {
-        "name": "Installation: 'Cyberpunk Odyssey'",
-        "venue": "Ars Electronica Festival, Linz, Austria",
-        "year": "2021"
-      },
-      {
-        "name": "Featured Artist",
-        "venue": "Affordable Art Fair, Los Angeles",
-        "year": "2020"
-      },
-      {
-        "name": "Group Show: 'Digital Renaissance'",
-        "venue": "Tate Modern, London",
-        "year": "2019"
-      }
+    "Teamwork": [
+      "Led cross-functional team of 15 members in major system implementation",
+      "Coordinated with global offices for portfolio management",
+      "Mentored junior analysts in financial modeling and analysis",
+      "Collaborated with IT teams for fintech solutions development",
+      "Managed stakeholder relationships across multiple departments",
+      "Facilitated international team collaboration across time zones",
+      "Organized team-building workshops and training sessions"
     ],
-    "Collaborations": [
-      {
-        "project": "Album Artwork",
-        "client": "Indie band 'Neon Pulse'",
-        "year": "2023"
-      },
-      {
-        "project": "AR Fashion Campaign",
-        "client": "Gucci",
-        "year": "2022"
-      },
-      {
-        "project": "VR Music Video",
-        "client": "Björk",
-        "year": "2021"
-      },
-      {
-        "project": "Interactive Museum Installation",
-        "client": "Smithsonian Institution",
-        "year": "2020"
-      },
-      {
-        "project": "Limited Edition Sneaker Design",
-        "client": "Nike",
-        "year": "2019"
-      }
-    ],
-    "Workshops": [
-      {
-        "name": "Digital Art Mastery",
-        "venue": "Online Course Platform",
-        "year": "2023"
-      },
-      {
-        "name": "VR Art: New Frontiers",
-        "venue": "Gnomon School of Visual Effects",
-        "year": "2022"
-      },
-      {
-        "name": "Concept Art for Video Games",
-        "venue": "Game Developers Conference",
-        "year": "2021"
-      },
-      {
-        "name": "Digital Painting Techniques",
-        "venue": "Schoolism",
-        "year": "2020"
-      },
-      {
-        "name": "The Art of Color and Light in Digital Media",
-        "venue": "California Institute of the Arts",
-        "year": "2019"
-      }
-    ],
-    "Publications": [
-      {
-        "title": "Digital Art: Bridging Imagination and Technology",
-        "publisher": "Thames & Hudson",
-        "year": "2023"
-      },
-      {
-        "title": "The Future of Art in the Age of AI",
-        "publisher": "MIT Technology Review",
-        "year": "2022"
-      },
-      {
-        "title": "Virtual Realities: A New Canvas for Artists",
-        "publisher": "Wired Magazine",
-        "year": "2021"
-      },
-      {
-        "title": "From Pixels to Masterpieces: Digital Art Techniques",
-        "publisher": "3D Artist Magazine",
-        "year": "2020"
-      },
-      {
-        "title": "Blending Traditional and Digital Art",
-        "publisher": "ImagineFX",
-        "year": "2019"
-      }
+    "Leadership": [
+      "Headed the Risk Management Committee",
+      "Led digital transformation initiative for trading systems",
+      "Managed team of 10 analysts across different specializations",
+      "Spearheaded implementation of new investment strategies",
+      "Directed client relationship management program",
+      "Initiated and led ESG investment division",
+      "Developed mentorship program for junior analysts"
     ]
   }
 }

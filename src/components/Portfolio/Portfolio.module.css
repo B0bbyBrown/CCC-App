@@ -30,49 +30,54 @@ body {
 }
 
 .portfolioContainer {
+  min-height: 100vh;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.header {
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.header h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.header p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+
+.content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
 }
 
-.portfolioHeader {
-  text-align: left;
-  margin-bottom: 60px;
-  position: relative;
+.section {
+  margin-bottom: 3rem;
 }
 
-.portfolioHeader h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 4rem;
-  margin-bottom: 10px;
-  color: var(--accent-color);
-  position: relative;
-  z-index: 1;
+.section h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-.portfolioHeader h1::after {
-  content: "";
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  background-color: var(--secondary-color);
-  top: -10px;
-  left: -10px;
-  z-index: -1;
-  opacity: 0.3;
-  border-radius: 50%;
-}
-
-.title {
-  font-size: 1.5rem;
-  color: var(--secondary-color);
-  margin-bottom: 20px;
-}
-
-.summary {
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin-bottom: 30px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
 }
 
 .socialLinks {
@@ -326,7 +331,19 @@ body {
 
 @media (max-width: 768px) {
   .portfolioContainer {
-    padding: 20px;
+    padding: 1rem;
+  }
+
+  .header {
+    padding: 2rem 1rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .header h2 {
+    font-size: 1.5rem;
   }
 
   .contactDetails {
@@ -447,4 +464,41 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: 2px solid;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.navButton:hover {
+  transform: translateY(-2px);
+}
+
+.navButton.active {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+}
+
+.categoryIcon {
+  font-size: 1.2em;
+}
+
+.categoryTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.categoryTitle h2 {
+  margin: 0;
 }

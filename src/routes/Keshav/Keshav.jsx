@@ -1,54 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Portfolio } from "../../components/Portfolio/Portfolio";
-import { fetchData } from "../../Utils/fetchData";
+import { Loading } from "../../components/Loading/Loading";
+import { fetchData } from "../../utils/fetchData";
 import { Header } from "../../components/Header_Footer/Header/Header";
 import { Footer } from "../../components/Header_Footer/Footer/Footer";
-import styles from "./Keshav.module.css";
 
-export function Keshav() {
-  const [keshavData, setKeshavData] = useState(null);
-  const [error, setError] = useState(null);
+export const Keshav = () => {
+  const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const loadData = async () => {
+    console.log("Keshav component mounted");
+    const getData = async () => {
       try {
-        setIsLoading(true);
-        const data = await fetchData();
-        console.log("Fetched data:", JSON.stringify(data, null, 2));
-        if (data && data.keshavData) {
-          console.log("Keshav Data:", JSON.stringify(data.keshavData, null, 2));
-          setKeshavData(data.keshavData);
-        } else {
-          console.log("Keshav data not found in fetched data");
-          throw new Error("Keshav data not found");
-        }
+        console.log("Fetching Keshav data...");
+        const result = await fetchData("keshavData.json");
+        console.log("Keshav data received:", result);
+        setData(result.keshavData);
       } catch (error) {
-        console.error("Error fetching Keshav's data:", error);
-        setError(error.message);
+        console.error("Error loading Keshav data:", error);
+        setError(error);
       } finally {
         setIsLoading(false);
       }
     };
-
-    loadData();
+    getData();
   }, []);
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  console.log("Keshav render state:", { isLoading, data, error });
 
-  console.log(
-    "Rendering Keshav component with data:",
-    JSON.stringify(keshavData, null, 2)
-  );
+  if (error) return <div>Error loading portfolio: {error.message}</div>;
+  if (isLoading || !data) return <Loading />;
 
   return (
-    <div className={styles.pageContainer}>
+    <>
       <Header />
-      <main className={styles.contentWrap}>
-        <Portfolio data={keshavData} />
-      </main>
+      <Portfolio data={data} portfolioType="dark" />
       <Footer />
-    </div>
+    </>
   );
-}
+};
