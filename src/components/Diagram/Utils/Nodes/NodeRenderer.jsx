@@ -1,6 +1,6 @@
 import React from "react";
-import { MainNode } from "./MainNode";
 import { PlatformNode } from "./PlatformNode";
+import { MainNode } from "./MainNode";
 import { CurvedArm } from "../../Components/CurvedArm";
 import { Colors } from "../../../../Utils/colors";
 import { generatePositions } from "../Positions";
@@ -11,7 +11,10 @@ const nodeColors = {
   shulkaData: Colors.shulkaMain,
 };
 
+// Export as a regular function
 export const renderNodes = (data, showPopup, hidePopup) => {
+  if (!data) return null;
+
   const nodes = [];
   const { mainNodePositions, subNodePositions } = generatePositions(data);
 
@@ -24,7 +27,7 @@ export const renderNodes = (data, showPopup, hidePopup) => {
         position={mainNodePositions[key]}
         color={nodeColors[key]}
         label={group.name || key}
-        size={key === "companyData" ? 7 : 5} // Larger size for company
+        size={key === "companyData" ? 7 : 5}
       />
     );
   });
@@ -35,15 +38,16 @@ export const renderNodes = (data, showPopup, hidePopup) => {
     const group = data[key];
     Object.keys(group.categories || {}).forEach((category) => {
       const nodePosition = subNodePositions[subNodeIndex];
+      if (!nodePosition) return;
+
       nodes.push(
         <PlatformNode
           key={`${key}-${category}`}
           position={nodePosition}
           color={nodeColors[key]}
           label={category}
-          showPopup={(label, position) =>
-            showPopup(label, position, group.categories[category])
-          }
+          nodeData={group.categories[category]}
+          showPopup={showPopup}
           hidePopup={hidePopup}
         />
       );

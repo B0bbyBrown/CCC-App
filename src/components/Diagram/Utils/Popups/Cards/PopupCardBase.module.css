@@ -1,0 +1,20 @@
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+  backdrop-filter: blur(8px);
+  color: white;
+}
+
+.title {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 8px;
+}
+
+.content {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}

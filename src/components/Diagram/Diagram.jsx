@@ -1,11 +1,17 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, {
+  useState,
+  useRef,
+  useCallback,
+  useMemo,
+  useEffect,
+} from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { renderNodes } from "./Utils/Nodes/NodeRenderer";
-import { fetchData } from "../../Utils/fetchData";
-import { getScreenPosition } from "./Utils/getScreenPosition";
 import { PopupMain } from "./Utils/Popups/PopupMain";
+import { getScreenPosition } from "./Utils/getScreenPosition";
 import styles from "./Diagram.module.css";
+import { fetchData } from "../../Utils/fetchData";
 
 export const Diagram = () => {
   const [data, setData] = useState(null);
@@ -21,24 +27,18 @@ export const Diagram = () => {
     loadData();
   }, []);
 
-  useEffect(() => {
-    console.group("Diagram Data Update");
-    console.log("New data:", data);
-    console.groupEnd();
-  }, [data]);
-
   const showPopup = useCallback((label, position, nodeData) => {
-    console.group("Show Popup");
-    console.log("Label:", label);
-    console.log("Position:", position);
-    console.log("Node Data:", nodeData);
-    console.groupEnd();
+    if (!nodeData) return;
     setPopupInfo({ label, position, data: nodeData });
   }, []);
 
   const hidePopup = useCallback(() => {
     setPopupInfo(null);
   }, []);
+
+  const memoizedNodes = useMemo(() => {
+    return data ? renderNodes(data, showPopup, hidePopup) : null;
+  }, [data, showPopup, hidePopup]);
 
   return (
     <div className={styles.container}>
@@ -53,7 +53,6 @@ export const Diagram = () => {
           onCreated={({ camera, gl }) => {
             cameraRef.current = camera;
             camera.lookAt(0, 0, 0);
-            // Make the canvas background transparent
             gl.setClearColor(0x000000, 0);
           }}
         >
@@ -64,7 +63,7 @@ export const Diagram = () => {
             enableZoom={true}
             enableRotate={true}
           />
-          {data && renderNodes(data, showPopup, hidePopup)}
+          {memoizedNodes}
         </Canvas>
       </div>
       {popupInfo && cameraRef.current && canvasRef.current && (
@@ -81,5 +80,3 @@ export const Diagram = () => {
     </div>
   );
 };
-
-export default Diagram;

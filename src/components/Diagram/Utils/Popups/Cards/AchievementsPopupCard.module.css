@@ -1,0 +1,52 @@
+.achievements {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.achievement {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 193, 7, 0.7),
+    rgba(255, 87, 34, 0.7)
+  );
+  border-radius: 2px;
+}
+
+.achievement:hover {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.achievement h4 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin: 0 0 8px 0;
+  padding-left: 12px;
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 8px 0;
+  padding-left: 12px;
+}

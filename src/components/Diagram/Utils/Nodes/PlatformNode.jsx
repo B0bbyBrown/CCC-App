@@ -1,81 +1,78 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect, memo } from "react";
 import { Text } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
-export const PlatformNode = ({
-  position,
-  color,
-  label,
-  showPopup,
-  hidePopup,
-  nodeData,
-}) => {
-  const [hovered, setHovered] = useState(false);
-  const size = 3; // Increased size
-  const textRef = useRef();
-  const timeoutRef = useRef(null);
+export const PlatformNode = memo(
+  ({ position, color, label, showPopup, hidePopup, nodeData }) => {
+    const [isHovered, setIsHovered] = useState(false);
+    const timeoutRef = useRef(null);
+    const textRef = useRef();
 
-  useFrame(({ camera }) => {
-    if (textRef.current) {
-      textRef.current.lookAt(camera.position);
-    }
-  });
-
-  const handlePointerOver = useCallback(
-    (e) => {
-      e.stopPropagation();
-      if (!hovered) {
-        setHovered(true);
+    // Clear timeout on unmount
+    useEffect(() => {
+      return () => {
         if (timeoutRef.current) {
           clearTimeout(timeoutRef.current);
-          timeoutRef.current = null;
         }
-        console.group("PlatformNode Hover");
-        console.log("Label:", label);
-        console.log("Position:", position);
-        console.log("Node Data:", nodeData);
-        console.groupEnd();
-        showPopup(label, position, nodeData);
-      }
-    },
-    [label, position, showPopup, hovered, nodeData]
-  );
+      };
+    }, []);
 
-  const handlePointerOut = useCallback(
-    (e) => {
-      e.stopPropagation();
-      setHovered(false);
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-      timeoutRef.current = setTimeout(() => {
-        hidePopup();
-        timeoutRef.current = null;
-      }, 100);
-    },
-    [hidePopup]
-  );
+    const handlePointerOver = useCallback(
+      (e) => {
+        e.stopPropagation();
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
 
-  return (
-    <group position={position}>
-      <mesh onPointerOver={handlePointerOver} onPointerOut={handlePointerOut}>
-        <sphereGeometry args={[size, 32, 32]} />
-        <meshStandardMaterial
-          color={hovered ? "#ffffff" : color}
-          emissive={color}
-          emissiveIntensity={hovered ? 0.5 : 0.2}
-        />
-      </mesh>
-      <Text
-        ref={textRef}
-        position={[0, size + 1.5, 0]}
-        fontSize={hovered ? 3.5 : 3}
-        color={hovered ? "#ffffff" : color}
-        anchorX="center"
-        anchorY="middle"
-      >
-        {label}
-      </Text>
-    </group>
-  );
-};
+        if (!isHovered) {
+          setIsHovered(true);
+          showPopup(label, position, nodeData);
+        }
+      },
+      [label, position, showPopup, isHovered, nodeData]
+    );
+
+    const handlePointerOut = useCallback(
+      (e) => {
+        e.stopPropagation();
+
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
+
+        timeoutRef.current = setTimeout(() => {
+          setIsHovered(false);
+          hidePopup();
+        }, 200);
+      },
+      [hidePopup]
+    );
+
+    return (
+      <group position={position}>
+        <mesh onPointerOver={handlePointerOver} onPointerOut={handlePointerOut}>
+          <sphereGeometry args={[3, 32, 32]} />
+          <meshStandardMaterial
+            color={color}
+            metalness={0.5}
+            roughness={0.2}
+            opacity={isHovered ? 0.8 : 1}
+            transparent
+          />
+        </mesh>
+        <Text
+          ref={textRef}
+          position={[0, 5, 0]}
+          fontSize={1.5}
+          color="white"
+          anchorX="center"
+          anchorY="middle"
+        >
+          {label}
+        </Text>
+      </group>
+    );
+  }
+);
+
+PlatformNode.displayName = "PlatformNode";

@@ -1,0 +1,35 @@
+.tag {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  margin: 4px;
+  display: inline-block;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+
+.date {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+}

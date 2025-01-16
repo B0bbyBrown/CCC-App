@@ -1,0 +1,113 @@
+.educationContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.educationItem {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 16px;
+  transition: transform 0.2s ease;
+}
+
+.educationItem:hover {
+  transform: translateY(-2px);
+}
+
+.degree {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.degree h4 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.year {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.institution {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.institutionName {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.location {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.specialization,
+.gpa {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.label {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.achievements,
+.courses,
+.thesis {
+  margin-top: 16px;
+}
+
+.achievements h5,
+.courses h5,
+.thesis h5 {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.achievements ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.achievements li {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  padding-left: 16px;
+  position: relative;
+}
+
+.achievements li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.courseTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

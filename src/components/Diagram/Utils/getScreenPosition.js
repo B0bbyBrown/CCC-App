@@ -1,32 +1,20 @@
 import * as THREE from "three";
 
-export const getScreenPosition = (position, canvas, camera) => {
-  if (!canvas || !position || !camera) return { x: 0, y: 0 };
+export const getScreenPosition = (position3D, canvas, camera) => {
+  // Create a vector from the 3D position
+  const vector = new THREE.Vector3(position3D.x, position3D.y, position3D.z);
 
-  let vector;
-  if (Array.isArray(position)) {
-    vector = new THREE.Vector3().fromArray(position);
-  } else if (position instanceof THREE.Vector3) {
-    vector = position.clone();
-  } else if (
-    typeof position === "object" &&
-    "x" in position &&
-    "y" in position &&
-    "z" in position
-  ) {
-    vector = new THREE.Vector3(position.x, position.y, position.z);
-  } else {
-    console.error("Invalid position format:", position);
-    return { x: 0, y: 0 };
-  }
-
-  const widthHalf = canvas.clientWidth / 2;
-  const heightHalf = canvas.clientHeight / 2;
-
+  // Project the 3D position to 2D screen space
   vector.project(camera);
 
+  // Convert to screen coordinates
+  const x = (vector.x * 0.5 + 0.5) * canvas.clientWidth;
+  const y = (-vector.y * 0.5 + 0.5) * canvas.clientHeight;
+
+  // Add canvas offset to get absolute position
+  const rect = canvas.getBoundingClientRect();
   return {
-    x: vector.x * widthHalf + widthHalf,
-    y: -(vector.y * heightHalf) + heightHalf,
+    x: x + rect.left,
+    y: y + rect.top,
   };
 };
